@@ -1,0 +1,100 @@
+import { wa, CONTACT, WHATSAPP_DISPLAY } from "@/lib/config";
+
+export default function Footer() {
+  return (
+    <footer className="bg-concrete-dark pt-[clamp(56px,7vw,84px)] pb-[40px]">
+      <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
+        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-[40px] items-start pb-[44px] border-b border-[rgba(242,241,237,.12)]">
+          <div>
+            <div className="font-anton font-normal text-[clamp(40px,6vw,64px)] leading-[0.86] uppercase tracking-[.02em] text-bone-soft">
+              CONCRIT
+            </div>
+            <div className="h-[4px] w-[70px] bg-olive mt-[16px] mb-[14px]" />
+            <p className="font-condensed font-medium text-[13px] leading-[1.5] tracking-[.06em] uppercase text-gray-warm-3 m-0 max-w-[32ch]">
+              Prefabricados de concreto macizo. Del campo, la industria y la
+              obra.
+            </p>
+          </div>
+
+          <div>
+            <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
+              Contacto
+            </div>
+            <div className="flex flex-col gap-[10px]">
+              <a
+                href={wa.general}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                WhatsApp · {WHATSAPP_DISPLAY}
+              </a>
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                {CONTACT.email}
+              </a>
+              <a
+                href={CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                {CONTACT.instagramHandle}
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
+              Fábrica
+            </div>
+            <p className="font-barlow font-normal text-[15px] leading-[1.55] text-gray-warm-1 m-0">
+              Ruta 9 · Villa Hayes
+              <br />
+              Presidente Hayes, Paraguay
+              <br />
+              La puerta del Chaco
+            </p>
+          </div>
+
+          <div>
+            <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
+              Líneas
+            </div>
+            <div className="flex flex-col gap-[10px]">
+              <a
+                href="#lineas"
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                Campo
+              </a>
+              <a
+                href="#lineas"
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                Obra
+              </a>
+              <a
+                href="#lineas"
+                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+              >
+                Hogar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-between gap-[16px] flex-wrap pt-[24px]">
+          <span className="font-condensed font-medium text-[12px] leading-[1.4] tracking-[.08em] uppercase text-gray-warm-4">
+            © 2026 CONCRIT · Todos los derechos reservados
+          </span>
+          <span className="font-condensed font-medium text-[12px] leading-[1.4] tracking-[.08em] uppercase text-gray-warm-4">
+            Fábrica que sabe de oficio · Ruta 9, la puerta del Chaco
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
+}
