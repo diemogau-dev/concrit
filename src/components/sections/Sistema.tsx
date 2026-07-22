@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { terminaciones } from "@/lib/content";
+import Lightbox from "@/components/Lightbox";
 
 const COMPONENTS = [
   {
@@ -29,6 +30,8 @@ const STEPS = [
   {
     img: "/assets/sistema-pilares.jpg",
     alt: "Pilares de hormigón prefabricado CONCRIT instalados sobre la fundación",
+    w: 1170,
+    h: 864,
     n: "1",
     title: "Fundación y pilares",
     body: "Se instalan los pilares sobre la fundación y queda armada la retícula.",
@@ -36,6 +39,8 @@ const STEPS = [
   {
     img: "/assets/sistema-placas.jpg",
     alt: "Montaje de placas de concreto macizo encastradas entre pilares",
+    w: 1170,
+    h: 881,
     n: "2",
     title: "Montaje de placas",
     body: "Las placas encastran entre pilares y se traban con los tornillos.",
@@ -43,6 +48,8 @@ const STEPS = [
   {
     img: "/assets/sistema-muros.jpg",
     alt: "Muros de hormigón macizo cerrados con sus vanos ya definidos",
+    w: 1169,
+    h: 657,
     n: "3",
     title: "Muros cerrados",
     body: "En pocas semanas el volumen queda cerrado, con sus vanos definidos.",
@@ -50,6 +57,8 @@ const STEPS = [
   {
     img: "/assets/sistema-techo.jpg",
     alt: "Techo y terminaciones de una construcción prefabricada CONCRIT",
+    w: 1169,
+    h: 870,
     n: "4",
     title: "Techo y terminaciones",
     body: "Se monta la cubierta y avanzamos con las terminaciones hasta dejarlo listo.",
@@ -150,15 +159,17 @@ export default function Sistema() {
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
           {STEPS.map((s) => (
             <div key={s.n} className="bg-bone flex flex-col">
-              <div className="relative h-[200px]">
-                <Image
-                  src={s.img}
-                  alt={s.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover [filter:grayscale(1)_contrast(1.04)]"
-                />
-              </div>
+              <Lightbox src={s.img} alt={s.alt} width={s.w} height={s.h}>
+                <div className="relative h-[200px]">
+                  <Image
+                    src={s.img}
+                    alt={s.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                    className="object-cover [filter:grayscale(1)_contrast(1.04)]"
+                  />
+                </div>
+              </Lightbox>
               <div className="pt-[22px] px-[22px] pb-[26px] flex flex-col gap-[8px] flex-1">
                 <span className="font-anton font-normal text-[30px] leading-[0.8] text-gray-warm-1">
                   {s.n}
