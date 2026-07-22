@@ -56,9 +56,7 @@ Todo lo que puede cambiar vive acá — **nunca** está hardcodeado en los compo
 
 ## Imágenes
 
-Los archivos en `public/assets/` son **placeholders sólidos** en tono concreto,
-generados para que el layout no se rompa. Reemplazalos por las fotos reales
-**manteniendo el mismo nombre** y todo sigue funcionando:
+`public/assets/` ya tiene las fotos reales de fábrica/obra:
 
 ```
 hero-obrador.jpg   campo-bebedero.jpg   obra-blanco.jpg   v-hogar.jpg
@@ -66,12 +64,17 @@ sistema-union.jpg  sistema-pilares.jpg  sistema-placas.jpg
 sistema-muros.jpg  sistema-techo.jpg    og-image.jpg (imagen para redes)
 ```
 
-Todas las imágenes llevan el filtro `grayscale(1)` del diseño y `alt`
-descriptivos (SEO local). Para regenerar los placeholders:
+Todas llevan el filtro `grayscale(1)` del diseño y `alt` descriptivos (SEO
+local). Para reemplazar alguna, sobrescribí el archivo **manteniendo el mismo
+nombre** — no hace falta tocar código.
 
-```bash
-node scripts/generate-placeholders.mjs
-```
+Dos scripts de apoyo en `scripts/`:
+
+- `generate-placeholders.mjs` — genera placeholders sólidos en tono concreto
+  (útil si falta alguna foto real momentáneamente).
+- `process-uploads.mjs` — toma fotos crudas de una carpeta `uploads-raw/` (no
+  versionada), las reorienta según EXIF, descarta metadata (incluye GPS de
+  fotos de celular) y las recomprime a los nombres que espera el sitio.
 
 ## Desarrollo
 
