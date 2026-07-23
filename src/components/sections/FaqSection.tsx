@@ -5,7 +5,7 @@ export default function FaqSection() {
     <section id="faq" className="bg-bone py-[clamp(72px,10vw,120px)]">
       <div className="max-w-[920px] mx-auto px-[clamp(18px,5vw,72px)]">
         <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-          07 — Preguntas frecuentes
+          06 — Preguntas frecuentes
         </div>
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[44px] max-w-[22ch]">
           Lo que todos preguntan antes de comprar

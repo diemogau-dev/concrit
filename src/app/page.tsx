@@ -4,9 +4,8 @@ import Credentials from "@/components/sections/Credentials";
 import Ventajas from "@/components/sections/Ventajas";
 import Lineas from "@/components/sections/Lineas";
 import Sistema from "@/components/sections/Sistema";
-import Proceso from "@/components/sections/Proceso";
-import Ubicacion from "@/components/sections/Ubicacion";
 import CtaFinal from "@/components/sections/CtaFinal";
+import Ubicacion from "@/components/sections/Ubicacion";
 import FaqSection from "@/components/sections/FaqSection";
 import Footer from "@/components/sections/Footer";
 
@@ -20,9 +19,8 @@ export default function Home() {
         <Ventajas />
         <Lineas />
         <Sistema />
-        <Proceso />
-        <Ubicacion />
         <CtaFinal />
+        <Ubicacion />
         <FaqSection />
       </main>
       <Footer />

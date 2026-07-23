@@ -8,7 +8,6 @@ const LINKS = [
   { href: "#ventajas", label: "Ventajas" },
   { href: "#lineas", label: "Líneas" },
   { href: "#sistema", label: "El sistema" },
-  { href: "#proceso", label: "Cómo trabajamos" },
   { href: "#ubicacion", label: "Ubicación" },
 ];
 
