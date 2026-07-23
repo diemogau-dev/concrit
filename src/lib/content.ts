@@ -4,41 +4,6 @@
  * datos duros del sitio.
  */
 
-export type CompareRow = { k: string; old: string; new: string };
-
-export const compare: CompareRow[] = [
-  {
-    k: "Tiempo",
-    old: "Meses de obra, y depende del clima",
-    new: "Semanas de montaje, llueva o no llueva",
-  },
-  {
-    k: "Mano de obra",
-    old: "Cuadrilla grande y difícil de conseguir en el interior",
-    new: "Cuadrilla chica con equipo propio",
-  },
-  {
-    k: "Precio",
-    old: "Presupuesto que se estira sobre la marcha",
-    new: "Precio cerrado y por escrito antes de empezar",
-  },
-  {
-    k: "Calidad",
-    old: "Depende del pulso del albañil",
-    new: "Igual en cada pieza, controlada en planta",
-  },
-  {
-    k: "Desperdicio",
-    old: "Material que sobra, se rompe y se paga igual",
-    new: "Llega lo justo, fabricado para ese proyecto",
-  },
-  {
-    k: "Ampliar después",
-    old: "Romper pared, revocar y volver a pintar",
-    new: "Se anexa un módulo nuevo al mismo sistema",
-  },
-];
-
 export const terminaciones: string[] = [
   "Instalación de agua y sanitarios",
   "Instalación eléctrica y apliques",

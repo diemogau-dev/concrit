@@ -1,5 +1,3 @@
-import { compare } from "@/lib/content";
-
 const CARDS = [
   {
     n: "01",
@@ -65,46 +63,6 @@ export default function Ventajas() {
               </p>
             </div>
           ))}
-        </div>
-
-        {/* Comparación ladrillo vs CONCRIT */}
-        <div className="mt-[56px]">
-          <h3 className="font-anton font-normal text-[clamp(24px,3.4vw,40px)] leading-[1.05] uppercase text-concrete-dark mt-0 mb-[12px] max-w-[22ch]">
-            Lo mismo que hacés con ladrillo, pero sin los problemas
-          </h3>
-          <p className="font-barlow font-normal text-[clamp(15px,1.7vw,18px)] leading-[1.55] text-gray-warm-4 max-w-[64ch] mt-0 mb-[34px]">
-            No estamos contra el ladrillo. Estamos contra los meses de obra, la
-            mano de obra que no aparece y el presupuesto que se estira.
-          </p>
-          <div className="border border-gray-warm-2 bg-gray-warm-2 flex flex-col gap-px">
-            {/* Encabezado */}
-            <div className="grid [grid-template-columns:minmax(90px,1fr)_1.6fr_1.6fr]">
-              <div className="bg-concrete-dark py-[16px] px-[18px]" />
-              <div className="bg-concrete-dark py-[16px] px-[18px] font-condensed font-extrabold text-[12px] leading-[1.2] tracking-[.12em] uppercase text-gray-warm-3">
-                Ladrillo tradicional
-              </div>
-              <div className="bg-olive py-[16px] px-[18px] font-condensed font-extrabold text-[12px] leading-[1.2] tracking-[.12em] uppercase text-bone">
-                CONCRIT
-              </div>
-            </div>
-            {/* Filas */}
-            {compare.map((row) => (
-              <div
-                key={row.k}
-                className="grid [grid-template-columns:minmax(90px,1fr)_1.6fr_1.6fr]"
-              >
-                <div className="bg-bone-2 py-[16px] px-[18px] font-condensed font-extrabold text-[11px] leading-[1.3] tracking-[.1em] uppercase text-olive flex items-center">
-                  {row.k}
-                </div>
-                <div className="bg-bone py-[16px] px-[18px] font-barlow font-normal text-[15px] leading-[1.45] text-[#8a877e] flex items-center">
-                  {row.old}
-                </div>
-                <div className="bg-white py-[16px] px-[18px] font-barlow font-semibold text-[15px] leading-[1.45] text-concrete-dark flex items-center">
-                  {row.new}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
