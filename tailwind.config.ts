@@ -44,6 +44,17 @@ const config: Config = {
       maxWidth: {
         container: "1240px",
       },
+      keyframes: {
+        // Tira de credenciales que se desplaza en loop (mobile).
+        // El track lleva 2 copias, así que -50% completa un ciclo sin salto.
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 26s linear infinite",
+      },
     },
   },
   plugins: [],
