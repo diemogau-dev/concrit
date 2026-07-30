@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { wa, CONTACT, WHATSAPP_DISPLAY } from "@/lib/config";
 
 export default function Footer() {
@@ -64,24 +65,15 @@ export default function Footer() {
               Líneas
             </div>
             <div className="flex flex-col gap-[10px]">
-              <a
-                href="#lineas"
-                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
-              >
-                Campo
-              </a>
-              <a
-                href="#lineas"
-                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
-              >
-                Obra
-              </a>
-              <a
-                href="#lineas"
-                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
-              >
-                Hogar
-              </a>
+              {["Campo", "Obra", "Hogar"].map((l) => (
+                <Link
+                  key={l}
+                  href="/#lineas"
+                  className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+                >
+                  {l}
+                </Link>
+              ))}
             </div>
           </div>
         </div>

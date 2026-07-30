@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { terminaciones } from "@/lib/content";
 import Lightbox from "@/components/Lightbox";
+import LlaveEnMano from "./LlaveEnMano";
 
 const COMPONENTS = [
   {
@@ -84,15 +84,35 @@ const BENEFITS = [
   },
 ];
 
-export default function Sistema() {
+type Props = {
+  /** Línea chica de arriba. En la home lleva el número de sección. */
+  eyebrow?: string;
+  /**
+   * Incluir el bloque "Llave en mano" acá adentro. En /proyectos va como
+   * sección aparte, más abajo, así que se apaga.
+   */
+  conLlaveEnMano?: boolean;
+  /** Respiración extra: la usa /proyectos, donde el sistema es el contenido. */
+  spacious?: boolean;
+};
+
+export default function Sistema({
+  eyebrow = "03 — El sistema constructivo",
+  conLlaveEnMano = true,
+  spacious = false,
+}: Props = {}) {
   return (
     <section
       id="sistema"
-      className="bg-bone py-[clamp(72px,10vw,120px)] border-t border-bone-3"
+      className={`bg-bone border-t border-bone-3 scroll-mt-[74px] ${
+        spacious
+          ? "py-[clamp(80px,12vw,150px)]"
+          : "py-[clamp(72px,10vw,120px)]"
+      }`}
     >
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
         <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-          03 — El sistema constructivo
+          {eyebrow}
         </div>
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
           Se arma encastrando. Sin encofrado y sin esperar.
@@ -186,42 +206,7 @@ export default function Sistema() {
         </div>
 
         {/* Llave en mano */}
-        <div className="mt-[22px] grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-4c border border-gray-warm-4c">
-          <div className="bg-concrete-dark p-[clamp(30px,4vw,50px)] flex flex-col justify-center">
-            <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.18em] uppercase text-olive-light mb-[14px]">
-              Llave en mano
-            </span>
-            <h3 className="font-anton font-normal text-[clamp(24px,3.2vw,40px)] leading-[1.05] uppercase text-bone mt-0 mb-[16px] max-w-[18ch]">
-              Te lo entregamos terminado, listo para usar
-            </h3>
-            <p className="font-barlow font-normal text-[clamp(15px,1.7vw,18px)] leading-[1.55] text-gray-warm-1 m-0 max-w-[52ch]">
-              No fabricamos solo la estructura y te dejamos el resto. Hacemos
-              también toda la terminación interior: instalación de agua,
-              instalación eléctrica, baños completos, azulejos, revestimientos,
-              aberturas, apliques y detalles de terminación. Entrás y ya podés
-              vivir o producir. Un solo responsable de principio a fin, un solo
-              presupuesto y una sola fecha de entrega.
-            </p>
-          </div>
-          <div className="bg-concrete-dark p-[clamp(30px,4vw,50px)] flex flex-col justify-center gap-px">
-            <div className="font-condensed font-extrabold text-[11px] leading-none tracking-[.18em] uppercase text-olive-light mb-[18px]">
-              Incluye
-            </div>
-            {terminaciones.map((t) => (
-              <div
-                key={t}
-                className="flex items-center gap-[14px] py-[13px] border-t border-[rgba(242,241,237,.13)]"
-              >
-                <span className="font-anton font-normal text-[18px] leading-none text-olive flex-none">
-                  ✓
-                </span>
-                <span className="font-barlow font-normal text-[16px] leading-[1.35] text-bone-soft">
-                  {t}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        {conLlaveEnMano ? <LlaveEnMano className="mt-[22px]" /> : null}
 
         {/* Cuatro ventajas del sistema */}
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] gap-px bg-concrete-dark border border-concrete-dark mt-[22px]">

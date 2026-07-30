@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { wa } from "@/lib/config";
 
 type Chip = { label: string; className?: string };
@@ -154,6 +155,19 @@ export default function Lineas() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Puerta al catálogo completo */}
+        <div className="mt-[34px] flex flex-wrap items-center gap-x-[22px] gap-y-[12px]">
+          <Link
+            href="/productos"
+            className="inline-flex items-center gap-[10px] bg-concrete-dark text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-gray-warm-4c"
+          >
+            Ver catálogo completo con productos →
+          </Link>
+          <span className="font-barlow font-normal text-[16px] leading-[1.45] text-gray-warm-4">
+            Bebederos, placas, baldosas, cordones, alcantarillas y todo lo demás.
+          </span>
         </div>
       </div>
     </section>

@@ -19,7 +19,37 @@ export const WA_MESSAGES = {
   campo: "Hola CONCRIT, quiero consultar por la línea Campo (ganadería)",
   obra: "Hola CONCRIT, quiero consultar por la línea Obra (obradores y galpones)",
   hogar: "Hola CONCRIT, quiero consultar por la línea Hogar (vivienda)",
+  presupuestoObra: "Hola CONCRIT, quiero un presupuesto para una obra",
+  placas:
+    "Hola CONCRIT, quiero consultar medida y precio de las placas de concreto",
 } as const;
+
+/**
+ * Artículo que antecede al nombre del producto en el mensaje precargado.
+ * Va en la data de cada producto (`src/lib/productos.ts`) para que la frase
+ * quede bien escrita: "precio del bebedero", "precio de las baldosas".
+ */
+export type WaArticulo = "del" | "de la" | "de los" | "de las";
+
+/**
+ * Mensaje de consulta de precio por producto.
+ * Ej: waMensajeProducto("Bebedero de concreto")
+ *     → "Hola CONCRIT, quiero consultar precio del Bebedero de concreto"
+ */
+export function waMensajeProducto(
+  producto: string,
+  articulo: WaArticulo = "del",
+): string {
+  return `Hola CONCRIT, quiero consultar precio ${articulo} ${producto}`;
+}
+
+/**
+ * Mensaje de consulta por una obra terminada de la galería.
+ * Ej: waMensajeProyecto("Galpón de 400 m² en Benjamín Aceval")
+ */
+export function waMensajeProyecto(proyecto: string): string {
+  return `Hola CONCRIT, vi el proyecto "${proyecto}" y quiero algo parecido`;
+}
 
 /** Construye un link de WhatsApp con el mensaje URL-encodeado en ?text=. */
 export function waLink(message: string): string {
@@ -32,7 +62,22 @@ export const wa = {
   campo: waLink(WA_MESSAGES.campo),
   obra: waLink(WA_MESSAGES.obra),
   hogar: waLink(WA_MESSAGES.hogar),
+  presupuestoObra: waLink(WA_MESSAGES.presupuestoObra),
+  placas: waLink(WA_MESSAGES.placas),
 } as const;
+
+/** Link de WhatsApp para consultar el precio de un producto del catálogo. */
+export function waProducto(
+  producto: string,
+  articulo: WaArticulo = "del",
+): string {
+  return waLink(waMensajeProducto(producto, articulo));
+}
+
+/** Link de WhatsApp para consultar por una obra de la galería de proyectos. */
+export function waProyecto(proyecto: string): string {
+  return waLink(waMensajeProyecto(proyecto));
+}
 
 // ─────────────────────────────────────────────────────────────
 // Otros datos de contacto

@@ -21,23 +21,65 @@ mensaje precargado según el segmento (Campo / Obra / Hogar / general).
 src/
   app/
     layout.tsx        Fuentes, metadata SEO (OG/Twitter), JSON-LD LocalBusiness
-    page.tsx          Composición de secciones
+    page.tsx          Home
+    productos/page.tsx  Catálogo de productos
+    proyectos/page.tsx  Sistema constructivo + obras entregadas
     globals.css       Base global + textura de ruido
     sitemap.ts        /sitemap.xml
     robots.ts         /robots.txt
   components/
     Nav.tsx           Nav sticky + menú hamburguesa mobile (client)
     Faq.tsx           Acordeón FAQ accesible (client)
+    Lightbox.tsx      Pop-up para ampliar fotos (client)
+    PageHero.tsx      Encabezado de las páginas internas
+    ProductoCard.tsx  Card de catálogo + variante ancha de familia
     icons.tsx         Iconos SVG (WhatsApp, pin)
     sections/         Una sección por archivo (server components)
   lib/
     config.ts         ⚙️ Número de WhatsApp, mensajes, contacto, dominio
     content.ts        Copy de tablas/FAQ (datos duros del HTML original)
+    productos.ts      📋 Catálogo: productos, detalle técnico, fotos, precios
+    proyectos.ts      📋 Qué construimos + galería de obras entregadas
 public/
   assets/             Placeholders de imágenes (reemplazar por fotos reales)
 scripts/
   generate-placeholders.mjs   Regenera los placeholders sólidos
 ```
+
+## Páginas
+
+| Ruta | Qué tiene |
+| --- | --- |
+| `/` | Hero, ventajas, líneas, sistema constructivo, CTA, ubicación, FAQ |
+| `/productos` | Catálogo en tres secciones con chips de navegación, una card por producto y consulta de precio por WhatsApp |
+| `/proyectos` | Sistema constructivo completo, qué construimos, galería de obras entregadas, llave en mano y CTA de presupuesto de obra |
+
+## Editar el catálogo: `src/lib/productos.ts`
+
+Todo el catálogo es un array tipado. Para tocarlo **no hace falta abrir ningún
+componente**:
+
+- **Agregar un producto** → copiá un objeto dentro de la sección que
+  corresponda (`campo`, `construccion`, `vial`) y cambiale los campos.
+- **Cambiar el detalle técnico** → editá `detalle` (texto libre, 2 o 3 líneas).
+- **Poner la foto real** → sobrescribí el archivo de `public/assets` que apunta
+  `img`, manteniendo el mismo nombre. Si preferís otro nombre, cambiá `img`.
+- **Cargar un precio** → completá el campo opcional `precio`, ej:
+  `precio: "Gs. 850.000"`. La card lo muestra sola. Mientras esté vacío (o sin
+  la clave), la card queda con el botón de WhatsApp y nada más.
+- **Variantes o medidas** → `variantes: ["Diseño 1", "Diseño 2"]` se muestran
+  como chips debajo del detalle.
+
+El mensaje de WhatsApp de cada producto se arma solo con el nombre y el
+artículo (`articulo: "de las"` → *"consultar precio de las Baldosas de
+concreto"*). Los textos siguen viviendo todos en `config.ts`.
+
+## Editar los proyectos: `src/lib/proyectos.ts`
+
+- `queConstruimos` — los cuatro tipos de obra, con imagen y descripción corta.
+- `obrasEntregadas` — la galería. Para sumar una obra, copiá un objeto, cambiale
+  `img`, `lugar` y `caption`, y dejá la foto en `public/assets`. La grilla se
+  acomoda sola: no hay un número fijo de obras.
 
 ## Configuración (un solo lugar): `src/lib/config.ts`
 
@@ -68,10 +110,16 @@ Todas llevan el filtro `grayscale(1)` del diseño y `alt` descriptivos (SEO
 local). Para reemplazar alguna, sobrescribí el archivo **manteniendo el mismo
 nombre** — no hace falta tocar código.
 
+Las fotos de `/productos` y `/proyectos` todavía son **placeholders sólidos** en
+tono concreto (`producto-*.jpg`, `obra-*.jpg`, `proyecto-*.jpg`). Reemplazalas
+por las reales con el mismo nombre y listo.
+
 Dos scripts de apoyo en `scripts/`:
 
 - `generate-placeholders.mjs` — genera placeholders sólidos en tono concreto
-  (útil si falta alguna foto real momentáneamente).
+  (útil si falta alguna foto real momentáneamente). **No pisa archivos que ya
+  existen**, así que se puede correr sin miedo a borrar una foto real; para
+  regenerar todo desde cero, `node scripts/generate-placeholders.mjs --force`.
 - `process-uploads.mjs` — toma fotos crudas de una carpeta `uploads-raw/` (no
   versionada), las reorienta según EXIF, descarta metadata (incluye GPS de
   fotos de celular) y las recomprime a los nombres que espera el sitio.
