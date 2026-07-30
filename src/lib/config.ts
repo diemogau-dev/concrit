@@ -15,7 +15,8 @@ const WA_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 /** Mensajes precargados según de dónde sale el click (segmentación en el chat). */
 export const WA_MESSAGES = {
-  general: "Hola CONCRIT, quiero pedir un presupuesto",
+  general: "Hola CONCRIT, quiero solicitar un presupuesto",
+  representante: "Hola CONCRIT, quiero hablar con un representante",
   campo: "Hola CONCRIT, quiero consultar por la línea Campo (ganadería)",
   obra: "Hola CONCRIT, quiero consultar por la línea Obra (obradores y galpones)",
   hogar: "Hola CONCRIT, quiero consultar por la línea Hogar (vivienda)",
@@ -59,6 +60,7 @@ export function waLink(message: string): string {
 /** Links de WhatsApp ya armados por segmento. */
 export const wa = {
   general: waLink(WA_MESSAGES.general),
+  representante: waLink(WA_MESSAGES.representante),
   campo: waLink(WA_MESSAGES.campo),
   obra: waLink(WA_MESSAGES.obra),
   hogar: waLink(WA_MESSAGES.hogar),

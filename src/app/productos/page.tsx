@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
+import SectionHeader from "@/components/SectionHeader";
 import ProductoCard, { ProductoFamilia } from "@/components/ProductoCard";
 import PlacasDosCaras from "@/components/sections/PlacasDosCaras";
 import { WhatsAppIcon } from "@/components/icons";
@@ -36,7 +37,7 @@ export default function ProductosPage() {
         <PageHero
           eyebrow="Catálogo completo"
           title="Todo lo que sale de la fábrica"
-          lead="Tres familias de producto, un solo concreto macizo y el mismo oficio detrás de cada pieza. Fabricamos sobre la Ruta 9 y entregamos a todo el país. Elegí lo que necesitás y consultá el precio por WhatsApp: te lo pasamos cerrado, con flete y fecha."
+          lead="Elegí lo que necesitás y consultá el precio por WhatsApp. Te lo pasamos cerrado, con flete y fecha."
         >
           <nav aria-label="Secciones del catálogo">
             <ul className="list-none m-0 p-0 flex flex-wrap gap-[10px]">
@@ -47,26 +48,13 @@ export default function ProductosPage() {
                     className="inline-flex items-center gap-[9px] font-condensed font-bold text-[12px] leading-none tracking-[.12em] uppercase text-bone-soft border border-[rgba(242,241,237,.32)] py-[13px] px-[16px] hover:border-bone hover:bg-[rgba(242,241,237,.08)]"
                   >
                     <span className="text-olive-light">{s.n}</span>
-                    {s.chip}
+                    {s.nombre}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
         </PageHero>
-
-        {/* Aclaración de precios: ninguna card muestra precio todavía. */}
-        <div className="bg-olive-pale border-b border-bone-3">
-          <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)] py-[18px] flex flex-wrap items-center gap-x-[14px] gap-y-[6px]">
-            <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive">
-              Precios
-            </span>
-            <span className="font-barlow font-normal text-[16px] leading-[1.45] text-gray-warm-4c">
-              El precio depende de la medida, la cantidad y adónde va el flete.
-              Escribinos y te lo pasamos cerrado en el momento.
-            </span>
-          </div>
-        </div>
 
         {secciones.map((seccion, i) => {
           const familias = seccion.productos.filter((p) => p.destacado);
@@ -76,18 +64,10 @@ export default function ProductosPage() {
             <section
               key={seccion.id}
               id={seccion.id}
-              className={`${FONDOS[i % FONDOS.length]} py-[clamp(64px,9vw,110px)] border-t border-bone-3 scroll-mt-[74px]`}
+              className={`${FONDOS[i % FONDOS.length]} py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]`}
             >
               <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-                <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-                  {seccion.n} — {seccion.chip}
-                </div>
-                <h2 className="font-anton font-normal text-[clamp(30px,4.6vw,54px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
-                  {seccion.titulo}
-                </h2>
-                <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[62ch] mt-0 mb-[44px]">
-                  {seccion.intro}
-                </p>
+                <SectionHeader n={seccion.n} titulo={seccion.nombre} />
 
                 {/* Familias de producto (hoy: las placas) */}
                 {familias.map((p) => (
@@ -124,9 +104,9 @@ export default function ProductosPage() {
               Si es de concreto, lo hacemos
             </h2>
             <p className="font-barlow font-normal text-[clamp(16px,2vw,21px)] leading-[1.5] text-olive-pale max-w-[54ch] mt-0 mb-[32px]">
-              Tenemos moldes propios y hacemos piezas a medida. Contanos qué
-              necesitás, mandanos la medida o un dibujo a mano y te decimos si se
-              puede, cuánto sale y cuándo lo tenés.
+              Tenemos moldes propios y hacemos piezas a medida. Mandanos la
+              medida o un dibujo a mano y te decimos si se puede, cuánto sale y
+              cuándo lo tenés.
             </p>
             <a
               href={wa.general}

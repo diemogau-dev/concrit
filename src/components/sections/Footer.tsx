@@ -1,11 +1,19 @@
 import Link from "next/link";
 import { wa, CONTACT, WHATSAPP_DISPLAY } from "@/lib/config";
 
+/** Mismas secciones que el nav superior, para no dejar páginas huérfanas. */
+const SITIO = [
+  { href: "/productos", label: "Productos" },
+  { href: "/proyectos", label: "Proyectos" },
+  { href: "/#sistema", label: "Nuestro sistema" },
+  { href: "/#ubicacion", label: "Ubicación" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-concrete-dark pt-[clamp(56px,7vw,84px)] pb-[40px]">
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))] gap-[40px] items-start pb-[44px] border-b border-[rgba(242,241,237,.12)]">
+        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(180px,1fr))] gap-[40px] items-start pb-[44px] border-b border-[rgba(242,241,237,.12)]">
           <div>
             <div className="font-anton font-normal text-[clamp(40px,6vw,64px)] leading-[0.86] uppercase tracking-[.02em] text-bone-soft">
               CONCRIT
@@ -62,7 +70,7 @@ export default function Footer() {
 
           <div>
             <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
-              Líneas
+              Rubros
             </div>
             <div className="flex flex-col gap-[10px]">
               {["Campo", "Obra", "Hogar"].map((l) => (
@@ -72,6 +80,23 @@ export default function Footer() {
                   className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
                 >
                   {l}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
+              El sitio
+            </div>
+            <div className="flex flex-col gap-[10px]">
+              {SITIO.map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+                >
+                  {l.label}
                 </Link>
               ))}
             </div>

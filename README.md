@@ -60,7 +60,10 @@ Todo el catálogo es un array tipado. Para tocarlo **no hace falta abrir ningún
 componente**:
 
 - **Agregar un producto** → copiá un objeto dentro de la sección que
-  corresponda (`campo`, `construccion`, `vial`) y cambiale los campos.
+  corresponda (`campo`, `construccion`, `vial`) y cambiale los campos. Cada
+  sección tiene sólo `id`, `n` y `nombre`: el nombre se usa a la vez en el chip
+  de navegación y en el encabezado, así que las cajas de producto arrancan
+  enseguida, sin bajada de texto en el medio.
 - **Cambiar el detalle técnico** → editá `detalle` (texto libre, 2 o 3 líneas).
 - **Poner la foto real** → sobrescribí el archivo de `public/assets` que apunta
   `img`, manteniendo el mismo nombre. Si preferís otro nombre, cambiá `img`.

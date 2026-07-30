@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Lightbox from "@/components/Lightbox";
+import SectionHeader from "@/components/SectionHeader";
 import LlaveEnMano from "./LlaveEnMano";
 
 const COMPONENTS = [
@@ -92,40 +93,46 @@ type Props = {
    * sección aparte, más abajo, así que se apaga.
    */
   conLlaveEnMano?: boolean;
-  /** Respiración extra: la usa /proyectos, donde el sistema es el contenido. */
-  spacious?: boolean;
+  /**
+   * Modo compacto: encabezado de una línea, sin titular grande ni bajada.
+   * Lo usa /proyectos, donde el hero de la página ya cuenta lo mismo.
+   */
+  compacto?: { n: string; titulo: string };
 };
 
 export default function Sistema({
   eyebrow = "03 — El sistema constructivo",
   conLlaveEnMano = true,
-  spacious = false,
+  compacto,
 }: Props = {}) {
   return (
     <section
       id="sistema"
-      className={`bg-bone border-t border-bone-3 scroll-mt-[74px] ${
-        spacious
-          ? "py-[clamp(80px,12vw,150px)]"
-          : "py-[clamp(72px,10vw,120px)]"
-      }`}
+      className="bg-bone border-t border-bone-3 scroll-mt-[74px] py-[clamp(60px,8vw,110px)]"
     >
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-        <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-          {eyebrow}
-        </div>
-        <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
-          Se arma encastrando. Sin encofrado y sin esperar.
-        </h2>
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
-          Fabricamos las <strong className="text-concrete-dark">placas</strong>,
-          los <strong className="text-concrete-dark">pilares</strong> y las{" "}
-          <strong className="text-concrete-dark">uniones</strong> en planta. En
-          obra encastran uno con otro y se traban con tornillos pasantes. No hay
-          que encofrar, no hay que esperar que fragüe en el terreno y no hay que
-          llevar una cuadrilla grande al medio del campo. Llega, se arma y queda
-          para toda la vida.
-        </p>
+        {compacto ? (
+          <SectionHeader n={compacto.n} titulo={compacto.titulo} />
+        ) : (
+          <>
+            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
+              {eyebrow}
+            </div>
+            <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
+              Se arma encastrando. Sin encofrado y sin esperar.
+            </h2>
+            <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
+              Fabricamos las{" "}
+              <strong className="text-concrete-dark">placas</strong>, los{" "}
+              <strong className="text-concrete-dark">pilares</strong> y las{" "}
+              <strong className="text-concrete-dark">uniones</strong> en planta.
+              En obra encastran uno con otro y se traban con tornillos pasantes.
+              No hay que encofrar, no hay que esperar que fragüe en el terreno y
+              no hay que llevar una cuadrilla grande al medio del campo. Llega,
+              se arma y queda para toda la vida.
+            </p>
+          </>
+        )}
 
         {/* Featured: unión + componentes */}
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2 mb-[22px]">

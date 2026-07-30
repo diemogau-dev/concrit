@@ -49,13 +49,10 @@ export type Producto = {
 export type SeccionProducto = {
   /** Ancla de la sección: se usa en los chips de navegación de /productos. */
   id: string;
-  /** Número que se muestra en el eyebrow de la sección. */
+  /** Número que se muestra al lado del nombre. */
   n: string;
-  /** Etiqueta corta: va en el chip de navegación y en el eyebrow. */
-  chip: string;
-  /** Titular de la sección (el h2). */
-  titulo: string;
-  intro: string;
+  /** Nombre de la sección: va en el chip de navegación y en el encabezado. */
+  nombre: string;
   productos: Producto[];
 };
 
@@ -64,10 +61,7 @@ export const secciones: SeccionProducto[] = [
   {
     id: "campo",
     n: "01",
-    chip: "Campo y ganadería",
-    titulo: "Para el animal, el agua y el alambrado",
-    intro:
-      "Lo que el animal empuja y el sol raja todos los días. Piezas macizas que se instalan una vez y siguen trabajando temporada tras temporada, sin mantenimiento y sin arreglos.",
+    nombre: "Campo y ganadería",
     productos: [
       {
         slug: "bebederos",
@@ -114,10 +108,7 @@ export const secciones: SeccionProducto[] = [
   {
     id: "construccion",
     n: "02",
-    chip: "Construcción y arquitectura",
-    titulo: "Con esto se cierra una obra y se termina un patio",
-    intro:
-      "Salen de planta iguales una tras otra, a escuadra y con la medida controlada. No dependen del pulso del albañil ni del clima de la semana, así que la obra avanza igual todos los días.",
+    nombre: "Construcción y arquitectura",
     productos: [
       {
         slug: "placas",
@@ -165,10 +156,7 @@ export const secciones: SeccionProducto[] = [
   {
     id: "vial",
     n: "03",
-    chip: "Vial e infraestructura",
-    titulo: "Lo que va enterrado y no se toca más",
-    intro:
-      "Piezas de obra pública y de loteo fabricadas en planta, con medidas repetibles y entrega en semanas. Llegan listas para colocar, así el frente de obra no queda esperando que fragüe nada.",
+    nombre: "Vial e infraestructura",
     productos: [
       {
         slug: "cajas-registro",

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { wa } from "@/lib/config";
 import { WhatsAppIcon } from "../icons";
 
@@ -36,15 +37,14 @@ export default function Hero() {
         <div className="h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]" />
 
         <p className="font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[22ch] mt-0 mb-[16px]">
-          Se instala una vez.
+          Fácil, práctico
           <br />
-          Y queda para siempre.
+          y dura para siempre.
         </p>
 
         <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[56ch] mt-0 mb-[34px]">
           Prefabricados de concreto macizo para el campo, la industria y la obra.
-          Fabricados en el Chaco, para aguantar el Chaco. Precio cerrado, plazo
-          cumplido y montaje incluido.
+          Presupuesto cerrado, plazos cumplidos, proyectos llave en mano.
         </p>
 
         <div className="flex gap-[14px] flex-wrap">
@@ -55,14 +55,14 @@ export default function Hero() {
             className="inline-flex items-center gap-[10px] bg-bone text-concrete-dark font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-white"
           >
             <WhatsAppIcon size={17} fill="#201F1C" />
-            Pedir presupuesto por WhatsApp
+            Solicitar presupuesto
           </a>
-          <a
-            href="#lineas"
+          <Link
+            href="/productos"
             className="inline-flex items-center gap-[10px] bg-transparent text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] border-[1.5px] border-[rgba(242,241,237,.55)] hover:border-bone hover:bg-[rgba(242,241,237,.08)]"
           >
-            Ver nuestras líneas →
-          </a>
+            Ver todos los productos →
+          </Link>
         </div>
       </div>
     </section>

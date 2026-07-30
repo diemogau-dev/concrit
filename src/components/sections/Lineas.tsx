@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { wa } from "@/lib/config";
+import { WhatsAppIcon } from "../icons";
 
 type Chip = { label: string; className?: string };
 
@@ -157,17 +157,16 @@ export default function Lineas() {
           ))}
         </div>
 
-        {/* Puerta al catálogo completo */}
-        <div className="mt-[34px] flex flex-wrap items-center gap-x-[22px] gap-y-[12px]">
-          <Link
-            href="/productos"
+        <div className="mt-[34px]">
+          <a
+            href={wa.representante}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-[10px] bg-concrete-dark text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-gray-warm-4c"
           >
-            Ver catálogo completo con productos →
-          </Link>
-          <span className="font-barlow font-normal text-[16px] leading-[1.45] text-gray-warm-4">
-            Bebederos, placas, baldosas, cordones, alcantarillas y todo lo demás.
-          </span>
+            <WhatsAppIcon size={17} fill="#F2F1ED" />
+            Hablar con un representante de CONCRIT
+          </a>
         </div>
       </div>
     </section>

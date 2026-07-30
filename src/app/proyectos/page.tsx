@@ -3,6 +3,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
+import SectionHeader from "@/components/SectionHeader";
 import Lightbox from "@/components/Lightbox";
 import Sistema from "@/components/sections/Sistema";
 import LlaveEnMano from "@/components/sections/LlaveEnMano";
@@ -34,8 +35,8 @@ export default function ProyectosPage() {
       <main id="top" className="bg-bone [overflow-x:clip]">
         <PageHero
           eyebrow="Obras y sistema constructivo"
-          title="Así construimos y esto entregamos"
-          lead="Un sistema de piezas que encastran: placas, pilares y uniones que salen de planta y se arman en el terreno. Obradores, galpones, depósitos y casas, montados en semanas y entregados terminados. Acá está cómo funciona y qué llevamos hecho."
+          title="Se arma encastrando y se entrega terminado"
+          lead="Placas, pilares y uniones que salen de planta y encastran en el terreno. Sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas, montados en semanas."
         >
           <a
             href={wa.presupuestoObra}
@@ -44,35 +45,25 @@ export default function ProyectosPage() {
             className="inline-flex items-center gap-[12px] bg-olive text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={17} fill="#F2F1ED" />
-            Pedir presupuesto de obra
+            Solicitar presupuesto de obra
           </a>
         </PageHero>
 
         {/* 01 — Sistema constructivo + de la fundación a la llave.
+            El titular ya lo cuenta el hero, así que va en modo compacto.
             El bloque llave en mano va más abajo, como sección propia. */}
         <Sistema
-          eyebrow="01 — El sistema constructivo"
+          compacto={{ n: "01", titulo: "El sistema constructivo" }}
           conLlaveEnMano={false}
-          spacious
         />
 
         {/* 02 — Qué construimos */}
         <section
           id="que-construimos"
-          className="bg-bone-2 py-[clamp(72px,10vw,120px)] border-t border-bone-3 scroll-mt-[74px]"
+          className="bg-bone-2 py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
         >
           <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-              02 — Qué construimos
-            </div>
-            <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
-              El mismo sistema, cuatro destinos
-            </h2>
-            <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[62ch] mt-0 mb-[48px]">
-              Cambia el uso, no la manera de construirlo. Las mismas placas y los
-              mismos pilares resuelven un obrador de tres semanas o la casa donde
-              va a vivir una familia treinta años.
-            </p>
+            <SectionHeader n="02" titulo="Qué construimos" />
 
             <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-[22px]">
               {queConstruimos.map((o) => (
@@ -106,20 +97,10 @@ export default function ProyectosPage() {
         {/* 03 — Proyectos entregados */}
         <section
           id="entregados"
-          className="bg-bone py-[clamp(72px,10vw,120px)] border-t border-bone-3 scroll-mt-[74px]"
+          className="bg-bone py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
         >
           <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-              03 — Proyectos entregados
-            </div>
-            <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
-              Más de 100 obras, paradas y funcionando
-            </h2>
-            <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[62ch] mt-0 mb-[48px]">
-              Diez años sobre la Ruta 9 dejan obra hecha. Estas son algunas,
-              entregadas con precio cerrado y en la fecha comprometida. Si ves
-              una parecida a lo que necesitás, escribinos y arrancamos por ahí.
-            </p>
+            <SectionHeader n="03" titulo="Proyectos entregados" />
 
             {/* gap real en vez de grilla con fondo: con un número impar de
                 obras la última fila no deja un hueco gris colgando. */}
@@ -170,20 +151,11 @@ export default function ProyectosPage() {
         {/* 04 — Llave en mano */}
         <section
           id="llave-en-mano"
-          className="bg-bone-2 py-[clamp(72px,10vw,120px)] border-t border-bone-3 scroll-mt-[74px]"
+          className="bg-bone-2 py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
         >
           <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-              04 — Llave en mano
-            </div>
-            <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[22ch]">
-              Un solo responsable, de la fundación al último detalle
-            </h2>
-            <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[62ch] mt-0 mb-[44px]">
-              No te dejamos la estructura levantada y el resto por tu cuenta. La
-              terminación interior también la hacemos nosotros.
-            </p>
-            <LlaveEnMano />
+            <SectionHeader n="04" titulo="Llave en mano" />
+            <LlaveEnMano conEtiqueta={false} />
           </div>
         </section>
 
@@ -195,12 +167,12 @@ export default function ProyectosPage() {
               05 — Tu obra
             </div>
             <h2 className="font-anton font-normal text-[clamp(34px,5.4vw,66px)] leading-[0.98] uppercase text-bone mt-0 mb-[18px] max-w-[18ch]">
-              Contanos tu obra y te pasamos el precio
+              Contanos tu obra y te acompañamos en todo el proceso
             </h2>
             <p className="font-barlow font-normal text-[clamp(17px,2vw,21px)] leading-[1.5] text-olive-pale max-w-[54ch] mt-0 mb-[34px]">
-              Mandanos las medidas, un croquis o hasta una foto del terreno. Te
-              armamos el presupuesto cerrado, con alcance definido, montaje
-              incluido y fecha de entrega. Sin vueltas y sin compromiso.
+              Mandanos las medidas, un croquis o hasta una foto del terreno. Lo
+              miramos con vos, te decimos qué conviene y te acompañamos hasta el
+              día que te entregamos la llave.
             </p>
             <a
               href={wa.presupuestoObra}
@@ -209,7 +181,7 @@ export default function ProyectosPage() {
               className="inline-flex items-center gap-[14px] bg-bone text-concrete-dark font-condensed font-extrabold text-[clamp(15px,2vw,18px)] leading-none tracking-[.1em] uppercase py-[24px] px-[40px] hover:bg-white"
             >
               <WhatsAppIcon size={22} fill="#201F1C" />
-              Pedir presupuesto de obra
+              Solicitar presupuesto de obra
             </a>
             <p className="font-barlow font-normal text-[14px] leading-[1.45] text-olive-mist mt-[16px] mb-0">
               Respondemos todos los días. Preguntar no te compromete a nada.

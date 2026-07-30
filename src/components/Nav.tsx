@@ -14,12 +14,10 @@ import { WhatsAppIcon } from "./icons";
 type NavItem = { label: string; hash?: string; href?: string };
 
 const LINKS: NavItem[] = [
-  { hash: "#ventajas", label: "Ventajas" },
-  { hash: "#lineas", label: "Líneas" },
+  { hash: "#lineas", label: "Rubros" },
   { href: "/productos", label: "Productos" },
   { href: "/proyectos", label: "Proyectos" },
-  { hash: "#sistema", label: "El sistema" },
-  { hash: "#ubicacion", label: "Ubicación" },
+  { hash: "#sistema", label: "Nuestro sistema" },
 ];
 
 /**
@@ -98,7 +96,7 @@ export default function Nav() {
             className="inline-flex items-center gap-[8px] bg-olive text-bone font-condensed font-extrabold text-[12px] leading-none tracking-[.12em] uppercase px-[18px] py-[12px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={15} fill="#F2F1ED" />
-            Pedir presupuesto
+            Solicitar presupuesto
           </a>
         </nav>
 
@@ -133,7 +131,7 @@ export default function Nav() {
       <nav
         id="mobile-menu"
         className={`md:hidden overflow-hidden border-t border-[rgba(255,255,255,.09)] bg-[rgba(30,29,26,.98)] transition-[max-height] duration-300 ease-out ${
-          open ? "max-h-[560px]" : "max-h-0"
+          open ? "max-h-[420px]" : "max-h-0"
         }`}
       >
         <div className="px-[clamp(18px,5vw,72px)] py-2 flex flex-col">
@@ -155,7 +153,7 @@ export default function Nav() {
             className="mt-4 mb-2 inline-flex items-center justify-center gap-[8px] bg-olive text-bone font-condensed font-extrabold text-[13px] leading-none tracking-[.12em] uppercase px-[18px] py-[15px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={16} fill="#F2F1ED" />
-            Pedir presupuesto
+            Solicitar presupuesto
           </a>
         </div>
       </nav>
