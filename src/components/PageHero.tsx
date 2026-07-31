@@ -44,7 +44,7 @@ export default function PageHero({
               sizes="100vw"
               className={
                 bw
-                  ? "object-cover [filter:grayscale(1)_contrast(1.05)_brightness(.82)]"
+                  ? "object-cover [filter:grayscale(1)_contrast(1.05)_brightness(.74)]"
                   : "object-cover [filter:contrast(1.04)_saturate(1.1)_brightness(.9)]"
               }
             />

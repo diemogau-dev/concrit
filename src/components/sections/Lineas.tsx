@@ -31,7 +31,7 @@ const LINEAS: Linea[] = [
     img: "/assets/campo-bebedero.jpg",
     alt: "Fila de bebederos de concreto macizo CONCRIT instalados y con agua en una estancia del Chaco paraguayo",
     subtitle: "Lo que el campo no perdona, el concreto lo aguanta",
-    body: "El animal empuja, el sol raja y el agua pudre. Nuestros comederos, bebederos y tanques están hechos para eso: se instalan y no se tocan más. Ya trabajan en cientos de estancias del país.",
+    body: "En el campo el animal empuja, el sol raja y la humedad pudre todo lo demás. El concreto macizo no: se instala una vez, aguanta el uso diario del rodeo y no pide mantenimiento, pintura ni reposición cada temporada. Por eso ya trabaja en cientos de estancias del país.",
     chips: [
       { label: "Comederos" },
       { label: "Bebederos" },
@@ -70,8 +70,8 @@ const LINEAS: Linea[] = [
     border: "border-terracotta",
     img: "/assets/v-hogar.jpg",
     alt: "Casa prefabricada de hormigón macizo CONCRIT lista para habitar",
-    subtitle: "Tu casa de material, en cuotas que podés pagar",
-    body: "Casas de concreto macizo de 1, 2 y 3 habitaciones. Precio cerrado, entrega en semanas y pago en cuotas a través de loteadoras aliadas. Material noble de verdad, no material barato.",
+    subtitle: "Tu hogar de hormigón, que dura toda la vida",
+    body: "La casa que te imaginás, en concreto macizo de verdad: 1, 2 y 3 habitaciones, entregada terminada y lista para mudarte en semanas. Precio cerrado y pago en cuotas a través de loteadoras y entidades financieras aliadas.",
     chips: [
       { label: "1 habitación" },
       { label: "2 habitaciones" },

@@ -4,10 +4,13 @@ import type { Producto } from "@/lib/productos";
 import { WhatsAppIcon } from "./icons";
 
 const CHIP =
-  "font-condensed font-semibold text-[12px] leading-none tracking-[.05em] uppercase text-gray-warm-4b border border-gray-warm-2 py-[8px] px-[12px]";
+  "font-condensed font-semibold text-[11px] leading-none tracking-[.06em] uppercase text-gray-warm-4b border border-gray-warm-2 py-[7px] px-[10px]";
 
 const CTA =
-  "inline-flex items-center justify-center gap-[10px] bg-olive text-bone font-condensed font-extrabold text-[13px] leading-none tracking-[.1em] uppercase py-[16px] px-[20px] text-center hover:bg-olive-hover";
+  "inline-flex w-full items-center justify-center gap-[10px] bg-olive text-bone font-condensed font-extrabold text-[13px] leading-none tracking-[.1em] uppercase py-[15px] px-[16px] text-center hover:bg-olive-hover";
+
+/** Tratamiento parejo para todas las fotos del catálogo. */
+const FOTO = "object-cover [filter:grayscale(1)_contrast(1.06)]";
 
 /**
  * Link de WhatsApp del producto. Por defecto se arma con el nombre y el
@@ -19,45 +22,39 @@ function hrefDe({ nombre, articulo, waMensaje }: Producto): string {
 }
 
 /**
- * Foto del producto. Si todavía no hay una foto buena de esa pieza, en vez de
- * un hueco gris va un panel tipográfico de marca: se lee como parte del diseño
- * y no como una imagen rota.
+ * Foto del producto, siempre cuadrada. Si todavía no hay una foto buena de esa
+ * pieza, en vez de un hueco gris va un panel tipográfico de marca: se lee como
+ * parte del diseño y no como una imagen rota.
  */
 function FotoProducto({
   img,
   alt,
   nombre,
-  sizes,
-  className = "",
 }: {
   img?: string;
   alt: string;
   nombre: string;
-  sizes: string;
-  className?: string;
 }) {
   if (img) {
     return (
-      <div className={`relative ${className}`}>
+      <div className="relative aspect-square bg-bone-2">
         <Image
           src={img}
           alt={alt}
           fill
-          sizes={sizes}
-          className="object-cover [filter:contrast(1.04)_saturate(.94)]"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+          className={FOTO}
         />
       </div>
     );
   }
   return (
-    <div
-      className={`relative bg-concrete-dark overflow-hidden flex items-center justify-center px-[24px] ${className}`}
-    >
+    <div className="relative aspect-square bg-concrete-dark overflow-hidden flex items-center justify-center px-[20px]">
       <div className="noise absolute inset-0 pointer-events-none [mix-blend-mode:multiply] opacity-40" />
-      <span className="relative z-[2] font-anton font-normal text-[clamp(22px,3vw,34px)] leading-[1.02] uppercase text-bone-soft text-center">
+      <span className="relative z-[2] font-anton font-normal text-[clamp(20px,2.4vw,28px)] leading-[1.02] uppercase text-bone-soft text-center">
         {nombre}
       </span>
-      <span className="absolute z-[2] left-0 bottom-0 bg-olive text-bone font-condensed font-extrabold text-[10px] leading-none tracking-[.16em] uppercase py-[8px] px-[12px]">
+      <span className="absolute z-[2] left-0 bottom-0 bg-olive text-bone font-condensed font-extrabold text-[10px] leading-none tracking-[.16em] uppercase py-[7px] px-[10px]">
         Foto en camino
       </span>
     </div>
@@ -65,49 +62,50 @@ function FotoProducto({
 }
 
 /**
- * Precio: sólo se muestra si el producto lo trae cargado en
- * `src/lib/productos.ts`. Mientras el campo esté vacío, la card queda con el
- * botón de consulta y nada más.
+ * Ficha de catálogo, formato tienda: foto cuadrada, nombre, dos renglones y
+ * botón. Sin carrito: el único camino de salida es WhatsApp.
  */
-function Precio({ precio }: { precio?: string }) {
-  if (!precio) return null;
-  return (
-    <div className="mb-[18px] pt-[14px] border-t border-gray-warm-2">
-      <div className="font-condensed font-bold text-[11px] leading-none tracking-[.16em] uppercase text-gray-warm-3 mb-[7px]">
-        Precio
-      </div>
-      <div className="font-anton font-normal text-[28px] leading-none text-concrete-dark">
-        {precio}
-      </div>
-    </div>
-  );
-}
-
-/** Card de catálogo. Sin carrito: el único camino de salida es WhatsApp. */
 export default function ProductoCard({ producto }: { producto: Producto }) {
-  const { nombre, img, alt, detalle, precio, ctaText, variantes } = producto;
+  const { nombre, img, imgs, alt, detalle, precio, ctaText, variantes } =
+    producto;
 
   return (
     <article className="bg-white border border-gray-warm-2 flex flex-col">
-      <FotoProducto
-        img={img}
-        alt={alt}
-        nombre={nombre}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="h-[220px]"
-      />
+      <FotoProducto img={img} alt={alt} nombre={nombre} />
 
-      <div className="pt-[24px] px-[24px] pb-[26px] border-t-4 border-olive flex flex-col flex-1">
-        <h3 className="font-anton font-normal text-[26px] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[12px]">
+      {/* Fotos extra: los diseños y variantes que hay que mostrar sí o sí. */}
+      {imgs?.length ? (
+        <div
+          className="grid gap-px bg-gray-warm-2 border-t border-gray-warm-2"
+          style={{
+            gridTemplateColumns: `repeat(${Math.min(imgs.length + 1, 3)}, minmax(0, 1fr))`,
+          }}
+        >
+          {[{ src: img!, alt }, ...imgs].slice(0, 3).map((f) => (
+            <div key={f.src} className="relative aspect-square bg-bone-2">
+              <Image
+                src={f.src}
+                alt={f.alt}
+                fill
+                sizes="120px"
+                className={FOTO}
+              />
+            </div>
+          ))}
+        </div>
+      ) : null}
+
+      <div className="pt-[18px] px-[18px] pb-[18px] border-t-4 border-olive flex flex-col flex-1">
+        <h3 className="font-condensed font-bold text-[19px] leading-[1.12] tracking-[.02em] uppercase text-concrete-dark mt-0 mb-[8px]">
           {nombre}
         </h3>
 
-        <p className="font-barlow font-normal text-[16px] leading-[1.5] text-gray-warm-4 mt-0 mb-[18px]">
+        <p className="font-barlow font-normal text-[15px] leading-[1.45] text-gray-warm-4 mt-0 mb-[14px]">
           {detalle}
         </p>
 
         {variantes?.length ? (
-          <ul className="list-none mt-0 mb-[20px] p-0 flex flex-wrap gap-[8px]">
+          <ul className="list-none mt-0 mb-[16px] p-0 flex flex-wrap gap-[6px]">
             {variantes.map((v) => (
               <li key={v} className={CHIP}>
                 {v}
@@ -116,80 +114,20 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
           </ul>
         ) : null}
 
-        <Precio precio={precio} />
-
-        <a
-          href={hrefDe(producto)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${CTA} mt-auto`}
-        >
-          <WhatsAppIcon size={16} fill="#F2F1ED" />
-          {ctaText ?? "Consultar precio por WhatsApp"}
-        </a>
-      </div>
-    </article>
-  );
-}
-
-/**
- * Variante ancha para las familias de producto (las placas): la misma card,
- * pero en dos columnas, para que se lea como una familia y no como un SKU.
- */
-export function ProductoFamilia({ producto }: { producto: Producto }) {
-  const { nombre, img, alt, detalle, precio, ctaText, variantes } = producto;
-
-  return (
-    <article className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
-      <div className="relative min-h-[clamp(260px,32vw,400px)] bg-concrete-dark">
-        <FotoProducto
-          img={img}
-          alt={alt}
-          nombre={nombre}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="absolute inset-0"
-        />
-        <div className="absolute z-[3] left-0 bottom-0 bg-concrete-dark py-[13px] px-[18px]">
-          <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive-light">
-            Familia de producto
-          </span>
-        </div>
-      </div>
-
-      <div className="bg-white p-[clamp(26px,3.4vw,44px)] flex flex-col justify-center">
-        <h3 className="font-anton font-normal text-[clamp(28px,3.6vw,44px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px]">
-          {nombre}
-        </h3>
-
-        <p className="font-barlow font-normal text-[clamp(16px,1.8vw,18px)] leading-[1.55] text-gray-warm-4 mt-0 mb-[22px] max-w-[52ch]">
-          {detalle}
-        </p>
-
-        {variantes?.length ? (
-          <>
-            <div className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive mb-[12px]">
-              Se fabrican en
-            </div>
-            <ul className="list-none mt-0 mb-[24px] p-0 flex flex-wrap gap-[8px]">
-              {variantes.map((v) => (
-                <li key={v} className={CHIP}>
-                  {v}
-                </li>
-              ))}
-            </ul>
-          </>
+        {precio ? (
+          <div className="font-anton font-normal text-[24px] leading-none text-concrete-dark mt-auto mb-[14px]">
+            {precio}
+          </div>
         ) : null}
 
-        <Precio precio={precio} />
-
         <a
           href={hrefDe(producto)}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${CTA} self-start`}
+          className={`${CTA} ${precio ? "" : "mt-auto"}`}
         >
-          <WhatsAppIcon size={16} fill="#F2F1ED" />
-          {ctaText ?? "Consultar precio por WhatsApp"}
+          <WhatsAppIcon size={15} fill="#F2F1ED" />
+          {ctaText ?? "Comprar por WhatsApp"}
         </a>
       </div>
     </article>

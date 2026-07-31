@@ -57,7 +57,7 @@ const STEPS = [
   },
   {
     img: "/assets/sistema-04-obrador.jpg",
-    alt: "Obrador prefabricado de concreto macizo CONCRIT terminado y entregado",
+    alt: "Obrador prefabricado de concreto macizo CONCRIT terminado, pintado y entregado",
     w: 900,
     h: 600,
     n: "4",

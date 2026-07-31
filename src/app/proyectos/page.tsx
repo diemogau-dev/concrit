@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
-import GaleriaObras from "@/components/GaleriaObras";
+import CarruselObras from "@/components/CarruselObras";
 import Lightbox from "@/components/Lightbox";
 import Sistema from "@/components/sections/Sistema";
 import LlaveEnMano from "@/components/sections/LlaveEnMano";
@@ -39,7 +39,7 @@ export default function ProyectosPage() {
           title="Se arma encastrando y se entrega terminado"
           lead="Placas, pilares y uniones que salen de planta y encastran en el terreno. Sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas, montados en semanas."
           img="/assets/hero-proyectos.jpg"
-          imgAlt="Obrador de concreto prefabricado CONCRIT terminado, con sus pilares colorados y el depósito abierto"
+          imgAlt="Obrador de concreto prefabricado CONCRIT terminado, con su galería y la vereda de placas"
           bw
         >
           <a
@@ -75,20 +75,14 @@ export default function ProyectosPage() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(242,241,237,.14)]">
             {proceso.map((f) => (
-              <Lightbox
-                key={f.img}
-                src={f.img}
-                alt={f.alt}
-                width={f.w ?? 1200}
-                height={f.h ?? 900}
-              >
+              <Lightbox key={f.img} src={f.img} alt={f.alt} width={f.w} height={f.h}>
                 <div className="relative aspect-[4/3] bg-concrete-dark">
                   <Image
                     src={f.img}
                     alt={f.alt}
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover [filter:contrast(1.04)_saturate(.94)]"
+                    className="object-cover [filter:grayscale(1)_contrast(1.05)]"
                   />
                 </div>
               </Lightbox>
@@ -112,8 +106,8 @@ export default function ProyectosPage() {
                 >
                   <div className="relative h-[210px]">
                     <Image
-                      src={c.tarjeta!.img}
-                      alt={c.tarjeta!.alt}
+                      src={c.img}
+                      alt={c.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover [filter:contrast(1.04)_saturate(.94)]"
@@ -124,7 +118,7 @@ export default function ProyectosPage() {
                       {c.nombre}
                     </h3>
                     <p className="font-barlow font-normal text-[16px] leading-[1.5] text-gray-warm-4 m-0">
-                      {c.tarjeta!.descripcion}
+                      {c.descripcion}
                     </p>
                   </div>
                 </article>
@@ -133,14 +127,14 @@ export default function ProyectosPage() {
           </div>
         </section>
 
-        {/* 03 — Obras entregadas: mosaico por tipo, sin nombres ni localidades */}
+        {/* 03 — Obras entregadas: carrusel único, sin nombres ni categorías */}
         <section
           id="entregados"
           className="bg-bone py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
         >
           <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
             <SectionHeader n="03" titulo="Obras entregadas" />
-            <GaleriaObras />
+            <CarruselObras />
           </div>
         </section>
 

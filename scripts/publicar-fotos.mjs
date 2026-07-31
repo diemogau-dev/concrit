@@ -30,6 +30,8 @@ const OUT = join(__dirname, "..", "public", "assets");
  * w, h     encuadre objetivo (proporción). No se agranda más allá del original.
  * pos      de dónde recortar cuando hay que sacrificar borde: centre (default),
  *          top, bottom, left, right, attention (busca la zona con más detalle)
+ * max      alternativa a w/h: no recorta nada, sólo limita el lado más largo.
+ *          Es lo que usa la galería de obras, que muestra la foto entera.
  */
 const MAP = [
   // ── HOME ────────────────────────────────────────────────────────────
@@ -49,74 +51,44 @@ const MAP = [
   { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "sistema-01-placas.jpg", w: 900, h: 600 },
   { src: "7b70b42a-dffa-43ae-afed-eb20362e7f04.jpeg", out: "sistema-02-paredes.jpg", w: 900, h: 600 },
   { src: "fc3428d0-7062-48b8-a648-be9aaf4420c6.jpeg", out: "sistema-03-techo.jpg", w: 900, h: 600, pos: "top" },
-  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "sistema-04-obrador.jpg", w: 900, h: 600 },
+  // Paso 4: otro obrador terminado, para no repetir el del hero de /proyectos.
+  { src: "f8444090-2cc7-4810-9f8f-6c88a2560d8a.jpeg", out: "sistema-04-obrador.jpg", w: 900, h: 600 },
 
   // ── /productos ──────────────────────────────────────────────────────
-  { src: "55e6bd15-5b15-4d20-ac89-c94c828ba5f1.jpeg", out: "producto-bebedero.jpg", w: 1000, h: 750, pos: "attention" },
-  { src: "b7d5c08b-9268-4f4d-aeb2-8c9105c8731e.jpeg", out: "producto-comedero.jpg", w: 1000, h: 750 },
-  { src: "IMG_3751.jpeg", out: "producto-postes.jpg", w: 1000, h: 750, pos: "attention" },
-  { src: "a8c9f003-d36b-4c04-80d9-74e229a85153.jpeg", out: "producto-tanque.jpg", w: 1000, h: 750 },
-  // Familia de placas: bloque ancho, va la foto de producción con volumen.
-  { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "producto-placas.jpg", w: 1400, h: 900 },
-  { src: "819eef82-7a57-4886-83ba-65a702aab105.jpeg", out: "producto-baldosas.jpg", w: 1000, h: 750 },
-  { src: "3919c3d4-ed47-424f-adb5-f28cc7dedfe1.jpeg", out: "producto-caja-registro.jpg", w: 1000, h: 750, pos: "attention" },
-  { src: "8c193067-3c6c-418f-82ca-9db23bd2acb8.jpeg", out: "producto-caja-electrica.jpg", w: 1000, h: 750, pos: "attention" },
-  { src: "c964ef38-4328-4bd2-badb-e7515654be77.jpeg", out: "producto-alcantarilla-tubular.jpg", w: 1000, h: 750, pos: "attention" },
-  { src: "IMG_3849.jpeg", out: "producto-alcantarilla-celular.jpg", w: 800, h: 600 },
+  // Hero del catálogo: los postes recién desmoldados, apilados en planta. Es
+  // la foto más "fábrica" que tenemos y en blanco y negro se lee como textura.
+  { src: "IMG_3750.jpeg", out: "hero-productos.jpg", w: 1600, h: 900 },
+  // Catálogo tipo tienda: todas las fotos van cuadradas (1:1) para que ninguna
+  // ficha salga con la pieza cortada y la grilla se lea pareja.
+  { src: "55e6bd15-5b15-4d20-ac89-c94c828ba5f1.jpeg", out: "producto-bebedero.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "b1b3fcba-8be9-4eae-bf8b-24c7150c5127.jpeg", out: "producto-comedero.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3751.jpeg", out: "producto-postes.jpg", w: 1000, h: 1000 },
+  { src: "68dc357f-999f-4dd1-b510-af3938fe7291.jpeg", out: "producto-tanque.jpg", w: 1000, h: 1000 },
+  { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "producto-placas.jpg", w: 1000, h: 1000 },
+  // Piso ecológico: la pieza sola, que se entiende de una.
+  { src: "d6338505-1ee9-414c-9047-38234de5d6cd.jpeg", out: "producto-piso-ecologico.jpg", w: 1000, h: 1000 },
+  // Baldosas: tres fotos, una por diseño, porque el diseño es el producto.
+  { src: "819eef82-7a57-4886-83ba-65a702aab105.jpeg", out: "producto-baldosa-01.jpg", w: 1000, h: 1000 },
+  { src: "e4850513-aa31-444d-83aa-bebc8df6d0a5.jpeg", out: "producto-baldosa-02.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3753.jpeg", out: "producto-baldosa-03.jpg", w: 1000, h: 1000 },
+  { src: "3919c3d4-ed47-424f-adb5-f28cc7dedfe1.jpeg", out: "producto-caja-registro.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "8c193067-3c6c-418f-82ca-9db23bd2acb8.jpeg", out: "producto-caja-electrica.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "c964ef38-4328-4bd2-badb-e7515654be77.jpeg", out: "producto-alcantarilla-tubular.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "IMG_3849.jpeg", out: "producto-alcantarilla-celular.jpg", w: 800, h: 800 },
+  { src: "IMG_3855.jpeg", out: "producto-cordon-vereda.jpg", w: 1000, h: 1000 },
   // Cara lisa de la placa: caminero terminado, el argumento de venta del bloque.
-  { src: "IMG_3757.jpeg", out: "producto-placa-cara-lisa.jpg", w: 1200, h: 900 },
+  { src: "IMG_3757.jpeg", out: "producto-placa-cara-lisa.jpg", w: 1000, h: 1000 },
 
   // ── /proyectos ──────────────────────────────────────────────────────
-  // Hero propio: el obrador terminado con los pilares colorados. Va en blanco
-  // y negro, así que se elige por volumen y luz, no por color.
-  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "hero-proyectos.jpg", w: 1280, h: 720 },
+  // Hero propio: otro obrador, largo y con la galería en fuga. Va en blanco y
+  // negro, así que se elige por volumen y luz, no por color.
+  { src: "IMG_3641.jpeg", out: "hero-proyectos.jpg", w: 1280, h: 720, pos: "top" },
 
   // Tarjetas de los cuatro tipos de obra
   { src: "6a855dd2-b203-4052-9c5c-27058c4365ce.jpeg", out: "obra-obrador.jpg", w: 1000, h: 750 },
   { src: "bee883ad-6b74-4a9a-b317-db1587ed25f9.jpeg", out: "obra-casa.jpg", w: 1000, h: 750 },
   { src: "50a8fe7d-0f83-4c64-9828-c60624d76693.jpeg", out: "obra-deposito.jpg", w: 1000, h: 750 },
   { src: "d5f27cb5-4377-4c6b-8f54-223ccb46b738.jpeg", out: "obra-galpon.jpg", w: 1000, h: 750 },
-
-  // Galería · Obradores
-  { src: "087d9cc5-a287-4d51-972f-2a076c2a87d3.jpeg", out: "galeria-obradores-01.jpg", w: 1200, h: 900 },
-  { src: "22d7a2a1-de5f-4c92-a671-f362e3b985b9.jpeg", out: "galeria-obradores-02.jpg", w: 1200, h: 900 },
-  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "galeria-obradores-03.jpg", w: 1200, h: 900 },
-  { src: "6433e84a-1195-4cd9-a9f1-9f4411874759.jpeg", out: "galeria-obradores-04.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "8cbb7efa-0308-4d45-aa0c-82500b34abf7.jpeg", out: "galeria-obradores-05.jpg", w: 1200, h: 900 },
-  { src: "df26ec0c-d71e-48e9-a355-d7a8177807e9.jpeg", out: "galeria-obradores-06.jpg", w: 1200, h: 900 },
-  { src: "IMG_3641.jpeg", out: "galeria-obradores-07.jpg", w: 1200, h: 900 },
-  { src: "IMG_3535.jpeg", out: "galeria-obradores-08.jpg", w: 1200, h: 900 },
-
-  // Galería · Casas
-  { src: "0e2266d5-7dd4-4203-95ce-78b849c4743b.jpeg", out: "galeria-casas-01.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "6af58b9b-2375-41c0-89aa-d1adf1e220b0.jpeg", out: "galeria-casas-02.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "9a90e483-6fc8-4b49-b717-d5f9d967b48c.jpeg", out: "galeria-casas-03.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "a4abfe06-9e4e-4e33-95ed-fca70afb05db.jpeg", out: "galeria-casas-04.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "b5f99c39-3172-4afa-8555-58bae329dbc4.jpeg", out: "galeria-casas-05.jpg", w: 1200, h: 900 },
-  { src: "e6fff89c-4b77-4170-a303-927480c903c2.jpeg", out: "galeria-casas-06.jpg", w: 1200, h: 900 },
-
-  // Galería · Galpones
-  { src: "095ee07c-54a0-4855-8c3e-b30890a8fe7d.jpeg", out: "galeria-galpones-01.jpg", w: 1200, h: 900 },
-  { src: "15b5706a-5f2e-48ee-bc3c-c6a83550e740.jpeg", out: "galeria-galpones-02.jpg", w: 1200, h: 900 },
-  { src: "62eefd70-188a-41d2-a13c-292974bf92c7.jpeg", out: "galeria-galpones-03.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "b2898b3d-a030-4787-8db0-7863d6aea171.jpeg", out: "galeria-galpones-04.jpg", w: 1200, h: 900 },
-  { src: "ee57ea95-27db-4ba8-9c7f-ddb105cac915.jpeg", out: "galeria-galpones-05.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "13754305-7b01-463e-be7d-ec9d1378080f.jpeg", out: "galeria-galpones-06.jpg", w: 1200, h: 900, pos: "attention" },
-
-  // Galería · Depósitos
-  { src: "28a56a9e-fdc4-487e-a258-c6550c37dcf2.jpeg", out: "galeria-depositos-01.jpg", w: 1200, h: 900 },
-  { src: "bc1f84a9-74de-4124-9fc7-20dbe59718a4.jpeg", out: "galeria-depositos-02.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "a965a269-f057-44d8-817e-a6eb203391a0.jpeg", out: "galeria-depositos-03.jpg", w: 1200, h: 900 },
-
-  // Galería · Interiores terminados (el argumento de llave en mano)
-  { src: "77b61943-2428-42af-805a-be459a9d3f58.jpeg", out: "galeria-interiores-01.jpg", w: 1200, h: 900 },
-  { src: "b0efb909-d31d-4e7f-87d8-47c9e9078bc9.jpeg", out: "galeria-interiores-02.jpg", w: 1200, h: 900 },
-  { src: "babb646d-ddd2-4d2e-92ce-a2676e0f6630.jpeg", out: "galeria-interiores-03.jpg", w: 1200, h: 900 },
-  { src: "e3ae434c-5b50-47fc-acd9-4362742ed055.jpeg", out: "galeria-interiores-04.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "a00bc0e8-930c-46a0-a7b3-ec917669bc73.jpeg", out: "galeria-interiores-05.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "15a7e2c3-2b83-4150-b655-fb7bfb70f0bf.jpeg", out: "galeria-interiores-06.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "ca57881b-c4ad-40f7-8ca0-c66b59800179.jpeg", out: "galeria-interiores-07.jpg", w: 1200, h: 900, pos: "attention" },
-  { src: "5c446a8c-3aa5-4c7c-83db-1595490dd462.jpeg", out: "galeria-interiores-08.jpg", w: 1200, h: 900, pos: "attention" },
 
   // ── Fábrica y equipo: el bloque de proceso ──────────────────────────
   { src: "b0c57c36-c981-4ec9-bb7d-4507e6c97cfd.jpeg", out: "proceso-montaje.jpg", w: 1200, h: 900 },
@@ -127,12 +99,101 @@ const MAP = [
   { src: "da569478-c0d0-44ec-92e3-a1aadbd12892.jpeg", out: "proceso-aerea.jpg", w: 1600, h: 900 },
 ];
 
+/**
+ * Galería de obras entregadas (/proyectos).
+ *
+ * Es un carrusel único, sin categorías: obradores, casas, galpones, depósitos,
+ * tanques, camineros, veredas, interiores, terminaciones y gente trabajando,
+ * mezclados a propósito para que se vea el volumen de obra y no un catálogo.
+ * Acá NO van fotos de producto suelto: para eso está /productos.
+ *
+ * Se publican sin recorte (`max`): en el visor grande la foto se ve entera
+ * sobre fondo oscuro, como en una galería de hotel, y la miniatura recorta.
+ * Para sumar o sacar una foto: agregá o borrá una línea de esta lista.
+ */
+const GALERIA = [
+  "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", // obrador terminado, pilares colorados
+  "IMG_3752.jpeg", // caminero de placas con canto rodado
+  "0e2266d5-7dd4-4203-95ce-78b849c4743b.jpeg", // casa terminada
+  "b0c57c36-c981-4ec9-bb7d-4507e6c97cfd.jpeg", // equipo montando placas
+  "62eefd70-188a-41d2-a13c-292974bf92c7.jpeg", // galpón por dentro
+  "77b61943-2428-42af-805a-be459a9d3f58.jpeg", // interior terminado
+  "087d9cc5-a287-4d51-972f-2a076c2a87d3.jpeg", // obrador de frente
+  "IMG_3534.jpeg", // montaje de tanque australiano
+  "a4abfe06-9e4e-4e33-95ed-fca70afb05db.jpeg", // casa con frente vidriado
+  "28495a63-c256-4404-b856-6d4f6a5f216f.jpeg", // corrales de placas en obra
+  "b0efb909-d31d-4e7f-87d8-47c9e9078bc9.jpeg", // living terminado
+  "d5f27cb5-4377-4c6b-8f54-223ccb46b738.jpeg", // galpón desde el aire
+  "IMG_3755.jpeg", // caminero largo de placas
+  "8cbb7efa-0308-4d45-aa0c-82500b34abf7.jpeg", // obrador al atardecer
+  "ec9dd00e-2561-42de-97c5-2876a7fea4bb.jpeg", // alisado de piso
+  "6af58b9b-2375-41c0-89aa-d1adf1e220b0.jpeg", // casa entregada
+  "41b5fca3-6a78-413d-b033-ae0086031ae1.jpeg", // retícula de pilares desde el aire
+  "ca57881b-c4ad-40f7-8ca0-c66b59800179.jpeg", // pasillo interior terminado
+  "22d7a2a1-de5f-4c92-a671-f362e3b985b9.jpeg", // obrador con galería
+  "e1a8b5e5-667f-4f48-afff-7130fe248eb7.jpeg", // pozo con brocal de concreto
+  "9cd3f184-1415-4972-983c-880f12931b11.jpeg", // obrador con vereda verde
+  "IMG_3753.jpeg", // caminero de baldosas en damero
+  "bc1f84a9-74de-4124-9fc7-20dbe59718a4.jpeg", // depósito por dentro
+  "7b70b42a-dffa-43ae-afed-eb20362e7f04.jpeg", // paredes armándose
+  "9a90e483-6fc8-4b49-b717-d5f9d967b48c.jpeg", // casa sobre el pasto
+  "cd203541-bd98-45b6-96d4-93da2a7c1154.jpeg", // pintura de terminación
+  "4d4b4dde-fa6b-48de-8b40-6959d7392566.jpeg", // obrador con galería y pilares
+  "82356a6b-0d25-4bda-b11a-3e90542ae0ea.jpeg", // vereda de placas
+  "15a7e2c3-2b83-4150-b655-fb7bfb70f0bf.jpeg", // interior terminado
+  "IMG_3533.jpeg", // techo montándose
+  "e6fff89c-4b77-4170-a303-927480c903c2.jpeg", // casa terminada
+  "5ae2502f-1e11-4061-8205-34e97bbfbb36.jpeg", // corral de manejo
+  "b4d8f22a-af44-42c0-b447-3c741377df36.jpeg", // obrador blanco
+  "ee57ea95-27db-4ba8-9c7f-ddb105cac915.jpeg", // galpón grande
+  "cc95f690-962c-41d2-b00e-e5edeb8cfc4f.jpeg", // sanitarios terminados
+  "IMG_3631.jpeg", // obrador con galería abierta
+  "da569478-c0d0-44ec-92e3-a1aadbd12892.jpeg", // obra desde el aire
+  "763a484c-ac3b-4d96-8361-4e079eb44e35.jpeg", // casa al atardecer
+  "5b479a53-60a5-421b-83e6-091256b36c75.jpeg", // muros cerrados, vanos abiertos
+  "babb646d-ddd2-4d2e-92ce-a2676e0f6630.jpeg", // habitación terminada
+  "6a855dd2-b203-4052-9c5c-27058c4365ce.jpeg", // obrador en uso
+  "2d255e04-a39f-4c92-b3c7-c4a396a3062b.jpeg", // caminero de acceso
+  "IMG_3535.jpeg", // casa con galería
+  "6d412bf1-4271-4a9a-92e7-ee96757a4c95.jpeg", // colocación de alcantarilla
+  "df26ec0c-d71e-48e9-a355-d7a8177807e9.jpeg", // obrador entregado
+  "5c446a8c-3aa5-4c7c-83db-1595490dd462.jpeg", // interior terminado
+  "e884f3e9-63b4-4d09-ad79-a64c0ab225fa.jpeg", // obrador al atardecer
+  "IMG_3756.jpeg", // vereda de baldosas con canto rodado
+  "50a8fe7d-0f83-4c64-9828-c60624d76693.jpeg", // depósito con piso verde
+  "0da3ee75-8281-4689-a4a9-026d400a1675.jpeg", // aguada de estancia
+  "IMG_3632.jpeg", // obrador terminado
+  "e3ae434c-5b50-47fc-acd9-4362742ed055.jpeg", // interior terminado
+  "6433e84a-1195-4cd9-a9f1-9f4411874759.jpeg", // obrador con vereda verde
+  "IMG_3757.jpeg", // caminero de placas cara lisa
+  "b5f99c39-3172-4afa-8555-58bae329dbc4.jpeg", // casa terminada
+  "37bedfb4-524f-4184-b569-5c7994d35c96.jpeg", // galería exterior
+  "d1fe31ee-1648-4c94-8394-682be3ac0620.jpeg", // obrador con el cerro atrás
+  "a00bc0e8-930c-46a0-a7b3-ec917669bc73.jpeg", // interior terminado
+  "3b1db3e0-dfae-4d4b-9aa1-5ed0dc9e78c8.jpeg", // terminaciones por dentro
+  "bee883ad-6b74-4a9a-b317-db1587ed25f9.jpeg", // casa entregada
+  "IMG_3754.jpeg", // caminero de placas en jardín
+  "68e1c4a7-857c-4c88-8b55-8e036643392c.jpeg", // muro y vereda de placas
+  "9bd7e62d-0556-4c04-851c-a31d89e1f8d4.jpeg", // terminación interior
+  "IMG_3640.jpeg", // obrador con galería
+  "df4bb2bf-2d58-4556-bc5d-542c8649106e.jpeg", // sanitario terminado
+  "28676838-9009-4494-85bd-55c8442ca027.jpeg", // aguada con bebederos
+  "IMG_3641.jpeg", // obrador largo
+  "f8444090-2cc7-4810-9f8f-6c88a2560d8a.jpeg", // obrador terminado
+];
+
+const GALERIA_MAP = GALERIA.map((src, i) => ({
+  src,
+  out: `galeria-${String(i + 1).padStart(2, "0")}.jpg`,
+  max: 1200,
+}));
+
 await mkdir(OUT, { recursive: true });
 
 let ok = 0;
 const faltan = [];
 
-for (const { src, out, w, h, pos } of MAP) {
+for (const { src, out, w, h, pos, max } of [...MAP, ...GALERIA_MAP]) {
   const input = join(RAW, src);
   if (!existsSync(input)) {
     faltan.push(src);
@@ -140,6 +201,19 @@ for (const { src, out, w, h, pos } of MAP) {
   }
 
   const img = sharp(input).rotate(); // aplica orientación EXIF y la descarta
+
+  // Modo `max`: no se recorta, sólo se limita el lado más largo. Es el de la
+  // galería, donde la foto se ve entera sobre fondo oscuro.
+  if (max) {
+    await img
+      .resize({ width: max, height: max, fit: "inside", withoutEnlargement: true })
+      .jpeg({ quality: 78, mozjpeg: true })
+      .toFile(join(OUT, out));
+    console.log(`${out}  ←  ${src}`);
+    ok++;
+    continue;
+  }
+
   const meta = await img.metadata();
 
   // No agrandar: si la fuente no da, se baja el objetivo manteniendo el encuadre.

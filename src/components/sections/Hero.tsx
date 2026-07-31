@@ -40,14 +40,14 @@ export default function Hero() {
         <div className="h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]" />
 
         <p className="font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[22ch] mt-0 mb-[16px]">
-          Fácil, práctico
+          Prefabricados
           <br />
-          y dura para siempre.
+          de concreto.
         </p>
 
         <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[56ch] mt-0 mb-[34px]">
-          Prefabricados de concreto macizo para el campo, la industria y la obra.
-          Presupuesto cerrado, plazos cumplidos, proyectos llave en mano.
+          Fábrica de productos y un sistema propio de construcción para el campo,
+          la industria y obras civiles. Proyectos llave en mano.
         </p>
 
         <div className="flex gap-[14px] flex-wrap">

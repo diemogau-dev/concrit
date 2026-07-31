@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
-import SectionHeader from "@/components/SectionHeader";
-import ProductoCard, { ProductoFamilia } from "@/components/ProductoCard";
-import PlacasDosCaras from "@/components/sections/PlacasDosCaras";
+import ProductoCard from "@/components/ProductoCard";
 import { WhatsAppIcon } from "@/components/icons";
 import { wa, SITE } from "@/lib/config";
 import { secciones } from "@/lib/productos";
@@ -26,9 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-/** Fondo alternado por sección, para que el ojo separe los tres bloques. */
-const FONDOS = ["bg-bone", "bg-bone-2", "bg-bone"] as const;
-
 export default function ProductosPage() {
   return (
     <>
@@ -37,61 +32,66 @@ export default function ProductosPage() {
         <PageHero
           eyebrow="Catálogo completo"
           title="Todo lo que sale de la fábrica"
-          lead="Elegí lo que necesitás y consultá el precio por WhatsApp. Te lo pasamos cerrado, con flete y fecha."
-        >
-          <nav aria-label="Secciones del catálogo">
-            <ul className="list-none m-0 p-0 flex flex-wrap gap-[10px]">
-              {secciones.map((s) => (
-                <li key={s.id}>
-                  <a
-                    href={`#${s.id}`}
-                    className="inline-flex items-center gap-[9px] font-condensed font-bold text-[12px] leading-none tracking-[.12em] uppercase text-bone-soft border border-[rgba(242,241,237,.32)] py-[13px] px-[16px] hover:border-bone hover:bg-[rgba(242,241,237,.08)]"
-                  >
-                    <span className="text-olive-light">{s.n}</span>
-                    {s.nombre}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </PageHero>
+          lead="Elegí lo que necesitás y pedí el precio por WhatsApp. Te lo pasamos cerrado, con flete y fecha."
+          img="/assets/hero-productos.jpg"
+          imgAlt="Postes de concreto CONCRIT recién desmoldados y apilados en la fábrica de Villa Hayes"
+          bw
+        />
 
-        {secciones.map((seccion, i) => {
-          const familias = seccion.productos.filter((p) => p.destacado);
-          const resto = seccion.productos.filter((p) => !p.destacado);
-
-          return (
-            <section
-              key={seccion.id}
-              id={seccion.id}
-              className={`${FONDOS[i % FONDOS.length]} py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]`}
-            >
-              <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-                <SectionHeader n={seccion.n} titulo={seccion.nombre} />
-
-                {/* Familias de producto (hoy: las placas) */}
-                {familias.map((p) => (
-                  <div key={p.slug} className="mb-[22px]">
-                    <ProductoFamilia producto={p} />
-                  </div>
-                ))}
-
-                {/* Argumento de las dos caras: va pegado a las placas */}
-                {seccion.id === "construccion" ? (
-                  <div className="mb-[22px]">
-                    <PlacasDosCaras />
-                  </div>
-                ) : null}
-
-                <div className="grid [grid-template-columns:repeat(auto-fit,minmax(290px,1fr))] gap-[22px]">
-                  {resto.map((p) => (
-                    <ProductoCard key={p.slug} producto={p} />
-                  ))}
+        <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)] py-[clamp(34px,5vw,64px)]">
+          <div className="grid lg:[grid-template-columns:200px_1fr] gap-[clamp(22px,3vw,44px)]">
+            {/* Menú de categorías: al costado en desktop, en fila arriba en
+                mobile. Son anclas: el catálogo entero está en una sola página. */}
+            <aside className="min-w-0 lg:sticky lg:top-[86px] lg:self-start">
+              <nav aria-label="Categorías del catálogo">
+                <div className="hidden lg:block font-condensed font-semibold text-[11px] leading-none tracking-[.24em] uppercase text-gray-warm-3 mb-[14px]">
+                  Categorías
                 </div>
-              </div>
-            </section>
-          );
-        })}
+                <ul className="list-none m-0 p-0 flex lg:flex-col gap-[8px] overflow-x-auto pb-[4px] lg:pb-0">
+                  {secciones.map((s) => (
+                    <li key={s.id} className="flex-none">
+                      <a
+                        href={`#${s.id}`}
+                        className="flex items-center gap-[8px] font-condensed font-bold text-[12px] leading-[1.2] tracking-[.08em] uppercase text-gray-warm-4b border border-gray-warm-2 py-[12px] px-[14px] hover:border-concrete-dark hover:text-concrete-dark lg:border-0 lg:border-l-2 lg:border-l-gray-warm-2 lg:py-[9px] lg:hover:border-l-olive"
+                      >
+                        <span className="text-olive">{s.n}</span>
+                        {s.nombre}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </aside>
+
+            <div className="min-w-0">
+              {secciones.map((seccion) => (
+                <section
+                  key={seccion.id}
+                  id={seccion.id}
+                  className="scroll-mt-[90px] mb-[clamp(38px,5vw,64px)] last:mb-0"
+                >
+                  <div className="flex items-baseline gap-[10px] pb-[12px] mb-[18px] border-b border-gray-warm-2">
+                    <span className="font-anton font-normal text-[20px] leading-none text-olive">
+                      {seccion.n}
+                    </span>
+                    <h2 className="font-condensed font-bold text-[16px] leading-none tracking-[.14em] uppercase text-concrete-dark m-0">
+                      {seccion.nombre}
+                    </h2>
+                    <span className="font-barlow font-normal text-[14px] leading-none text-gray-warm-3 ml-auto">
+                      {seccion.productos.length} productos
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-[clamp(10px,1.4vw,18px)]">
+                    {seccion.productos.map((p) => (
+                      <ProductoCard key={p.slug} producto={p} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Cierre: lo que no está en el catálogo también se fabrica */}
         <section className="relative bg-olive py-[clamp(64px,9vw,110px)] overflow-hidden">

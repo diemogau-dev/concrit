@@ -33,15 +33,18 @@ export const WA_MESSAGES = {
 export type WaArticulo = "del" | "de la" | "de los" | "de las";
 
 /**
- * Mensaje de consulta de precio por producto.
+ * Mensaje de compra por producto: es el que dispara el botón del catálogo.
  * Ej: waMensajeProducto("Bebedero de concreto")
- *     → "Hola CONCRIT, quiero consultar precio del Bebedero de concreto"
+ *     → "Hola CONCRIT, quiero comprar el Bebedero de concreto"
  */
 export function waMensajeProducto(
   producto: string,
   articulo: WaArticulo = "del",
 ): string {
-  return `Hola CONCRIT, quiero consultar precio ${articulo} ${producto}`;
+  const el = { del: "el", "de la": "la", "de los": "los", "de las": "las" }[
+    articulo
+  ];
+  return `Hola CONCRIT, quiero comprar ${el} ${producto}`;
 }
 
 /**
@@ -68,7 +71,7 @@ export const wa = {
   placas: waLink(WA_MESSAGES.placas),
 } as const;
 
-/** Link de WhatsApp para consultar el precio de un producto del catálogo. */
+/** Link de WhatsApp para comprar un producto del catálogo. */
 export function waProducto(
   producto: string,
   articulo: WaArticulo = "del",
