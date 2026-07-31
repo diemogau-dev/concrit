@@ -29,5 +29,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# fotos crudas subidas para procesar (ver scripts/process-uploads.mjs)
+# fotos crudas procesadas localmente (ver scripts/process-uploads.mjs)
 /uploads-raw/
+
+# hojas de contactos generadas por scripts/revisar-fotos.mjs (material de trabajo)
+/fotos/_hojas/
+
+# OJO: /fotos/ NO va acá a propósito. Las fotos crudas que se suben para
+# identificar y elegir tienen que viajar en el repositorio para poder verlas.
+# Una vez publicadas en public/assets/, la carpeta /fotos/ se borra.

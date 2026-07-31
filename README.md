@@ -117,7 +117,23 @@ Las fotos de `/productos` y `/proyectos` todavía son **placeholders sólidos** 
 tono concreto (`producto-*.jpg`, `obra-*.jpg`, `proyecto-*.jpg`). Reemplazalas
 por las reales con el mismo nombre y listo.
 
-Dos scripts de apoyo en `scripts/`:
+### Subir fotos nuevas para publicar
+
+Las fotos crudas van a la carpeta **`fotos/`** (ver `fotos/LEEME.md`). Esa carpeta
+sí viaja en el repositorio, a diferencia de `uploads-raw/`, que está ignorado y
+sólo sirve para procesar en local.
+
+```bash
+npm run fotos    # arma hojas de contactos numeradas en fotos/_hojas/
+```
+
+Con las hojas se identifica cada foto, se eligen las mejores, se publican en
+`public/assets/` y después se borra `fotos/` para que el repositorio no quede
+cargando los originales.
+
+Tres scripts de apoyo en `scripts/`:
+
+- `revisar-fotos.mjs` — hojas de contactos de `fotos/` para revisar de a muchas.
 
 - `generate-placeholders.mjs` — genera placeholders sólidos en tono concreto
   (útil si falta alguna foto real momentáneamente). **No pisa archivos que ya
