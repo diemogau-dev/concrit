@@ -217,15 +217,15 @@ export const secciones: SeccionProducto[] = [
         fotos: [
           {
             src: "/assets/producto-caminero-01.jpg",
-            alt: "Caminero de placas de concreto CONCRIT en un parque",
+            alt: "Caminero de placas de concreto CONCRIT en el acceso a una casa",
           },
           {
             src: "/assets/producto-caminero-02.jpg",
-            alt: "Caminero de placas de concreto CONCRIT recién colocado",
+            alt: "Caminero de placas de concreto CONCRIT con canto rodado en un jardín",
           },
           {
             src: "/assets/producto-caminero-03.jpg",
-            alt: "Caminero de acceso hecho con placas de concreto CONCRIT",
+            alt: "Caminero de placas de concreto CONCRIT en damero sobre el patio de una casa",
           },
         ],
         detalle:
@@ -238,15 +238,15 @@ export const secciones: SeccionProducto[] = [
         fotos: [
           {
             src: "/assets/producto-vereda-01.jpg",
-            alt: "Vereda de placas de concreto CONCRIT con canto rodado",
+            alt: "Vereda de placas de concreto CONCRIT en un parque",
           },
           {
             src: "/assets/producto-vereda-02.jpg",
-            alt: "Vereda de placas de concreto CONCRIT terminada",
+            alt: "Vereda de placas de concreto CONCRIT recién colocada",
           },
           {
             src: "/assets/producto-vereda-03.jpg",
-            alt: "Vereda de concreto CONCRIT sobre el frente de una obra",
+            alt: "Vereda de placas de concreto CONCRIT sobre el frente de una obra",
           },
         ],
         detalle:
@@ -265,25 +265,29 @@ export const secciones: SeccionProducto[] = [
             src: "/assets/producto-baldosa-02.jpg",
             alt: "Baldosa de concreto CONCRIT con diseño romboidal",
           },
+        ],
+        detalle:
+          "Distintos diseños de cara vista para vereda, patio y galería. Antideslizante y de junta pareja.",
+        articulo: "de las",
+        variantes: ["Diseño ondas", "Diseño rombos"],
+      },
+      {
+        slug: "paver",
+        nombre: "Paver de concreto",
+        fotos: [
           {
-            src: "/assets/producto-baldosa-03.jpg",
-            alt: "Piso terminado con baldosas de concreto CONCRIT",
+            src: "/assets/producto-paver-01.jpg",
+            alt: "Colocación de pavers de concreto CONCRIT sobre base de arena",
+          },
+          {
+            src: "/assets/producto-paver-02.jpg",
+            alt: "Patio terminado con pavers de concreto CONCRIT",
           },
         ],
         detalle:
-          "Tres diseños de cara vista para vereda, patio y galería. Antideslizante y de junta pareja.",
-        articulo: "de las",
-        variantes: ["Diseño ondas", "Diseño rombos", "Diseño liso"],
-      },
-      {
-        slug: "bloques",
-        nombre: "Bloques de concreto",
-        // Sin foto todavía: la ficha muestra el panel de marca.
-        fotos: [],
-        detalle:
-          "El bloque que reemplaza al ladrillo: medida pareja, junta fina y muro derecho sin revoque grueso.",
+          "El adoquín que reemplaza al piso vertido: se encastra sobre arena, aguanta el tránsito y se levanta para reparar.",
         articulo: "de los",
-        variantes: ["Varias medidas"],
+        variantes: ["Patios", "Accesos", "Estacionamientos"],
       },
       {
         slug: "piso-ecologico",
@@ -324,15 +328,24 @@ export const secciones: SeccionProducto[] = [
             src: "/assets/producto-caja-registro-03.jpg",
             alt: "Cajas de registro de concreto CONCRIT listas para entregar",
           },
-          {
-            src: "/assets/producto-caja-registro-04.jpg",
-            alt: "Tapa de registro de concreto CONCRIT",
-          },
         ],
         detalle:
           "Para agua y desagüe, en las medidas de loteo y vivienda. Cuerpo macizo y tapa incluida.",
         articulo: "de las",
         variantes: ["Agua", "Desagüe", "Con tapa"],
+      },
+      {
+        slug: "tapa-registro",
+        nombre: "Tapa de registro 40x40",
+        fotos: [
+          {
+            src: "/assets/producto-tapa-registro-01.jpg",
+            alt: "Tapa de registro de concreto CONCRIT de 40x40",
+          },
+        ],
+        detalle:
+          "Tapa maciza de 40x40 con agarre central. Repuesto directo para cámaras y registros existentes.",
+        articulo: "de la",
       },
       {
         slug: "cajas-electricas",
