@@ -93,7 +93,7 @@ export default function Lineas() {
     <section id="lineas" className="bg-bone-2 py-[clamp(72px,10vw,120px)]">
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
         <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-          02 — Nuestras líneas
+          01 — Nuestras líneas
         </div>
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px]">
           Tres frentes, una sola fábrica

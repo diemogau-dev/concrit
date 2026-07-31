@@ -11,8 +11,12 @@
  *              scripts/publicar-fotos.mjs, así ninguna pieza sale cortada.
  *              Lista vacía = la ficha muestra el panel de marca "foto en
  *              camino", que queda prolijo hasta que haya una foto buena.
- * • `detalle`  descripción corta: dos renglones, no más. Es una tienda, no
- *              una ficha técnica — el resto se conversa por WhatsApp.
+ * • `detalle`  la única descripción de la ficha: foto, título, `detalle` y
+ *              botón, nada más — no hay chips de variantes ni de medidas.
+ *              Apuntá a 3 renglones (unas 150-170 letras): ahí es donde se
+ *              cuentan las medidas, diseños o variantes de ese producto, para
+ *              que todas las fichas queden del mismo alto. El resto se
+ *              conversa por WhatsApp.
  * • `precio`   OPCIONAL. Mientras esté vacío (o sin la clave) la ficha muestra
  *              sólo el botón. Si algún día se completa, ej: precio:
  *              "Gs. 850.000", la ficha lo muestra automáticamente.
@@ -47,8 +51,6 @@ export type Producto = {
   waMensaje?: string;
   /** Texto del botón. Default: "Comprar por WhatsApp". */
   ctaText?: string;
-  /** Chips de variantes/medidas que se listan debajo de la descripción. */
-  variantes?: string[];
 };
 
 export type SeccionProducto = {
@@ -86,7 +88,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Batea maciza con borde reforzado y tapón de descarga. Se apoya en el terreno y no se toca más.",
+          "Batea maciza con borde reforzado y tapón de descarga para vaciar y limpiar sin bomba. Se apoya en el terreno nivelado y no se toca más.",
         articulo: "del",
       },
       {
@@ -103,7 +105,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Bordes redondeados, sin filos que lastimen. Pesa lo suficiente para que el animal no lo mueva.",
+          "Bordes redondeados, sin filos que lastimen. Pesa lo suficiente para que el animal no lo mueva ni lo dé vuelta a empujones.",
         articulo: "del",
       },
       {
@@ -124,9 +126,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Premoldeados con armadura interna y perforaciones hechas. No los come la termita ni se pudren.",
+          "Premoldeados con armadura interna, esquineros e intermedios, con las perforaciones ya hechas. No los come la termita ni se pudren enterrados.",
         articulo: "de los",
-        variantes: ["Esquineros", "Intermedios"],
       },
       {
         slug: "tanques-australianos",
@@ -146,9 +147,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Se arma con placas en el lugar, del diámetro que necesites. No se abolla ni se oxida como la chapa.",
+          "Se arma con placas en el lugar, en el diámetro que necesites y con montaje incluido. No se abolla ni se oxida como la chapa.",
         articulo: "del",
-        variantes: ["Varios diámetros", "Montaje incluido"],
       },
     ],
   },
@@ -177,17 +177,10 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Macizas y a escuadra, con una cara texturada para muro y una lisa para vereda o fachada.",
+          "Macizas y a escuadra: cuadradas, rectangulares o con caída para techo, en la medida que necesites. Una cara texturada para muro y una lisa para vereda o fachada.",
         articulo: "de las",
         waMensaje: WA_MESSAGES.placas,
         ctaText: "Cotizar",
-        variantes: [
-          "Cuadradas",
-          "Rectangulares",
-          "Con caída para techo",
-          "Dinteles",
-          "Medida a pedido",
-        ],
       },
       {
         slug: "vigas",
@@ -207,9 +200,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Premoldeadas con armadura calculada, para techos y entrepisos. Se izan y se apoyan en el día.",
+          "Vigas, tirantes y viguetas premoldeados con armadura calculada, para techos y entrepisos. Se izan y se apoyan en el día, sin encofrar.",
         articulo: "de las",
-        variantes: ["Vigas", "Tirantes", "Viguetas"],
       },
       {
         slug: "camineros",
@@ -229,7 +221,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Sendas de placa lisa para patio, quinta y acceso. Se colocan sobre el terreno, sin hormigonar.",
+          "Sendas de placa lisa para patio, quinta y acceso. Se colocan directo sobre el terreno nivelado, sin hormigonar ni esperar fragüe.",
         articulo: "de los",
       },
       {
@@ -250,7 +242,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Vereda pareja y derecha de punta a punta, con la cara lisa a la vista. Se camina el mismo día.",
+          "Vereda pareja y derecha de punta a punta, con la cara lisa a la vista y la junta prolija. Se camina el mismo día de colocada.",
         articulo: "de las",
       },
       {
@@ -267,9 +259,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Distintos diseños de cara vista para vereda, patio y galería. Antideslizante y de junta pareja.",
+          "Dos diseños de cara vista, ondas y rombos, para vereda, patio y galería. Antideslizante y de junta pareja en toda la superficie.",
         articulo: "de las",
-        variantes: ["Diseño ondas", "Diseño rombos"],
       },
       {
         slug: "paver",
@@ -285,9 +276,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "El adoquín que reemplaza al piso vertido: se encastra sobre arena, aguanta el tránsito y se levanta para reparar.",
+          "El adoquín que reemplaza al piso vertido, para patios, accesos y estacionamientos. Se encastra sobre arena, aguanta el tránsito y se levanta para reparar.",
         articulo: "de los",
-        variantes: ["Patios", "Accesos", "Estacionamientos"],
       },
       {
         slug: "piso-ecologico",
@@ -303,9 +293,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Bloque calado que deja pasar el agua. Se rellena con césped o piedra y queda firme para pisar.",
+          "Bloque calado que deja pasar el agua al terreno. Se rellena con césped o piedra y queda firme para estacionamientos, accesos y playones.",
         articulo: "del",
-        variantes: ["Estacionamientos", "Accesos", "Playones"],
       },
     ],
   },
@@ -334,9 +323,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Para agua y desagüe, en las medidas de loteo y vivienda. Cuerpo macizo y tapa incluida.",
+          "Para agua y desagüe, en las medidas de loteo y vivienda. Cuerpo macizo con tapa de concreto incluida, lista para colocar.",
         articulo: "de las",
-        variantes: ["Agua", "Desagüe", "Con tapa"],
       },
       {
         slug: "tapa-registro",
@@ -348,7 +336,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Tapa maciza de 40x40 con agarre central. Repuesto directo para cámaras y registros existentes.",
+          "Tapa maciza de 40x40 con agarre central. Repuesto directo para cámaras y registros existentes, sin cambiar el conjunto completo.",
         articulo: "de la",
       },
       {
@@ -361,7 +349,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Cámaras de paso para tendido subterráneo, con las entradas de caño previstas y tapa registrable.",
+          "Cámaras de paso para tendido eléctrico subterráneo, con las entradas de caño previstas. Concreto macizo que protege el cable y tapa registrable para inspección.",
         articulo: "de las",
       },
       {
@@ -374,7 +362,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Premoldeado en tramos parejos: la línea queda derecha y se coloca en el día, sin encofrado.",
+          "Premoldeado en tramos parejos, la línea queda derecha de punta a punta. Se coloca en el día, sin encofrado, y el canto no se despostilla con el roce de la rueda.",
         articulo: "del",
       },
       {
@@ -395,9 +383,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Caños para cruce de camino y canal de desagüe. Junta encastrada y varios diámetros.",
+          "Caños para cruce de camino y canal de desagüe, en varios diámetros. Junta encastrada para que el agua no socave el relleno.",
         articulo: "de las",
-        variantes: ["Varios diámetros"],
       },
       {
         slug: "alcantarillas-celulares",
@@ -409,9 +396,8 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Sección rectangular para cuando el caudal no entra en un caño o la tapada es baja.",
+          "Sección rectangular para cuando el caudal no entra en un caño o la tapada es baja. Medida y luz según cada proyecto.",
         articulo: "de las",
-        variantes: ["Medida según proyecto"],
       },
     ],
   },

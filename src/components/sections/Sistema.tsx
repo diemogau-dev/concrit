@@ -186,7 +186,9 @@ export default function Sistema({
         <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mt-[54px] mb-[26px]">
           De la planta a la llave
         </div>
-        <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
+
+        {/* Desktop / tablet: grilla fija con los 4 pasos */}
+        <div className="hidden md:grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
           {STEPS.map((s) => (
             <div key={s.n} className="bg-bone flex flex-col">
               <Lightbox src={s.img} alt={s.alt} width={s.w} height={s.h}>
@@ -195,7 +197,7 @@ export default function Sistema({
                     src={s.img}
                     alt={s.alt}
                     fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
+                    sizes="25vw"
                     className="object-cover [filter:contrast(1.04)_saturate(.94)]"
                   />
                 </div>
@@ -208,6 +210,41 @@ export default function Sistema({
                   {s.title}
                 </div>
                 <p className="font-barlow font-normal text-[15px] leading-[1.5] text-gray-warm-4 m-0">
+                  {s.body}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: los mismos 4 pasos, en tira horizontal por swipe en vez
+            de apilados. La tarjeta siguiente se asoma a la derecha para
+            que se note que se puede deslizar. */}
+        <div className="md:hidden -mx-[18px] px-[18px] flex gap-[10px] overflow-x-auto snap-x snap-mandatory pb-[4px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {STEPS.map((s) => (
+            <div
+              key={s.n}
+              className="snap-start shrink-0 w-[78%] bg-bone border border-gray-warm-2 flex flex-col"
+            >
+              <Lightbox src={s.img} alt={s.alt} width={s.w} height={s.h}>
+                <div className="relative h-[180px]">
+                  <Image
+                    src={s.img}
+                    alt={s.alt}
+                    fill
+                    sizes="78vw"
+                    className="object-cover [filter:contrast(1.04)_saturate(.94)]"
+                  />
+                </div>
+              </Lightbox>
+              <div className="pt-[18px] px-[18px] pb-[20px] flex flex-col gap-[6px] flex-1">
+                <span className="font-anton font-normal text-[26px] leading-[0.8] text-gray-warm-1">
+                  {s.n}
+                </span>
+                <div className="font-condensed font-bold text-[15px] leading-[1.2] tracking-[.04em] uppercase text-concrete-dark">
+                  {s.title}
+                </div>
+                <p className="font-barlow font-normal text-[14px] leading-[1.45] text-gray-warm-4 m-0">
                   {s.body}
                 </p>
               </div>

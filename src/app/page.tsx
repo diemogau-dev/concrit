@@ -16,8 +16,8 @@ export default function Home() {
       <main id="top" className="bg-bone [overflow-x:clip]">
         <Hero />
         <Credentials />
-        <Ventajas />
         <Lineas />
+        <Ventajas />
         <Sistema />
         <CtaFinal />
         <Ubicacion />
