@@ -134,11 +134,11 @@ export const secciones: SeccionProducto[] = [
         fotos: [
           {
             src: "/assets/producto-tanque-01.jpg",
-            alt: "Tanque australiano de concreto CONCRIT para reserva de agua en el campo",
+            alt: "Tanque australiano armado con placas de concreto CONCRIT, terminado y en uso en una estancia",
           },
           {
             src: "/assets/producto-tanque-02.jpg",
-            alt: "Tanque australiano de concreto CONCRIT terminado y en uso",
+            alt: "Tanque australiano de concreto CONCRIT visto por dentro",
           },
           {
             src: "/assets/producto-tanque-03.jpg",
@@ -146,7 +146,7 @@ export const secciones: SeccionProducto[] = [
           },
         ],
         detalle:
-          "Reserva de agua para el rodeo. No se abolla ni se oxida como la chapa y se arma en el lugar.",
+          "Se arma con placas en el lugar, del diámetro que necesites. No se abolla ni se oxida como la chapa.",
         articulo: "del",
         variantes: ["Varios diámetros", "Montaje incluido"],
       },
@@ -324,6 +324,10 @@ export const secciones: SeccionProducto[] = [
             src: "/assets/producto-caja-registro-03.jpg",
             alt: "Cajas de registro de concreto CONCRIT listas para entregar",
           },
+          {
+            src: "/assets/producto-caja-registro-04.jpg",
+            alt: "Tapa de registro de concreto CONCRIT",
+          },
         ],
         detalle:
           "Para agua y desagüe, en las medidas de loteo y vivienda. Cuerpo macizo y tapa incluida.",
@@ -346,8 +350,12 @@ export const secciones: SeccionProducto[] = [
       {
         slug: "cordon-vereda",
         nombre: "Cordón de vereda",
-        // Sin foto todavía: la ficha muestra el panel de marca.
-        fotos: [],
+        fotos: [
+          {
+            src: "/assets/producto-cordon-vereda-01.jpg",
+            alt: "Cordón de vereda premoldeado de concreto CONCRIT",
+          },
+        ],
         detalle:
           "Premoldeado en tramos parejos: la línea queda derecha y se coloca en el día, sin encofrado.",
         articulo: "del",

@@ -96,9 +96,12 @@ export function waProyecto(proyecto: string): string {
  */
 export const FABRICA = {
   ruta: "Ruta 9",
-  km: "",
+  km: "41",
   ciudad: "Villa Hayes",
   departamento: "Presidente Hayes, Paraguay",
+  /** Coordenadas del portón de la fábrica (las del pin de Google Maps). */
+  lat: -25.0508171,
+  lng: -57.5406853,
 } as const;
 
 /** "Ruta 9 · Km 40 · Villa Hayes" (el km sólo si está cargado). */
@@ -114,8 +117,9 @@ export const CONTACT = {
   email: "hola@concrit.py",
   instagramHandle: "@concrit.py",
   instagramUrl: "https://instagram.com/concrit.py",
-  // Link de Google Maps de la fábrica (Ruta 9, Villa Hayes).
-  mapsUrl: "https://maps.google.com/?q=Villa+Hayes+Ruta+9+Paraguay",
+  // Link del pin de Google Maps de la fábrica. Va por CID (el id del lugar),
+  // así el link sigue funcionando cuando cambie el nombre del negocio.
+  mapsUrl: "https://maps.google.com/?cid=17355232145209329111",
 } as const;
 
 // ─────────────────────────────────────────────────────────────
@@ -126,7 +130,7 @@ export const SITE = {
   url: "https://concrit.py",
   name: "CONCRIT",
   locale: "es_PY",
-  title: "CONCRIT · Prefabricados de hormigón en Paraguay | Ruta 9, Villa Hayes",
+  title: "CONCRIT · Prefabricados de hormigón en Paraguay | Ruta 9 Km 41, Villa Hayes",
   description:
-    "Prefabricados de concreto macizo para el campo, la industria y el hogar. Comederos y bebederos para ganado, obradores prefabricados, postes de hormigón y casas prefabricadas de hormigón en Paraguay. Fábrica sobre la Ruta 9, Villa Hayes, la puerta del Chaco. Precio cerrado y montaje incluido.",
+    "Prefabricados de concreto macizo para el campo, la industria y el hogar. Comederos y bebederos para ganado, obradores prefabricados, postes de hormigón y casas prefabricadas de hormigón en Paraguay. Fábrica sobre la Ruta 9 Km 41, Villa Hayes. Precio cerrado y montaje incluido.",
 } as const;

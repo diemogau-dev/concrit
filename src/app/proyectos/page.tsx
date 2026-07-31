@@ -15,7 +15,7 @@ import { tiposDeObra, proceso } from "@/lib/proyectos";
 export const metadata: Metadata = {
   title: "Proyectos y sistema constructivo | CONCRIT",
   description:
-    "Cómo construimos con prefabricados de concreto: placas macizas, pilares metálicos y uniones atornilladas, paso a paso de la planta a la llave. Más de 100 obras entregadas en Paraguay: obradores, galpones, depósitos y casas prefabricadas llave en mano. Fábrica sobre la Ruta 9, Villa Hayes.",
+    "Cómo construimos con prefabricados de concreto: placas macizas, pilares metálicos y uniones atornilladas, paso a paso de la planta a la llave. Más de 100 obras entregadas en Paraguay: obradores, galpones, depósitos y casas prefabricadas llave en mano. Fábrica sobre la Ruta 9 Km 41, Villa Hayes.",
   alternates: { canonical: "/proyectos" },
   openGraph: {
     type: "website",

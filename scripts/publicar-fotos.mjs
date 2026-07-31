@@ -72,8 +72,9 @@ const MAP = [
   { src: "IMG_3750.jpeg", out: "producto-postes-01.jpg", w: 1000, h: 1000 },
   { src: "IMG_3751.jpeg", out: "producto-postes-02.jpg", w: 1000, h: 1000 },
   { src: "c4715667-23dd-4bfa-86e6-0f1d80ffd6d2.jpeg", out: "producto-postes-03.jpg", w: 1000, h: 1000 },
-  { src: "68dc357f-999f-4dd1-b510-af3938fe7291.jpeg", out: "producto-tanque-01.jpg", w: 1000, h: 1000 },
-  { src: "a8c9f003-d36b-4c04-80d9-74e229a85153.jpeg", out: "producto-tanque-02.jpg", w: 581, h: 581 },
+  // Tanque australiano: primero el armado con placas, terminado y en uso.
+  { src: "c60c7779-08cd-42c3-a2c4-324732577a10.JPG", out: "producto-tanque-01.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "68dc357f-999f-4dd1-b510-af3938fe7291.jpeg", out: "producto-tanque-02.jpg", w: 1000, h: 1000 },
   { src: "IMG_3534.jpeg", out: "producto-tanque-03.jpg", w: 1000, h: 1000 },
 
   // Construcción y arquitectura
@@ -100,10 +101,12 @@ const MAP = [
   { src: "3919c3d4-ed47-424f-adb5-f28cc7dedfe1.jpeg", out: "producto-caja-registro-01.jpg", w: 1000, h: 1000, pos: "attention" },
   { src: "5b8076fd-106c-4358-bee5-c877070a51a0.jpeg", out: "producto-caja-registro-02.jpg", w: 960, h: 960 },
   { src: "b04d451b-4c10-40f3-bca4-5112a1a2d7b6.jpeg", out: "producto-caja-registro-03.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "tapa de registro.webp", out: "producto-caja-registro-04.jpg", w: 600, h: 600 },
   { src: "8c193067-3c6c-418f-82ca-9db23bd2acb8.jpeg", out: "producto-caja-electrica-01.jpg", w: 1000, h: 1000, pos: "attention" },
-  { src: "IMG_3850.webp", out: "producto-alcantarilla-tubular-01.jpg", w: 800, h: 800 },
-  { src: "IMG_3851.jpeg", out: "producto-alcantarilla-tubular-02.jpg", w: 413, h: 413 },
-  { src: "725a7560-c925-4b62-af31-8157512cc70b.jpeg", out: "producto-alcantarilla-tubular-03.jpg", w: 502, h: 502, pos: "bottom" },
+  { src: "cordon de vereda.jpeg", out: "producto-cordon-vereda-01.jpg", w: 514, h: 514 },
+  { src: "IMG_3850.WEBP", out: "producto-alcantarilla-tubular-01.jpg", w: 800, h: 800 },
+  { src: "IMG_3851.JPG", out: "producto-alcantarilla-tubular-02.jpg", w: 413, h: 413 },
+  { src: "725a7560-c925-4b62-af31-8157512cc70b.JPG", out: "producto-alcantarilla-tubular-03.jpg", w: 502, h: 502, pos: "bottom" },
   { src: "IMG_3849.jpeg", out: "producto-alcantarilla-celular-01.jpg", w: 600, h: 600 },
 
   // ── /proyectos ──────────────────────────────────────────────────────
@@ -122,7 +125,6 @@ const MAP = [
   { src: "ec9dd00e-2561-42de-97c5-2876a7fea4bb.jpeg", out: "proceso-piso.jpg", w: 1200, h: 900, pos: "attention" },
   { src: "cd203541-bd98-45b6-96d4-93da2a7c1154.jpeg", out: "proceso-pintura.jpg", w: 1200, h: 900, pos: "attention" },
   { src: "IMG_3534.jpeg", out: "proceso-tanque.jpg", w: 1200, h: 900 },
-  { src: "725a7560-c925-4b62-af31-8157512cc70b.jpeg", out: "proceso-izaje.jpg", w: 1200, h: 900, pos: "attention" },
   { src: "da569478-c0d0-44ec-92e3-a1aadbd12892.jpeg", out: "proceso-aerea.jpg", w: 1600, h: 900 },
 ];
 

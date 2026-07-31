@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/assets/hero-obrador.jpg"
-          alt="Obrador prefabricado de concreto macizo CONCRIT sobre la Ruta 9, Villa Hayes, Paraguay"
+          alt="Obrador prefabricado de concreto macizo CONCRIT sobre la Ruta 9 Km 41, Villa Hayes, Paraguay"
           fill
           priority
           sizes="100vw"

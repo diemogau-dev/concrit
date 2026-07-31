@@ -38,7 +38,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Cuánto hace que están fabricando?",
-    a: "Diez años produciendo concreto sobre la Ruta 9, con más de 100 proyectos entregados. Fábrica, moldes, flota y equipo de montaje propios: lo que te vendemos lo hacemos nosotros, no lo tercerizamos.",
+    a: "Diez años produciendo concreto sobre la Ruta 9, en el Km 41, con más de 100 proyectos entregados. Fábrica, moldes, flota y equipo de montaje propios: lo que te vendemos lo hacemos nosotros, no lo tercerizamos.",
   },
   {
     q: "¿Ofrecen financiamiento para vivienda?",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Barlow, Barlow_Semi_Condensed } from "next/font/google";
-import { SITE, WHATSAPP_DISPLAY, CONTACT } from "@/lib/config";
+import { SITE, WHATSAPP_DISPLAY, CONTACT, FABRICA } from "@/lib/config";
 import "./globals.css";
 
 const anton = Anton({
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: "/assets/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "CONCRIT · Prefabricados de concreto macizo · Ruta 9, Villa Hayes, Paraguay",
+        alt: "CONCRIT · Prefabricados de concreto macizo · Ruta 9 Km 41, Villa Hayes, Paraguay",
       },
     ],
   },
@@ -85,11 +85,17 @@ const jsonLd = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ruta 9 Km 32",
-    addressLocality: "Villa Hayes",
+    streetAddress: `${FABRICA.ruta} Km ${FABRICA.km}`,
+    addressLocality: FABRICA.ciudad,
     addressRegion: "Presidente Hayes",
     addressCountry: "PY",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: FABRICA.lat,
+    longitude: FABRICA.lng,
+  },
+  hasMap: CONTACT.mapsUrl,
   areaServed: [
     { "@type": "Country", name: "Paraguay" },
     { "@type": "Place", name: "Chaco" },
