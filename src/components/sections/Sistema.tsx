@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { terminaciones } from "@/lib/content";
 import Lightbox from "@/components/Lightbox";
+import SectionHeader from "@/components/SectionHeader";
+import LlaveEnMano from "./LlaveEnMano";
 
 const COMPONENTS = [
   {
@@ -84,28 +85,54 @@ const BENEFITS = [
   },
 ];
 
-export default function Sistema() {
+type Props = {
+  /** Línea chica de arriba. En la home lleva el número de sección. */
+  eyebrow?: string;
+  /**
+   * Incluir el bloque "Llave en mano" acá adentro. En /proyectos va como
+   * sección aparte, más abajo, así que se apaga.
+   */
+  conLlaveEnMano?: boolean;
+  /**
+   * Modo compacto: encabezado de una línea, sin titular grande ni bajada.
+   * Lo usa /proyectos, donde el hero de la página ya cuenta lo mismo.
+   */
+  compacto?: { n: string; titulo: string };
+};
+
+export default function Sistema({
+  eyebrow = "03 — El sistema constructivo",
+  conLlaveEnMano = true,
+  compacto,
+}: Props = {}) {
   return (
     <section
       id="sistema"
-      className="bg-bone py-[clamp(72px,10vw,120px)] border-t border-bone-3"
+      className="bg-bone border-t border-bone-3 scroll-mt-[74px] py-[clamp(60px,8vw,110px)]"
     >
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-        <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
-          03 — El sistema constructivo
-        </div>
-        <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
-          Se arma encastrando. Sin encofrado y sin esperar.
-        </h2>
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
-          Fabricamos las <strong className="text-concrete-dark">placas</strong>,
-          los <strong className="text-concrete-dark">pilares</strong> y las{" "}
-          <strong className="text-concrete-dark">uniones</strong> en planta. En
-          obra encastran uno con otro y se traban con tornillos pasantes. No hay
-          que encofrar, no hay que esperar que fragüe en el terreno y no hay que
-          llevar una cuadrilla grande al medio del campo. Llega, se arma y queda
-          para toda la vida.
-        </p>
+        {compacto ? (
+          <SectionHeader n={compacto.n} titulo={compacto.titulo} />
+        ) : (
+          <>
+            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mb-[14px]">
+              {eyebrow}
+            </div>
+            <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
+              Se arma encastrando. Sin encofrado y sin esperar.
+            </h2>
+            <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
+              Fabricamos las{" "}
+              <strong className="text-concrete-dark">placas</strong>, los{" "}
+              <strong className="text-concrete-dark">pilares</strong> y las{" "}
+              <strong className="text-concrete-dark">uniones</strong> en planta.
+              En obra encastran uno con otro y se traban con tornillos pasantes.
+              No hay que encofrar, no hay que esperar que fragüe en el terreno y
+              no hay que llevar una cuadrilla grande al medio del campo. Llega,
+              se arma y queda para toda la vida.
+            </p>
+          </>
+        )}
 
         {/* Featured: unión + componentes */}
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2 mb-[22px]">
@@ -115,7 +142,7 @@ export default function Sistema() {
               alt="Detalle de la unión con tornillo pasante que traba una placa con un pilar de hormigón"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover [filter:grayscale(1)_contrast(1.05)]"
+              className="object-cover [filter:contrast(1.04)_saturate(.94)]"
             />
             <div className="absolute left-0 bottom-0 bg-concrete-dark py-[14px] px-[18px]">
               <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive-light">
@@ -166,7 +193,7 @@ export default function Sistema() {
                     alt={s.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover [filter:grayscale(1)_contrast(1.04)]"
+                    className="object-cover [filter:contrast(1.04)_saturate(.94)]"
                   />
                 </div>
               </Lightbox>
@@ -186,42 +213,7 @@ export default function Sistema() {
         </div>
 
         {/* Llave en mano */}
-        <div className="mt-[22px] grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-4c border border-gray-warm-4c">
-          <div className="bg-concrete-dark p-[clamp(30px,4vw,50px)] flex flex-col justify-center">
-            <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.18em] uppercase text-olive-light mb-[14px]">
-              Llave en mano
-            </span>
-            <h3 className="font-anton font-normal text-[clamp(24px,3.2vw,40px)] leading-[1.05] uppercase text-bone mt-0 mb-[16px] max-w-[18ch]">
-              Te lo entregamos terminado, listo para usar
-            </h3>
-            <p className="font-barlow font-normal text-[clamp(15px,1.7vw,18px)] leading-[1.55] text-gray-warm-1 m-0 max-w-[52ch]">
-              No fabricamos solo la estructura y te dejamos el resto. Hacemos
-              también toda la terminación interior: instalación de agua,
-              instalación eléctrica, baños completos, azulejos, revestimientos,
-              aberturas, apliques y detalles de terminación. Entrás y ya podés
-              vivir o producir. Un solo responsable de principio a fin, un solo
-              presupuesto y una sola fecha de entrega.
-            </p>
-          </div>
-          <div className="bg-concrete-dark p-[clamp(30px,4vw,50px)] flex flex-col justify-center gap-px">
-            <div className="font-condensed font-extrabold text-[11px] leading-none tracking-[.18em] uppercase text-olive-light mb-[18px]">
-              Incluye
-            </div>
-            {terminaciones.map((t) => (
-              <div
-                key={t}
-                className="flex items-center gap-[14px] py-[13px] border-t border-[rgba(242,241,237,.13)]"
-              >
-                <span className="font-anton font-normal text-[18px] leading-none text-olive flex-none">
-                  ✓
-                </span>
-                <span className="font-barlow font-normal text-[16px] leading-[1.35] text-bone-soft">
-                  {t}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        {conLlaveEnMano ? <LlaveEnMano className="mt-[22px]" /> : null}
 
         {/* Cuatro ventajas del sistema */}
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))] gap-px bg-concrete-dark border border-concrete-dark mt-[22px]">

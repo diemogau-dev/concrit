@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { wa } from "@/lib/config";
+import { WhatsAppIcon } from "../icons";
 
 type Chip = { label: string; className?: string };
 
@@ -114,7 +115,7 @@ export default function Lineas() {
                   alt={l.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover [filter:grayscale(1)_contrast(1.03)]"
+                  className="object-cover [filter:contrast(1.04)_saturate(.94)]"
                 />
               </div>
               <div
@@ -154,6 +155,18 @@ export default function Lineas() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-[34px]">
+          <a
+            href={wa.representante}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-[10px] bg-concrete-dark text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-gray-warm-4c"
+          >
+            <WhatsAppIcon size={17} fill="#F2F1ED" />
+            Hablar con un representante de CONCRIT
+          </a>
         </div>
       </div>
     </section>

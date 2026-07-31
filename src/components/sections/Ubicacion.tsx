@@ -25,9 +25,10 @@ export default function Ubicacion() {
           {/* Columna izquierda */}
           <div className="bg-concrete-dark p-[clamp(30px,4vw,54px)] flex flex-col">
             <p className="font-barlow font-normal text-[clamp(18px,2.1vw,23px)] leading-[1.5] text-bone-soft mt-0 mb-[30px] max-w-[44ch]">
-              No estamos en Asunción esperando que vengas. Estamos parados sobre
-              el <strong className="text-white">corredor bioceánico</strong>, en
-              la puerta del Chaco. Eso no es dato de folleto: es{" "}
+              Estamos parados sobre el{" "}
+              <strong className="text-white">corredor bioceánico</strong>,
+              camino al Chaco, sobre la ruta por donde pasa todo lo que entra y
+              sale del norte. Eso no es dato de folleto: es{" "}
               <strong className="text-olive-light">
                 flete más corto y más barato
               </strong>{" "}

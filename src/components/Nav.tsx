@@ -1,18 +1,62 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { wa } from "@/lib/config";
 import { WhatsAppIcon } from "./icons";
 
-const LINKS = [
-  { href: "#ventajas", label: "Ventajas" },
-  { href: "#lineas", label: "Líneas" },
-  { href: "#sistema", label: "El sistema" },
-  { href: "#ubicacion", label: "Ubicación" },
+/**
+ * `hash` = ancla dentro de la home. Desde una página interna el link tiene que
+ * llevar el "/" adelante para volver primero a la home.
+ * `href` = ruta propia, se usa tal cual desde cualquier lado.
+ */
+type NavItem = { label: string; hash?: string; href?: string };
+
+const LINKS: NavItem[] = [
+  { hash: "#lineas", label: "Rubros" },
+  { href: "/productos", label: "Productos" },
+  { href: "/proyectos", label: "Proyectos" },
+  { hash: "#sistema", label: "Nuestro sistema" },
 ];
+
+/**
+ * Ancla pura (`#algo`) va con <a> para no perder el scroll suave de la home.
+ * Cualquier ruta interna va con <Link> para navegar sin recargar.
+ */
+function NavLink({
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  href: string;
+  className: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={className} onClick={onClick}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const enHome = pathname === "/";
+
+  /** En la home el ancla queda relativa (scroll suave); afuera vuelve a "/". */
+  const linkHref = (l: NavItem) =>
+    l.href ?? (enHome ? l.hash! : `/${l.hash}`);
 
   // Cerrar con Escape.
   useEffect(() => {
@@ -27,23 +71,23 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-[rgba(30,29,26,.94)] backdrop-blur-[10px] border-b border-[rgba(255,255,255,.09)]">
       <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)] min-h-[66px] flex items-center justify-between gap-[14px] flex-wrap">
-        <a
-          href="#top"
+        <NavLink
+          href={enHome ? "#top" : "/"}
           className="font-anton font-normal text-[27px] leading-none uppercase tracking-[.02em] text-bone-soft"
         >
           CONCRIT
-        </a>
+        </NavLink>
 
-        {/* Navegación desktop — idéntica al original */}
+        {/* Navegación desktop */}
         <nav className="hidden md:flex items-center gap-[clamp(14px,2.4vw,28px)] flex-wrap">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <NavLink
+              key={l.label}
+              href={linkHref(l)}
               className="font-condensed font-semibold text-[12px] leading-none tracking-[.14em] uppercase text-gray-warm-1"
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
           <a
             href={wa.general}
@@ -52,7 +96,7 @@ export default function Nav() {
             className="inline-flex items-center gap-[8px] bg-olive text-bone font-condensed font-extrabold text-[12px] leading-none tracking-[.12em] uppercase px-[18px] py-[12px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={15} fill="#F2F1ED" />
-            Pedir presupuesto
+            Solicitar presupuesto
           </a>
         </nav>
 
@@ -92,14 +136,14 @@ export default function Nav() {
       >
         <div className="px-[clamp(18px,5vw,72px)] py-2 flex flex-col">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <NavLink
+              key={l.label}
+              href={linkHref(l)}
               onClick={() => setOpen(false)}
               className="font-condensed font-semibold text-[14px] leading-none tracking-[.14em] uppercase text-gray-warm-1 py-4 border-b border-[rgba(255,255,255,.07)]"
             >
               {l.label}
-            </a>
+            </NavLink>
           ))}
           <a
             href={wa.general}
@@ -109,7 +153,7 @@ export default function Nav() {
             className="mt-4 mb-2 inline-flex items-center justify-center gap-[8px] bg-olive text-bone font-condensed font-extrabold text-[13px] leading-none tracking-[.12em] uppercase px-[18px] py-[15px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={16} fill="#F2F1ED" />
-            Pedir presupuesto
+            Solicitar presupuesto
           </a>
         </div>
       </nav>
