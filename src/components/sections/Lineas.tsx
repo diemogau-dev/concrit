@@ -29,7 +29,7 @@ const LINEAS: Linea[] = [
     tagColor: "text-olive",
     border: "border-olive",
     img: "/assets/campo-bebedero.jpg",
-    alt: "Bebedero de concreto macizo CONCRIT para ganado en una estancia del Chaco paraguayo",
+    alt: "Fila de bebederos de concreto macizo CONCRIT instalados y con agua en una estancia del Chaco paraguayo",
     subtitle: "Lo que el campo no perdona, el concreto lo aguanta",
     body: "El animal empuja, el sol raja y el agua pudre. Nuestros comederos, bebederos y tanques están hechos para eso: se instalan y no se tocan más. Ya trabajan en cientos de estancias del país.",
     chips: [
@@ -49,7 +49,7 @@ const LINEAS: Linea[] = [
     tagColor: "text-gray-warm-4b",
     border: "border-gray-warm-4b",
     img: "/assets/obra-blanco.jpg",
-    alt: "Obrador prefabricado de hormigón CONCRIT montado en una obra industrial",
+    alt: "Obrador prefabricado de hormigón CONCRIT terminado, con sus pilares colorados y el depósito abierto",
     subtitle: "Tu obra avanza sin esperar a nadie",
     body: "Obradores, galpones y depósitos con precio cerrado y fecha comprometida. Llegan fabricados, se montan en semanas y tu cronograma no se mueve.",
     chips: [

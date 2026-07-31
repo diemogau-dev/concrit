@@ -16,6 +16,8 @@ type Props = {
   /** Foto de fondo opcional. */
   img?: string;
   imgAlt?: string;
+  /** Foto de fondo en blanco y negro, para que el titular pese más que la foto. */
+  bw?: boolean;
   /** Botones, chips o cualquier cosa que vaya debajo de la bajada. */
   children?: React.ReactNode;
 };
@@ -26,6 +28,7 @@ export default function PageHero({
   lead,
   img,
   imgAlt,
+  bw = false,
   children,
 }: Props) {
   return (
@@ -39,7 +42,11 @@ export default function PageHero({
               fill
               priority
               sizes="100vw"
-              className="object-cover [filter:contrast(1.04)_saturate(1.1)_brightness(.9)]"
+              className={
+                bw
+                  ? "object-cover [filter:grayscale(1)_contrast(1.05)_brightness(.82)]"
+                  : "object-cover [filter:contrast(1.04)_saturate(1.1)_brightness(.9)]"
+              }
             />
           </div>
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(125%_110%_at_8%_88%,rgba(18,17,15,.93)_0%,rgba(18,17,15,.66)_34%,rgba(18,17,15,.18)_64%,rgba(18,17,15,0)_80%)]" />

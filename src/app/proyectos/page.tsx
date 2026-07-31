@@ -39,7 +39,8 @@ export default function ProyectosPage() {
           title="Se arma encastrando y se entrega terminado"
           lead="Placas, pilares y uniones que salen de planta y encastran en el terreno. Sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas, montados en semanas."
           img="/assets/hero-proyectos.jpg"
-          imgAlt="Obrador de concreto prefabricado CONCRIT terminado y en uso"
+          imgAlt="Obrador de concreto prefabricado CONCRIT terminado, con sus pilares colorados y el depósito abierto"
+          bw
         >
           <a
             href={wa.presupuestoObra}

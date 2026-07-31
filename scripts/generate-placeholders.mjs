@@ -28,10 +28,10 @@ const slots = [
   { name: "obra-blanco.jpg", w: 900, h: 640, bg: CONCRETE },
   { name: "v-hogar.jpg", w: 900, h: 640, bg: CONCRETE },
   { name: "sistema-union.jpg", w: 900, h: 1100, bg: CONCRETE_DARK },
-  { name: "sistema-pilares.jpg", w: 900, h: 560, bg: CONCRETE },
-  { name: "sistema-placas.jpg", w: 900, h: 560, bg: CONCRETE },
-  { name: "sistema-muros.jpg", w: 900, h: 560, bg: CONCRETE },
-  { name: "sistema-techo.jpg", w: 900, h: 560, bg: CONCRETE },
+  { name: "sistema-01-placas.jpg", w: 900, h: 600, bg: CONCRETE },
+  { name: "sistema-02-paredes.jpg", w: 900, h: 600, bg: CONCRETE },
+  { name: "sistema-03-techo.jpg", w: 900, h: 600, bg: CONCRETE },
+  { name: "sistema-04-obrador.jpg", w: 900, h: 600, bg: CONCRETE },
 
   // Catálogo (/productos) — las rutas viven en src/lib/productos.ts
   { name: "producto-bebedero.jpg", w: 900, h: 640, bg: CONCRETE },

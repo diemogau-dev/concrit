@@ -37,17 +37,19 @@ const MAP = [
   // atrás y cielo abierto a la izquierda, que es donde se apoya el texto.
   { src: "d1fe31ee-1648-4c94-8394-682be3ac0620.jpeg", out: "hero-obrador.jpg", w: 1600, h: 900 },
 
-  // Tarjetas de rubros
-  { src: "b7d5c08b-9268-4f4d-aeb2-8c9105c8731e.jpeg", out: "campo-bebedero.jpg", w: 1200, h: 750 },
-  { src: "b4d8f22a-af44-42c0-b447-3c741377df36.jpeg", out: "obra-blanco.jpg", w: 1200, h: 750 },
+  // Tarjetas de rubros.
+  // Campo: la fila de bebederos en la estancia, con el agua adentro.
+  { src: "a4356916-4ae5-44eb-a88c-da155a6a404d.jpeg", out: "campo-bebedero.jpg", w: 1200, h: 750 },
+  // Obra: el mismo obrador terminado que abre /proyectos.
+  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "obra-blanco.jpg", w: 1200, h: 750 },
   { src: "8a42b7d4-fcc4-4492-9c25-a705581a51a8.jpeg", out: "v-hogar.jpg", w: 1200, h: 750 },
 
-  // Sistema constructivo: la unión y los cuatro pasos de obra
+  // Sistema constructivo: la unión y los cuatro pasos, de la planta a la llave
   { src: "b8548e59-3115-4c05-b004-579e7b7d39fa.jpeg", out: "sistema-union.jpg", w: 900, h: 1100 },
-  { src: "41b5fca3-6a78-413d-b033-ae0086031ae1.jpeg", out: "sistema-pilares.jpg", w: 900, h: 600, pos: "bottom" },
-  { src: "fc3428d0-7062-48b8-a648-be9aaf4420c6.jpeg", out: "sistema-placas.jpg", w: 900, h: 600 },
-  { src: "5b479a53-60a5-421b-83e6-091256b36c75.jpeg", out: "sistema-muros.jpg", w: 900, h: 600 },
-  { src: "IMG_3533.jpeg", out: "sistema-techo.jpg", w: 900, h: 600 },
+  { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "sistema-01-placas.jpg", w: 900, h: 600 },
+  { src: "7b70b42a-dffa-43ae-afed-eb20362e7f04.jpeg", out: "sistema-02-paredes.jpg", w: 900, h: 600 },
+  { src: "fc3428d0-7062-48b8-a648-be9aaf4420c6.jpeg", out: "sistema-03-techo.jpg", w: 900, h: 600, pos: "top" },
+  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "sistema-04-obrador.jpg", w: 900, h: 600 },
 
   // ── /productos ──────────────────────────────────────────────────────
   { src: "55e6bd15-5b15-4d20-ac89-c94c828ba5f1.jpeg", out: "producto-bebedero.jpg", w: 1000, h: 750, pos: "attention" },
@@ -65,8 +67,9 @@ const MAP = [
   { src: "IMG_3757.jpeg", out: "producto-placa-cara-lisa.jpg", w: 1200, h: 900 },
 
   // ── /proyectos ──────────────────────────────────────────────────────
-  // Hero propio, otro atardecer distinto al de la home.
-  { src: "a75e6863-6563-4769-b2ec-6b0f2a07c6b0.jpeg", out: "hero-proyectos.jpg", w: 1280, h: 720 },
+  // Hero propio: el obrador terminado con los pilares colorados. Va en blanco
+  // y negro, así que se elige por volumen y luz, no por color.
+  { src: "2dd05cbf-caf2-48d3-917b-b13ccea1b0bc.jpeg", out: "hero-proyectos.jpg", w: 1280, h: 720 },
 
   // Tarjetas de los cuatro tipos de obra
   { src: "6a855dd2-b203-4052-9c5c-27058c4365ce.jpeg", out: "obra-obrador.jpg", w: 1000, h: 750 },

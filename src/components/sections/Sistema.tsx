@@ -29,40 +29,40 @@ const COMPONENTS = [
 
 const STEPS = [
   {
-    img: "/assets/sistema-pilares.jpg",
-    alt: "Pilares de hormigón prefabricado CONCRIT instalados sobre la fundación",
-    w: 1170,
-    h: 864,
+    img: "/assets/sistema-01-placas.jpg",
+    alt: "Placas de concreto macizo CONCRIT apiladas en pallets y cargadas en el camión que las lleva a la obra",
+    w: 900,
+    h: 600,
     n: "1",
-    title: "Fundación y pilares",
-    body: "Se instalan los pilares sobre la fundación y queda armada la retícula.",
+    title: "Las placas salen de planta",
+    body: "Se fabrican en Villa Hayes, se apilan en pallets y viajan en camión hasta el terreno.",
   },
   {
-    img: "/assets/sistema-placas.jpg",
-    alt: "Montaje de placas de concreto macizo encastradas entre pilares",
-    w: 1170,
-    h: 881,
+    img: "/assets/sistema-02-paredes.jpg",
+    alt: "Montaje sobre la losa: pilares metálicos plantados y placas de hormigón cerrando las paredes",
+    w: 900,
+    h: 600,
     n: "2",
-    title: "Montaje de placas",
-    body: "Las placas encastran entre pilares y se traban con los tornillos.",
+    title: "Losa, pilares y paredes",
+    body: "Sobre la losa se plantan los pilares y las placas van encastrando hasta cerrar las paredes.",
   },
   {
-    img: "/assets/sistema-muros.jpg",
-    alt: "Muros de hormigón macizo cerrados con sus vanos ya definidos",
-    w: 1169,
-    h: 657,
+    img: "/assets/sistema-03-techo.jpg",
+    alt: "Colocación de la cubierta y terminaciones sobre los muros de hormigón macizo CONCRIT",
+    w: 900,
+    h: 600,
     n: "3",
-    title: "Muros cerrados",
-    body: "En pocas semanas el volumen queda cerrado, con sus vanos definidos.",
+    title: "Techo y terminaciones",
+    body: "Se monta la cubierta y avanzan las terminaciones hasta dejarlo cerrado y listo.",
   },
   {
-    img: "/assets/sistema-techo.jpg",
-    alt: "Techo y terminaciones de una construcción prefabricada CONCRIT",
-    w: 1169,
-    h: 870,
+    img: "/assets/sistema-04-obrador.jpg",
+    alt: "Obrador prefabricado de concreto macizo CONCRIT terminado y entregado",
+    w: 900,
+    h: 600,
     n: "4",
-    title: "Techo y terminaciones",
-    body: "Se monta la cubierta y avanzamos con las terminaciones hasta dejarlo listo.",
+    title: "Obrador listo",
+    body: "Se entrega terminado, con aberturas, instalaciones y pintura. Listo para usar.",
   },
 ];
 
@@ -181,7 +181,7 @@ export default function Sistema({
 
         {/* Secuencia de obra */}
         <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mt-[54px] mb-[26px]">
-          De la fundación a la llave
+          De la planta a la llave
         </div>
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
           {STEPS.map((s) => (
