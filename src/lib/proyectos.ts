@@ -141,6 +141,10 @@ const FOTOS: [nombre: string, w: number, h: number][] = [
   ["Sanitario terminado", 900, 1200],
   ["Aguada con bebederos", 900, 1200],
   ["Obrador terminado", 1200, 903],
+  ["Paver de concreto en la entrada de una casa, con jardín", 582, 331],
+  ["Caminero de placas en el frente de una casa", 374, 501],
+  ["Caminero curvo de placas junto a la pileta", 584, 373],
+  ["Paver de concreto en el playón de un estacionamiento", 584, 438],
 ];
 
 export const galeriaObras: FotoObra[] = FOTOS.map(([nombre, w, h], i) => ({

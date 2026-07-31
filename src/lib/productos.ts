@@ -180,7 +180,7 @@ export const secciones: SeccionProducto[] = [
           "Macizas y a escuadra, con una cara texturada para muro y una lisa para vereda o fachada.",
         articulo: "de las",
         waMensaje: WA_MESSAGES.placas,
-        ctaText: "Consultar medida y precio",
+        ctaText: "Cotizar",
         variantes: [
           "Cuadradas",
           "Rectangulares",
@@ -294,8 +294,12 @@ export const secciones: SeccionProducto[] = [
         nombre: "Piso ecológico",
         fotos: [
           {
-            src: "/assets/producto-piso-ecologico.jpg",
+            src: "/assets/producto-piso-ecologico-01.jpg",
             alt: "Piso ecológico de concreto CONCRIT con celdas para césped",
+          },
+          {
+            src: "/assets/producto-piso-ecologico-02.jpg",
+            alt: "Piso ecológico de concreto CONCRIT apilado en pallet, listo para despachar",
           },
         ],
         detalle:

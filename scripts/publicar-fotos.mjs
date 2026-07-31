@@ -93,7 +93,8 @@ const MAP = [
   // Baldosas: una foto por diseño, porque el diseño es el producto.
   { src: "819eef82-7a57-4886-83ba-65a702aab105.jpeg", out: "producto-baldosa-01.jpg", w: 1000, h: 1000 },
   { src: "e4850513-aa31-444d-83aa-bebc8df6d0a5.jpeg", out: "producto-baldosa-02.jpg", w: 1000, h: 1000 },
-  { src: "d6338505-1ee9-414c-9047-38234de5d6cd.jpeg", out: "producto-piso-ecologico.jpg", w: 998, h: 998 },
+  { src: "d6338505-1ee9-414c-9047-38234de5d6cd.jpeg", out: "producto-piso-ecologico-01.jpg", w: 998, h: 998 },
+  { src: "Captura de pantalla 2026-07-31 a la(s) 16.56.11.png", out: "producto-piso-ecologico-02.jpg", w: 331, h: 331, pos: "attention" },
   // Paver de concreto: la colocación y el patio terminado.
   { src: "tipos-de-paver-de-concreto-1.jpg", out: "producto-paver-01.jpg", w: 433, h: 433, pos: "attention" },
   { src: "paver-de-concreto-5.jpg", out: "producto-paver-02.jpg", w: 667, h: 667, pos: "attention" },
@@ -215,6 +216,10 @@ const GALERIA = [
   "df4bb2bf-2d58-4556-bc5d-542c8649106e.jpeg", // sanitario terminado
   "28676838-9009-4494-85bd-55c8442ca027.jpeg", // aguada con bebederos
   "f8444090-2cc7-4810-9f8f-6c88a2560d8a.jpeg", // obrador terminado
+  "Captura de pantalla 2026-07-31 a la(s) 16.53.54.png", // paver en la entrada de una casa, con jardín
+  "Captura de pantalla 2026-07-31 a la(s) 16.57.08.png", // caminero de placas en el frente de una casa
+  "Captura de pantalla 2026-07-31 a la(s) 16.57.16.png", // caminero curvo de placas junto a la pileta
+  "Captura de pantalla 2026-07-31 a la(s) 16.57.57.png", // paver en el playón de un estacionamiento
 ];
 
 const GALERIA_MAP = GALERIA.map((src, i) => ({

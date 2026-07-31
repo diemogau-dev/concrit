@@ -62,7 +62,7 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
           className={`${CTA} ${precio ? "" : "mt-auto"}`}
         >
           <WhatsAppIcon size={15} fill="#F2F1ED" />
-          {ctaText ?? "Comprar por WhatsApp"}
+          {ctaText ?? "Comprar"}
         </a>
       </div>
     </article>
