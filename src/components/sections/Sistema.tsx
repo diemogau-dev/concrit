@@ -14,8 +14,8 @@ const COMPONENTS = [
   {
     n: "02",
     color: "text-terracotta",
-    title: "Pilares de concreto",
-    body: "La estructura que sostiene todo. Premoldeados y listos para izar, marcan la retícula donde encastran las placas.",
+    title: "Pilares metálicos",
+    body: "La estructura que sostiene todo. Los fabricamos nosotros en nuestra carpintería metálica: llegan listos para plantar y marcan la retícula donde encastran las placas.",
     border: true,
   },
   {
@@ -39,12 +39,12 @@ const STEPS = [
   },
   {
     img: "/assets/sistema-02-paredes.jpg",
-    alt: "Montaje sobre la losa: pilares metálicos plantados y placas de hormigón cerrando las paredes",
+    alt: "Montaje sobre la losa: pilares metálicos plantados y placas de concreto cerrando las paredes",
     w: 900,
     h: 600,
     n: "2",
     title: "Losa, pilares y paredes",
-    body: "Sobre la losa se plantan los pilares y las placas van encastrando hasta cerrar las paredes.",
+    body: "Sobre la losa se plantan los pilares metálicos y las placas van encastrando hasta cerrar las paredes.",
   },
   {
     img: "/assets/sistema-03-techo.jpg",
@@ -123,9 +123,12 @@ export default function Sistema({
             </h2>
             <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
               Fabricamos las{" "}
-              <strong className="text-concrete-dark">placas</strong>, los{" "}
-              <strong className="text-concrete-dark">pilares</strong> y las{" "}
-              <strong className="text-concrete-dark">uniones</strong> en planta.
+              <strong className="text-concrete-dark">placas de concreto</strong>,
+              los{" "}
+              <strong className="text-concrete-dark">pilares metálicos</strong>{" "}
+              y las{" "}
+              <strong className="text-concrete-dark">uniones</strong> en planta:
+              la carpintería metálica también es nuestra.
               En obra encastran uno con otro y se traban con tornillos pasantes.
               No hay que encofrar, no hay que esperar que fragüe en el terreno y
               no hay que llevar una cuadrilla grande al medio del campo. Llega,
@@ -139,7 +142,7 @@ export default function Sistema({
           <div className="relative min-h-[clamp(340px,42vw,540px)] bg-concrete-dark">
             <Image
               src="/assets/sistema-union.jpg"
-              alt="Detalle de la unión con tornillo pasante que traba una placa con un pilar de hormigón"
+              alt="Detalle de la unión con tornillo pasante que traba una placa de concreto con un pilar metálico"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover [filter:contrast(1.04)_saturate(.94)]"

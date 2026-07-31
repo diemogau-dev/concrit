@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { wa } from "@/lib/config";
+import { wa, FABRICA_LINEA } from "@/lib/config";
 import { WhatsAppIcon } from "../icons";
 
 export default function Hero() {
@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-[10px] border border-[rgba(242,241,237,.32)] py-[8px] px-[14px] mb-[26px]">
           <span className="w-[7px] h-[7px] bg-olive-light rounded-full" />
           <span className="font-condensed font-semibold text-[11px] leading-none tracking-[.22em] uppercase text-gray-warm-1">
-            Ruta 9 · Villa Hayes · La puerta del Chaco
+            {FABRICA_LINEA} · La puerta del Chaco
           </span>
         </div>
 
@@ -39,15 +39,14 @@ export default function Hero() {
 
         <div className="h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]" />
 
-        <p className="font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[22ch] mt-0 mb-[16px]">
-          Prefabricados
-          <br />
-          de concreto.
+        <p className="font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[34ch] mt-0 mb-[16px]">
+          Industria de prefabricados de concreto.
         </p>
 
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[56ch] mt-0 mb-[34px]">
-          Fábrica de productos y un sistema propio de construcción para el campo,
-          la industria y obras civiles. Proyectos llave en mano.
+        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[58ch] mt-0 mb-[34px]">
+          Productos prefabricados de hormigón. Sistema propio de construcción
+          para el campo, la industria y el hogar. Proyectos llave en mano, plazo
+          de entrega corto y precio bajo.
         </p>
 
         <div className="flex gap-[14px] flex-wrap">

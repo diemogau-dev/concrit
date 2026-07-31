@@ -15,7 +15,7 @@ import { tiposDeObra, proceso } from "@/lib/proyectos";
 export const metadata: Metadata = {
   title: "Proyectos y sistema constructivo | CONCRIT",
   description:
-    "Cómo construimos con prefabricados de concreto: el sistema de placas, pilares y uniones, paso a paso de la fundación a la llave. Obradores, galpones, depósitos y casas prefabricadas entregadas llave en mano en Paraguay. Fábrica sobre la Ruta 9, Villa Hayes.",
+    "Cómo construimos con prefabricados de concreto: placas macizas, pilares metálicos y uniones atornilladas, paso a paso de la planta a la llave. Más de 100 obras entregadas en Paraguay: obradores, galpones, depósitos y casas prefabricadas llave en mano. Fábrica sobre la Ruta 9, Villa Hayes.",
   alternates: { canonical: "/proyectos" },
   openGraph: {
     type: "website",
@@ -36,8 +36,8 @@ export default function ProyectosPage() {
       <main id="top" className="bg-bone [overflow-x:clip]">
         <PageHero
           eyebrow="Obras y sistema constructivo"
-          title="Se arma encastrando y se entrega terminado"
-          lead="Placas, pilares y uniones que salen de planta y encastran en el terreno. Sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas, montados en semanas."
+          title="Un sistema probado en más de 100 obras"
+          lead="Placas de concreto macizo y pilares metálicos que fabricamos nosotros y encastran en el terreno: sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas levantados en semanas, con precio cerrado, que después aguantan sol, humedad y termita sin pedir mantenimiento."
           img="/assets/hero-proyectos.jpg"
           imgAlt="Obrador de concreto prefabricado CONCRIT terminado, con su galería y la vereda de placas"
           bw

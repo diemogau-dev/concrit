@@ -58,26 +58,53 @@ const MAP = [
   // Hero del catálogo: los postes recién desmoldados, apilados en planta. Es
   // la foto más "fábrica" que tenemos y en blanco y negro se lee como textura.
   { src: "IMG_3750.jpeg", out: "hero-productos.jpg", w: 1600, h: 900 },
+
   // Catálogo tipo tienda: todas las fotos van cuadradas (1:1) para que ninguna
-  // ficha salga con la pieza cortada y la grilla se lea pareja.
-  { src: "55e6bd15-5b15-4d20-ac89-c94c828ba5f1.jpeg", out: "producto-bebedero.jpg", w: 1000, h: 1000, pos: "attention" },
-  { src: "b1b3fcba-8be9-4eae-bf8b-24c7150c5127.jpeg", out: "producto-comedero.jpg", w: 1000, h: 1000 },
-  { src: "IMG_3751.jpeg", out: "producto-postes.jpg", w: 1000, h: 1000 },
-  { src: "68dc357f-999f-4dd1-b510-af3938fe7291.jpeg", out: "producto-tanque.jpg", w: 1000, h: 1000 },
-  { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "producto-placas.jpg", w: 1000, h: 1000 },
-  // Piso ecológico: la pieza sola, que se entiende de una.
-  { src: "d6338505-1ee9-414c-9047-38234de5d6cd.jpeg", out: "producto-piso-ecologico.jpg", w: 1000, h: 1000 },
-  // Baldosas: tres fotos, una por diseño, porque el diseño es el producto.
+  // ficha salga con la pieza cortada y la grilla se lea pareja. Cada producto
+  // puede llevar hasta tres, que en la ficha pasan como carrusel.
+  //
+  // Campo y ganadería
+  { src: "55e6bd15-5b15-4d20-ac89-c94c828ba5f1.jpeg", out: "producto-bebedero-01.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "f2a16691-e26e-47a0-82d3-501aa039ba9f.jpeg", out: "producto-bebedero-02.jpg", w: 1000, h: 1000 },
+  { src: "0da3ee75-8281-4689-a4a9-026d400a1675.jpeg", out: "producto-bebedero-03.jpg", w: 1000, h: 1000 },
+  { src: "b1b3fcba-8be9-4eae-bf8b-24c7150c5127.jpeg", out: "producto-comedero-01.jpg", w: 1000, h: 1000 },
+  { src: "b7d5c08b-9268-4f4d-aeb2-8c9105c8731e.jpeg", out: "producto-comedero-02.jpg", w: 776, h: 776 },
+  { src: "IMG_3750.jpeg", out: "producto-postes-01.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3751.jpeg", out: "producto-postes-02.jpg", w: 1000, h: 1000 },
+  { src: "c4715667-23dd-4bfa-86e6-0f1d80ffd6d2.jpeg", out: "producto-postes-03.jpg", w: 1000, h: 1000 },
+  { src: "68dc357f-999f-4dd1-b510-af3938fe7291.jpeg", out: "producto-tanque-01.jpg", w: 1000, h: 1000 },
+  { src: "a8c9f003-d36b-4c04-80d9-74e229a85153.jpeg", out: "producto-tanque-02.jpg", w: 581, h: 581 },
+  { src: "IMG_3534.jpeg", out: "producto-tanque-03.jpg", w: 1000, h: 1000 },
+
+  // Construcción y arquitectura
+  { src: "5e223f39-77cc-484e-9cb0-48f165b6b066.jpeg", out: "producto-placas-01.jpg", w: 900, h: 900 },
+  { src: "b8548e59-3115-4c05-b004-579e7b7d39fa.jpeg", out: "producto-placas-02.jpg", w: 1000, h: 1000 },
+  { src: "5b479a53-60a5-421b-83e6-091256b36c75.jpeg", out: "producto-placas-03.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3755.jpeg", out: "producto-caminero-01.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3754.jpeg", out: "producto-caminero-02.jpg", w: 1000, h: 1000 },
+  { src: "2d255e04-a39f-4c92-b3c7-c4a396a3062b.jpeg", out: "producto-caminero-03.jpg", w: 722, h: 722 },
+  { src: "IMG_3757.jpeg", out: "producto-vereda-01.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3752.jpeg", out: "producto-vereda-02.jpg", w: 1000, h: 1000 },
+  { src: "82356a6b-0d25-4bda-b11a-3e90542ae0ea.jpeg", out: "producto-vereda-03.jpg", w: 960, h: 960 },
+  // Baldosas: una foto por diseño, porque el diseño es el producto.
   { src: "819eef82-7a57-4886-83ba-65a702aab105.jpeg", out: "producto-baldosa-01.jpg", w: 1000, h: 1000 },
   { src: "e4850513-aa31-444d-83aa-bebc8df6d0a5.jpeg", out: "producto-baldosa-02.jpg", w: 1000, h: 1000 },
   { src: "IMG_3753.jpeg", out: "producto-baldosa-03.jpg", w: 1000, h: 1000 },
-  { src: "3919c3d4-ed47-424f-adb5-f28cc7dedfe1.jpeg", out: "producto-caja-registro.jpg", w: 1000, h: 1000, pos: "attention" },
-  { src: "8c193067-3c6c-418f-82ca-9db23bd2acb8.jpeg", out: "producto-caja-electrica.jpg", w: 1000, h: 1000, pos: "attention" },
-  { src: "c964ef38-4328-4bd2-badb-e7515654be77.jpeg", out: "producto-alcantarilla-tubular.jpg", w: 1000, h: 1000, pos: "attention" },
-  { src: "IMG_3849.jpeg", out: "producto-alcantarilla-celular.jpg", w: 800, h: 800 },
-  { src: "IMG_3855.jpeg", out: "producto-cordon-vereda.jpg", w: 1000, h: 1000 },
-  // Cara lisa de la placa: caminero terminado, el argumento de venta del bloque.
-  { src: "IMG_3757.jpeg", out: "producto-placa-cara-lisa.jpg", w: 1000, h: 1000 },
+  { src: "d6338505-1ee9-414c-9047-38234de5d6cd.jpeg", out: "producto-piso-ecologico.jpg", w: 998, h: 998 },
+  // Viga / tirante de concreto: la pieza sola y la carga de viguetas.
+  { src: "IMG_3855.jpeg", out: "producto-viga-01.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3854.jpeg", out: "producto-viga-02.jpg", w: 1000, h: 1000 },
+  { src: "IMG_3856.jpeg", out: "producto-viga-03.jpg", w: 1000, h: 1000 },
+
+  // Vial e infraestructura
+  { src: "3919c3d4-ed47-424f-adb5-f28cc7dedfe1.jpeg", out: "producto-caja-registro-01.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "5b8076fd-106c-4358-bee5-c877070a51a0.jpeg", out: "producto-caja-registro-02.jpg", w: 960, h: 960 },
+  { src: "b04d451b-4c10-40f3-bca4-5112a1a2d7b6.jpeg", out: "producto-caja-registro-03.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "8c193067-3c6c-418f-82ca-9db23bd2acb8.jpeg", out: "producto-caja-electrica-01.jpg", w: 1000, h: 1000, pos: "attention" },
+  { src: "IMG_3850.webp", out: "producto-alcantarilla-tubular-01.jpg", w: 800, h: 800 },
+  { src: "IMG_3851.jpeg", out: "producto-alcantarilla-tubular-02.jpg", w: 413, h: 413 },
+  { src: "725a7560-c925-4b62-af31-8157512cc70b.jpeg", out: "producto-alcantarilla-tubular-03.jpg", w: 502, h: 502, pos: "bottom" },
+  { src: "IMG_3849.jpeg", out: "producto-alcantarilla-celular-01.jpg", w: 600, h: 600 },
 
   // ── /proyectos ──────────────────────────────────────────────────────
   // Hero propio: otro obrador, largo y con la galería en fuga. Va en blanco y

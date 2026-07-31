@@ -18,7 +18,7 @@ export type Faq = { q: string; a: string };
 export const faqs: Faq[] = [
   {
     q: "¿A qué zonas entregan?",
-    a: "A todo el país, con foco en el campo, las cooperativas y las obras del Chaco y la región. Estar sobre la Ruta 9 nos deja el flete más corto hacia el productor. Contanos dónde estás y te pasamos el costo de entrega cerrado, no una estimación.",
+    a: "A todo el país. Trabajamos con estancias y cooperativas del Chaco, con industrias, barrios cerrados y obras de Asunción y Gran Asunción, y con clientes del interior: casas, depósitos, galpones, obradores y vestuarios. Estar sobre la ruta nos deja el flete corto en las dos direcciones. Contanos dónde estás y te pasamos el costo de entrega cerrado, no una estimación.",
   },
   {
     q: "¿Cuánto tardan en fabricar y entregar?",
@@ -50,6 +50,6 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿No sale más caro que construir con ladrillo?",
-    a: "Comparado por metro cuadrado, la diferencia es mucho menor de lo que la gente cree. Y cuando sumás los meses de obra, la mano de obra, el material que se desperdicia y el presupuesto que se estira, el concreto prefabricado termina saliendo igual o menos. Con una diferencia: sabés cuánto vas a pagar antes de empezar.",
+    a: "No. En la mayoría de los casos sale menos que levantar la misma obra en ladrillo. El metro cuadrado ya arranca más barato, y encima te ahorrás los meses de obra, la mano de obra de albañilería, el material que se rompe y se desperdicia y el presupuesto que se estira sobre la marcha. La diferencia grande es esa: con el prefabricado sabés cuánto vas a pagar antes de empezar y ese número no se mueve.",
   },
 ];

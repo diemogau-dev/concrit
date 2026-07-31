@@ -87,6 +87,29 @@ export function waProyecto(proyecto: string): string {
 // ─────────────────────────────────────────────────────────────
 // Otros datos de contacto
 // ─────────────────────────────────────────────────────────────
+/**
+ * Dirección de la fábrica. Vive acá para que la ruta, el km y la ciudad se
+ * escriban en un solo lugar (hero, ubicación, footer y SEO).
+ *
+ * `km`: kilómetro sobre la ruta. Mientras esté vacío no se muestra; cargalo
+ * acá y aparece solo en todos lados.
+ */
+export const FABRICA = {
+  ruta: "Ruta 9",
+  km: "",
+  ciudad: "Villa Hayes",
+  departamento: "Presidente Hayes, Paraguay",
+} as const;
+
+/** "Ruta 9 · Km 40 · Villa Hayes" (el km sólo si está cargado). */
+export const FABRICA_LINEA = [
+  FABRICA.ruta,
+  FABRICA.km ? `Km ${FABRICA.km}` : null,
+  FABRICA.ciudad,
+]
+  .filter(Boolean)
+  .join(" · ");
+
 export const CONTACT = {
   email: "hola@concrit.py",
   instagramHandle: "@concrit.py",

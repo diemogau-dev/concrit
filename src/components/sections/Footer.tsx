@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { wa, CONTACT, WHATSAPP_DISPLAY } from "@/lib/config";
+import { wa, CONTACT, FABRICA, FABRICA_LINEA, WHATSAPP_DISPLAY } from "@/lib/config";
 
 /** Mismas secciones que el nav superior, para no dejar páginas huérfanas. */
 const SITIO = [
@@ -20,8 +20,8 @@ export default function Footer() {
             </div>
             <div className="h-[4px] w-[70px] bg-olive mt-[16px] mb-[14px]" />
             <p className="font-condensed font-medium text-[13px] leading-[1.5] tracking-[.06em] uppercase text-gray-warm-3 m-0 max-w-[32ch]">
-              Prefabricados de concreto macizo. Del campo, la industria y la
-              obra.
+              Industria de prefabricados de concreto. Productos, sistema
+              constructivo y proyectos llave en mano.
             </p>
           </div>
 
@@ -60,11 +60,11 @@ export default function Footer() {
               Fábrica
             </div>
             <p className="font-barlow font-normal text-[15px] leading-[1.55] text-gray-warm-1 m-0">
-              Ruta 9 · Villa Hayes
+              {FABRICA_LINEA}
               <br />
-              Presidente Hayes, Paraguay
+              {FABRICA.departamento}
               <br />
-              La puerta del Chaco
+              Entregamos en todo el país
             </p>
           </div>
 

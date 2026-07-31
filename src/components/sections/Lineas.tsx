@@ -49,7 +49,7 @@ const LINEAS: Linea[] = [
     tagColor: "text-gray-warm-4b",
     border: "border-gray-warm-4b",
     img: "/assets/obra-blanco.jpg",
-    alt: "Obrador prefabricado de hormigón CONCRIT terminado, con sus pilares colorados y el depósito abierto",
+    alt: "Obrador prefabricado de hormigón CONCRIT terminado, con sus pilares metálicos pintados y el depósito abierto",
     subtitle: "Tu obra avanza sin esperar a nadie",
     body: "Obradores, galpones y depósitos con precio cerrado y fecha comprometida. Llegan fabricados, se montan en semanas y tu cronograma no se mueve.",
     chips: [

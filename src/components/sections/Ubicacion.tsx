@@ -1,8 +1,8 @@
-import { CONTACT } from "@/lib/config";
+import { CONTACT, FABRICA, FABRICA_LINEA } from "@/lib/config";
 import { PinIcon } from "../icons";
 
 const POINTS = [
-  { n: "01", text: "Flete corto al campo, la cooperativa y la obra." },
+  { n: "01", text: "Flete corto en las dos direcciones: al Chaco y a Asunción." },
   { n: "02", text: "Sobre la ruta, a la vista y fácil de encontrar." },
   {
     n: "03",
@@ -26,13 +26,14 @@ export default function Ubicacion() {
           <div className="bg-concrete-dark p-[clamp(30px,4vw,54px)] flex flex-col">
             <p className="font-barlow font-normal text-[clamp(18px,2.1vw,23px)] leading-[1.5] text-bone-soft mt-0 mb-[30px] max-w-[44ch]">
               Estamos parados sobre el{" "}
-              <strong className="text-white">corredor bioceánico</strong>,
-              camino al Chaco, sobre la ruta por donde pasa todo lo que entra y
-              sale del norte. Eso no es dato de folleto: es{" "}
+              <strong className="text-white">corredor bioceánico</strong>, la
+              ruta por donde pasa todo lo que entra y sale del norte, y a un
+              paso de Asunción. Eso no es dato de folleto: es{" "}
               <strong className="text-olive-light">
                 flete más corto y más barato
               </strong>{" "}
-              para el productor, la cooperativa y la obra del interior.
+              tanto para la estancia y la cooperativa del Chaco como para la
+              obra, la industria y el barrio cerrado de Gran Asunción.
             </p>
             <div className="flex flex-col mt-auto">
               {POINTS.map((p) => (
@@ -61,11 +62,11 @@ export default function Ubicacion() {
                 </span>
               </div>
               <div className="font-anton font-normal text-[clamp(28px,3.6vw,44px)] leading-[1.02] uppercase text-bone">
-                Ruta 9 · Villa Hayes
+                {FABRICA_LINEA}
               </div>
               <p className="font-barlow font-normal text-[16px] leading-[1.55] text-gray-warm-3 mt-[12px] mb-0 max-w-[38ch]">
-                Presidente Hayes, Paraguay. La puerta de entrada al Chaco, sobre
-                la ruta principal.
+                {FABRICA.departamento}. Sobre la ruta principal, entre Asunción
+                y la entrada al Chaco.
               </p>
               <div className="flex gap-[14px] flex-wrap mt-[26px]">
                 <div className="flex-1 min-w-[130px] border-t-2 border-olive pt-[12px]">

@@ -54,7 +54,7 @@ export const tiposDeObra: TipoDeObra[] = [
     img: "/assets/obra-galpon.jpg",
     alt: "Galpón de concreto prefabricado CONCRIT visto desde el aire",
     descripcion:
-      "Luz libre para maquinaria, camión y acopio. Pilares y placas de planta, con la cubierta montada por el mismo equipo que levanta la estructura.",
+      "Luz libre para maquinaria, camión y acopio. Pilares metálicos y placas de concreto salidos de nuestra planta, con la cubierta montada por el mismo equipo que levanta la estructura.",
   },
   {
     id: "depositos",
@@ -74,7 +74,7 @@ export const tiposDeObra: TipoDeObra[] = [
  * `qué` es la descripción corta de la foto; se usa sólo para armar el alt.
  */
 const FOTOS: [nombre: string, w: number, h: number][] = [
-  ["Obrador terminado con pilares colorados", 1200, 1024],
+  ["Obrador terminado con pilares metálicos pintados", 1200, 1024],
   ["Caminero de placas de concreto con canto rodado", 1132, 1200],
   ["Casa prefabricada terminada", 900, 1200],
   ["Equipo de CONCRIT montando placas de concreto en obra", 1024, 768],
@@ -90,7 +90,7 @@ const FOTOS: [nombre: string, w: number, h: number][] = [
   ["Obrador prefabricado al atardecer", 1200, 900],
   ["Alisado del piso en una obra de CONCRIT", 900, 1200],
   ["Casa prefabricada de concreto entregada", 900, 1200],
-  ["Retícula de pilares de concreto vista desde el aire", 900, 1200],
+  ["Retícula de pilares vista desde el aire", 900, 1200],
   ["Pasillo interior terminado", 675, 1200],
   ["Obrador prefabricado con galería", 1200, 900],
   ["Pozo con brocal de concreto CONCRIT", 1200, 900],
