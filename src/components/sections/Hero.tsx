@@ -28,7 +28,7 @@ export default function Hero() {
       <div className="relative z-[2] w-full max-w-container mx-auto py-[clamp(40px,7vw,84px)] px-[clamp(18px,5vw,72px)]">
         <div className="inline-flex items-center gap-[10px] border border-[rgba(242,241,237,.32)] py-[8px] px-[14px] mb-[26px]">
           <span className="w-[7px] h-[7px] bg-olive-light rounded-full" />
-          <span className="font-condensed font-semibold text-[11px] leading-none tracking-[.22em] uppercase text-gray-warm-1">
+          <span className="font-condensed font-semibold text-[11px] leading-none tracking-[.22em] uppercase text-concrete-dark">
             {FABRICA_LINEA} · La puerta del Chaco
           </span>
         </div>
