@@ -14,11 +14,14 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover [filter:grayscale(1)_contrast(1.04)_brightness(.82)]"
+          className="object-cover [filter:contrast(1.06)_saturate(1.08)_brightness(.86)]"
         />
       </div>
-      {/* Degradé de legibilidad */}
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(24,23,20,.72)_0%,rgba(24,23,20,.34)_38%,rgba(24,23,20,.82)_100%)]" />
+      {/* Degradé de legibilidad. Va a color (el resto del sitio es blanco y
+          negro) para que se vea la luz del atardecer, así que el degradé carga
+          abajo a la izquierda, que es donde se apoya todo el texto. */}
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(20,19,17,.62)_0%,rgba(20,19,17,.26)_32%,rgba(20,19,17,.90)_100%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(75deg,rgba(20,19,17,.68)_0%,rgba(20,19,17,.20)_52%,rgba(20,19,17,0)_78%)]" />
       {/* Textura de ruido */}
       <div className="noise absolute inset-0 pointer-events-none [mix-blend-mode:multiply] opacity-50" />
 

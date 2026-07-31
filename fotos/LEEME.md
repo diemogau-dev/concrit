@@ -37,6 +37,22 @@ fotos/
 
 Si no sabés, tirá todo suelto en `fotos/` y se identifica una por una.
 
+## Qué fotos hacen falta
+
+Estos son los lugares del sitio que hoy tienen un placeholder gris esperando la
+foto real. No hace falta que mandes exactamente esta cantidad: mandá todas las
+que tengas y de ahí se eligen las mejores.
+
+| Dónde va | Cuántas | Qué se busca |
+| --- | --- | --- |
+| Hero de la home | 1 | Obrador o galpón terminado, **con luz de atardecer**. Es la única foto que va a color en todo el sitio, así que conviene la más linda que tengas. Horizontal y con aire arriba, porque el texto se apoya abajo a la izquierda. |
+| Hero de /proyectos | 1 | Otro obrador, distinto al de la home. Horizontal. |
+| Galería de obras | 8 obradores, 8 casas, 8 depósitos, 8 galpones | Obras terminadas. Sin nombres ni localidades: sólo se muestran agrupadas por tipo. |
+| Tarjetas de tipo de obra | 4 | La mejor de cada tipo: un obrador, una casa, un depósito, un galpón. |
+| Catálogo de productos | 12 | Bebedero, comedero, postes, tanque australiano, placas, piso ecológico, baldosas (los 3 diseños), cajas de registro, cajas eléctricas, cordón de vereda, alcantarilla tubular, alcantarilla celular. Producto solo, lo más limpio posible: si está sobre fondo parejo se le puede recortar el fondo. |
+| Cara lisa de la placa | 1 | Un caminero de patio, vereda o fachada hecho con la cara lisa. Es el argumento de venta del bloque de las placas. |
+| Secuencia constructiva | 4 | Fundación y pilares, montaje de placas, muros cerrados, techo. Ya hay fotos, pero si tenés mejores se cambian. |
+
 ## Qué pasa después
 
 1. Se arma una hoja de contactos con todas (`npm run fotos`) y se revisa cada

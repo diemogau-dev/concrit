@@ -79,10 +79,15 @@ concreto"*). Los textos siguen viviendo todos en `config.ts`.
 
 ## Editar los proyectos: `src/lib/proyectos.ts`
 
-- `queConstruimos` — los cuatro tipos de obra, con imagen y descripción corta.
-- `obrasEntregadas` — la galería. Para sumar una obra, copiá un objeto, cambiale
-  `img`, `lugar` y `caption`, y dejá la foto en `public/assets`. La grilla se
-  acomoda sola: no hay un número fijo de obras.
+`categorias` es una sola lista con los cuatro tipos de obra (obradores, casas,
+depósitos, galpones). Cada uno trae la foto y la descripción de su tarjeta en
+"Qué construimos", y el array `fotos` que alimenta la galería de obras
+entregadas. Así las tarjetas y las pestañas de la galería nunca se desincronizan.
+
+La galería **no lleva nombres de obra ni localidades**: se elige el tipo con una
+pestaña y se ven las fotos. Para sumar fotos a una categoría, agregá entradas a
+su `fotos` y dejá los archivos en `public/assets` siguiendo el nombre
+`galeria-<tipo>-NN.jpg`. La grilla se acomoda sola.
 
 ## Configuración (un solo lugar): `src/lib/config.ts`
 

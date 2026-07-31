@@ -4,12 +4,12 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
-import Lightbox from "@/components/Lightbox";
+import GaleriaObras from "@/components/GaleriaObras";
 import Sistema from "@/components/sections/Sistema";
 import LlaveEnMano from "@/components/sections/LlaveEnMano";
 import { WhatsAppIcon } from "@/components/icons";
-import { wa, waProyecto, SITE } from "@/lib/config";
-import { queConstruimos, obrasEntregadas } from "@/lib/proyectos";
+import { wa, SITE } from "@/lib/config";
+import { categorias } from "@/lib/proyectos";
 
 export const metadata: Metadata = {
   title: "Proyectos y sistema constructivo | CONCRIT",
@@ -37,6 +37,8 @@ export default function ProyectosPage() {
           eyebrow="Obras y sistema constructivo"
           title="Se arma encastrando y se entrega terminado"
           lead="Placas, pilares y uniones que salen de planta y encastran en el terreno. Sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas, montados en semanas."
+          img="/assets/hero-proyectos.jpg"
+          imgAlt="Obrador de concreto prefabricado CONCRIT terminado y en uso"
         >
           <a
             href={wa.presupuestoObra}
@@ -49,7 +51,7 @@ export default function ProyectosPage() {
           </a>
         </PageHero>
 
-        {/* 01 — Sistema constructivo + de la fundación a la llave.
+        {/* 01 — Sistema constructivo y sus ventajas.
             El titular ya lo cuenta el hero, así que va en modo compacto.
             El bloque llave en mano va más abajo, como sección propia. */}
         <Sistema
@@ -57,7 +59,7 @@ export default function ProyectosPage() {
           conLlaveEnMano={false}
         />
 
-        {/* 02 — Qué construimos */}
+        {/* 02 — Los cuatro tipos de obra */}
         <section
           id="que-construimos"
           className="bg-bone-2 py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
@@ -66,15 +68,15 @@ export default function ProyectosPage() {
             <SectionHeader n="02" titulo="Qué construimos" />
 
             <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-[22px]">
-              {queConstruimos.map((o) => (
+              {categorias.map((c) => (
                 <article
-                  key={o.slug}
+                  key={c.id}
                   className="bg-white border border-gray-warm-2 flex flex-col"
                 >
                   <div className="relative h-[210px]">
                     <Image
-                      src={o.img}
-                      alt={o.alt}
+                      src={c.img}
+                      alt={c.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover [filter:grayscale(1)_contrast(1.03)]"
@@ -82,10 +84,10 @@ export default function ProyectosPage() {
                   </div>
                   <div className="pt-[22px] px-[24px] pb-[26px] border-t-4 border-olive flex flex-col flex-1">
                     <h3 className="font-anton font-normal text-[26px] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[10px]">
-                      {o.nombre}
+                      {c.nombre}
                     </h3>
                     <p className="font-barlow font-normal text-[16px] leading-[1.5] text-gray-warm-4 m-0">
-                      {o.descripcion}
+                      {c.descripcion}
                     </p>
                   </div>
                 </article>
@@ -94,57 +96,14 @@ export default function ProyectosPage() {
           </div>
         </section>
 
-        {/* 03 — Proyectos entregados */}
+        {/* 03 — Obras entregadas: mosaico por tipo, sin nombres ni localidades */}
         <section
           id="entregados"
           className="bg-bone py-[clamp(56px,7vw,86px)] border-t border-bone-3 scroll-mt-[74px]"
         >
           <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)]">
-            <SectionHeader n="03" titulo="Proyectos entregados" />
-
-            {/* gap real en vez de grilla con fondo: con un número impar de
-                obras la última fila no deja un hueco gris colgando. */}
-            <div className="grid [grid-template-columns:repeat(auto-fit,minmax(280px,1fr))] gap-[22px]">
-              {obrasEntregadas.map((o) => (
-                <figure
-                  key={o.slug}
-                  className="bg-white border border-gray-warm-2 m-0 flex flex-col"
-                >
-                  <Lightbox
-                    src={o.img}
-                    alt={o.alt}
-                    width={o.w ?? 900}
-                    height={o.h ?? 700}
-                  >
-                    <div className="relative h-[240px]">
-                      <Image
-                        src={o.img}
-                        alt={o.alt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover [filter:grayscale(1)_contrast(1.04)]"
-                      />
-                    </div>
-                  </Lightbox>
-                  <figcaption className="pt-[20px] px-[22px] pb-[24px] flex flex-col gap-[8px] flex-1">
-                    <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive">
-                      {o.lugar}
-                    </span>
-                    <span className="font-condensed font-bold text-[16px] leading-[1.25] tracking-[.02em] uppercase text-concrete-dark">
-                      {o.caption}
-                    </span>
-                    <a
-                      href={waProyecto(o.caption)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto pt-[12px] font-condensed font-extrabold text-[12px] leading-none tracking-[.1em] uppercase text-olive"
-                    >
-                      Quiero algo parecido →
-                    </a>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
+            <SectionHeader n="03" titulo="Obras entregadas" />
+            <GaleriaObras />
           </div>
         </section>
 
@@ -160,7 +119,7 @@ export default function ProyectosPage() {
         </section>
 
         {/* CTA final */}
-        <section className="relative bg-olive py-[clamp(72px,10vw,120px)] overflow-hidden">
+        <section className="relative bg-olive py-[clamp(64px,9vw,110px)] overflow-hidden">
           <div className="noise absolute inset-0 pointer-events-none [mix-blend-mode:multiply] opacity-[.28]" />
           <div className="relative z-[2] max-w-[900px] mx-auto px-[clamp(18px,5vw,72px)] text-center flex flex-col items-center">
             <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive-fog mb-[16px]">

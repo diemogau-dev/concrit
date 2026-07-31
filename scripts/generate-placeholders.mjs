@@ -49,18 +49,21 @@ const slots = [
   { name: "producto-placa-cara-lisa.jpg", w: 1200, h: 900, bg: CONCRETE },
 
   // Proyectos (/proyectos) — las rutas viven en src/lib/proyectos.ts
+  { name: "hero-proyectos.jpg", w: 1600, h: 900, bg: CONCRETE_DARK },
+  // Tarjetas de los cuatro tipos de obra
   { name: "obra-obrador.jpg", w: 900, h: 640, bg: CONCRETE },
   { name: "obra-galpon.jpg", w: 900, h: 640, bg: CONCRETE },
   { name: "obra-deposito.jpg", w: 900, h: 640, bg: CONCRETE },
   { name: "obra-casa.jpg", w: 900, h: 640, bg: CONCRETE },
-  { name: "proyecto-01.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-02.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-03.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-04.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-05.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-06.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-07.jpg", w: 900, h: 700, bg: CONCRETE },
-  { name: "proyecto-08.jpg", w: 900, h: 700, bg: CONCRETE },
+  // Galería de obras entregadas, agrupada por tipo
+  ...["obradores", "casas", "depositos", "galpones"].flatMap((tipo) =>
+    Array.from({ length: 8 }, (_, i) => ({
+      name: `galeria-${tipo}-${String(i + 1).padStart(2, "0")}.jpg`,
+      w: 1200,
+      h: 900,
+      bg: CONCRETE,
+    })),
+  ),
 ];
 
 async function makeSolid({ name, w, h, bg }) {
