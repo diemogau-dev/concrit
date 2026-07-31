@@ -115,7 +115,7 @@ export default function Lineas() {
                   alt={l.alt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover [filter:grayscale(1)_contrast(1.03)]"
+                  className="object-cover [filter:contrast(1.04)_saturate(.94)]"
                 />
               </div>
               <div

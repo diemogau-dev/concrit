@@ -41,9 +41,11 @@ src/
     productos.ts      📋 Catálogo: productos, detalle técnico, fotos, precios
     proyectos.ts      📋 Qué construimos + galería de obras entregadas
 public/
-  assets/             Placeholders de imágenes (reemplazar por fotos reales)
+  assets/             Fotos publicadas del sitio
 scripts/
-  generate-placeholders.mjs   Regenera los placeholders sólidos
+  revisar-fotos.mjs       Hojas de contactos de las fotos crudas
+  publicar-fotos.mjs      Curaduría: qué foto va en qué lugar del sitio
+  generate-placeholders.mjs   Placeholders sólidos para lo que falte
 ```
 
 ## Páginas
@@ -79,10 +81,10 @@ concreto"*). Los textos siguen viviendo todos en `config.ts`.
 
 ## Editar los proyectos: `src/lib/proyectos.ts`
 
-`categorias` es una sola lista con los cuatro tipos de obra (obradores, casas,
-depósitos, galpones). Cada uno trae la foto y la descripción de su tarjeta en
-"Qué construimos", y el array `fotos` que alimenta la galería de obras
-entregadas. Así las tarjetas y las pestañas de la galería nunca se desincronizan.
+`categorias` es una sola lista. Las que son tipo de obra (obradores, casas,
+galpones, depósitos) llevan `tarjeta` y aparecen además en "Qué construimos";
+las que no (interiores terminados) viven sólo en la galería. Así las tarjetas y
+las pestañas nunca se desincronizan.
 
 La galería **no lleva nombres de obra ni localidades**: se elige el tipo con una
 pestaña y se ven las fotos. Para sumar fotos a una categoría, agregá entradas a
@@ -106,40 +108,37 @@ Todo lo que puede cambiar vive acá — **nunca** está hardcodeado en los compo
 
 ## Imágenes
 
-`public/assets/` ya tiene las fotos reales de fábrica/obra:
+`public/assets/` tiene todas las fotos publicadas. Para reemplazar alguna,
+sobrescribí el archivo **manteniendo el mismo nombre**: no hace falta tocar
+código. Todas llevan `alt` descriptivos (SEO local).
 
-```
-hero-obrador.jpg   campo-bebedero.jpg   obra-blanco.jpg   v-hogar.jpg
-sistema-union.jpg  sistema-pilares.jpg  sistema-placas.jpg
-sistema-muros.jpg  sistema-techo.jpg    og-image.jpg (imagen para redes)
-```
+Las fotos son reales y van **a color**, con un tratamiento parejo
+(`contrast(1.04) saturate(.94)`) para que el conjunto se lea como un sistema.
+El hero de la home va más saturado y sin oscurecer, para que se vea el
+atardecer; la legibilidad del texto la resuelve un degradé radial en la esquina
+de abajo a la izquierda, no oscureciendo toda la foto.
 
-Todas llevan el filtro `grayscale(1)` del diseño y `alt` descriptivos (SEO
-local). Para reemplazar alguna, sobrescribí el archivo **manteniendo el mismo
-nombre** — no hace falta tocar código.
-
-Las fotos de `/productos` y `/proyectos` todavía son **placeholders sólidos** en
-tono concreto (`producto-*.jpg`, `obra-*.jpg`, `proyecto-*.jpg`). Reemplazalas
-por las reales con el mismo nombre y listo.
+Faltan las fotos de **piso ecológico** y **cordón de vereda**: esas dos cards
+muestran un panel tipográfico de marca en vez de un hueco gris. En cuanto
+existan las fotos, se agrega `img` al producto en `src/lib/productos.ts`.
 
 ### Subir fotos nuevas para publicar
 
-Las fotos crudas van a la carpeta **`fotos/`** (ver `fotos/LEEME.md`). Esa carpeta
-sí viaja en el repositorio, a diferencia de `uploads-raw/`, que está ignorado y
-sólo sirve para procesar en local.
+1. Creá la carpeta `fotos/` en la raíz y dejá ahí los originales (JPG, no HEIC).
+   Esa carpeta viaja versionada a propósito, a diferencia de `uploads-raw/`.
+2. `npm run fotos` arma hojas de contactos numeradas en `fotos/_hojas/` para
+   revisar muchas fotos de una vez en vez de abrirlas de a una.
+3. Elegida la curaduría, se anota en el mapeo de `scripts/publicar-fotos.mjs`
+   (qué foto va en qué lugar) y `npm run publicar-fotos` las recorta, les saca
+   la metadata y las deja en `public/assets/`.
+4. Se borra `fotos/` para que el repositorio no quede cargando los originales.
 
-```bash
-npm run fotos    # arma hojas de contactos numeradas en fotos/_hojas/
-```
+Cuatro scripts de apoyo en `scripts/`:
 
-Con las hojas se identifica cada foto, se eligen las mejores, se publican en
-`public/assets/` y después se borra `fotos/` para que el repositorio no quede
-cargando los originales.
-
-Tres scripts de apoyo en `scripts/`:
-
-- `revisar-fotos.mjs` — hojas de contactos de `fotos/` para revisar de a muchas.
-
+- `revisar-fotos.mjs` — hojas de contactos para revisar de a muchas.
+- `publicar-fotos.mjs` — **la curaduría**: el mapeo de qué foto va en qué lugar
+  del sitio, con su recorte. Para cambiar una elección, cambiá el `src` de esa
+  línea y volvé a correr el script.
 - `generate-placeholders.mjs` — genera placeholders sólidos en tono concreto
   (útil si falta alguna foto real momentáneamente). **No pisa archivos que ya
   existen**, así que se puede correr sin miedo a borrar una foto real; para

@@ -101,7 +101,7 @@ export default function Lightbox({ src, alt, width, height, children }: Props) {
               height={height}
               sizes="92vw"
               onClick={(e) => e.stopPropagation()}
-              className="w-auto h-auto max-w-[92vw] max-h-[86vh] object-contain [filter:grayscale(1)]"
+              className="w-auto h-auto max-w-[92vw] max-h-[86vh] object-contain [filter:contrast(1.02)]"
             />
           </div>,
           document.body,

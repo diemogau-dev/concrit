@@ -39,10 +39,11 @@ export default function PageHero({
               fill
               priority
               sizes="100vw"
-              className="object-cover [filter:grayscale(1)_contrast(1.05)_brightness(.72)]"
+              className="object-cover [filter:contrast(1.04)_saturate(1.1)_brightness(.9)]"
             />
           </div>
-          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(24,23,20,.78)_0%,rgba(24,23,20,.52)_45%,rgba(24,23,20,.88)_100%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(125%_110%_at_8%_88%,rgba(18,17,15,.93)_0%,rgba(18,17,15,.66)_34%,rgba(18,17,15,.18)_64%,rgba(18,17,15,0)_80%)]" />
+          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(18,17,15,.44)_0%,rgba(18,17,15,.06)_28%,rgba(18,17,15,.62)_100%)]" />
         </>
       ) : null}
       <div className="noise absolute inset-0 pointer-events-none [mix-blend-mode:multiply] opacity-40" />

@@ -58,7 +58,7 @@ export default function PlacasDosCaras() {
           alt="Caminero de patio resuelto con la cara lisa de las placas de concreto CONCRIT"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover [filter:grayscale(1)_contrast(1.05)]"
+          className="object-cover [filter:contrast(1.04)_saturate(.94)]"
         />
         <div className="absolute left-0 bottom-0 bg-concrete-dark py-[14px] px-[18px]">
           <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive-light">

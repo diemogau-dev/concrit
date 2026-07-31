@@ -26,8 +26,12 @@ export type Producto = {
   /** Slug estable: sirve de key de React y de ancla si hiciera falta. */
   slug: string;
   nombre: string;
-  /** Ruta de la imagen dentro de /public. */
-  img: string;
+  /**
+   * Ruta de la imagen dentro de /public. Si falta, la card muestra un panel
+   * tipográfico de marca en vez de la foto: queda prolijo mientras no haya
+   * una foto buena de ese producto.
+   */
+  img?: string;
   /** Texto alternativo (SEO local + accesibilidad). */
   alt: string;
   /** Detalle técnico, 2 o 3 líneas. */
@@ -133,7 +137,7 @@ export const secciones: SeccionProducto[] = [
       {
         slug: "piso-ecologico",
         nombre: "Piso ecológico",
-        img: "/assets/producto-piso-ecologico.jpg",
+        // Sin foto todavía: la card muestra el panel de marca.
         alt: "Piso ecológico de concreto CONCRIT con celdas para césped",
         detalle:
           "Bloque calado que deja pasar el agua al terreno en vez de mandarla toda al desagüe. Las celdas se rellenan con césped o con piedra, así que la superficie queda firme para pisar y estacionar sin convertirse en una plancha de cemento. Ideal para estacionamientos, accesos y playones.",
@@ -180,7 +184,7 @@ export const secciones: SeccionProducto[] = [
       {
         slug: "cordon-vereda",
         nombre: "Cordón de vereda",
-        img: "/assets/producto-cordon.jpg",
+        // Sin foto todavía: la card muestra el panel de marca.
         alt: "Cordón de vereda premoldeado de concreto CONCRIT",
         detalle:
           "Premoldeado en tramos parejos, así la línea de vereda queda derecha de punta a punta. Se coloca en el día, sin encofrado ni corte de calle prolongado. Canto vivo que no se despostilla con el roce de la rueda.",

@@ -62,7 +62,7 @@ export default function GaleriaObras() {
                 alt={f.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover [filter:grayscale(1)_contrast(1.04)] transition-transform duration-500 hover:scale-[1.04]"
+                className="object-cover [filter:contrast(1.04)_saturate(.94)] transition-transform duration-500 hover:scale-[1.04]"
               />
             </div>
           </Lightbox>

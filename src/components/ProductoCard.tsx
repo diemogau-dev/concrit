@@ -19,6 +19,52 @@ function hrefDe({ nombre, articulo, waMensaje }: Producto): string {
 }
 
 /**
+ * Foto del producto. Si todavía no hay una foto buena de esa pieza, en vez de
+ * un hueco gris va un panel tipográfico de marca: se lee como parte del diseño
+ * y no como una imagen rota.
+ */
+function FotoProducto({
+  img,
+  alt,
+  nombre,
+  sizes,
+  className = "",
+}: {
+  img?: string;
+  alt: string;
+  nombre: string;
+  sizes: string;
+  className?: string;
+}) {
+  if (img) {
+    return (
+      <div className={`relative ${className}`}>
+        <Image
+          src={img}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className="object-cover [filter:contrast(1.04)_saturate(.94)]"
+        />
+      </div>
+    );
+  }
+  return (
+    <div
+      className={`relative bg-concrete-dark overflow-hidden flex items-center justify-center px-[24px] ${className}`}
+    >
+      <div className="noise absolute inset-0 pointer-events-none [mix-blend-mode:multiply] opacity-40" />
+      <span className="relative z-[2] font-anton font-normal text-[clamp(22px,3vw,34px)] leading-[1.02] uppercase text-bone-soft text-center">
+        {nombre}
+      </span>
+      <span className="absolute z-[2] left-0 bottom-0 bg-olive text-bone font-condensed font-extrabold text-[10px] leading-none tracking-[.16em] uppercase py-[8px] px-[12px]">
+        Foto en camino
+      </span>
+    </div>
+  );
+}
+
+/**
  * Precio: sólo se muestra si el producto lo trae cargado en
  * `src/lib/productos.ts`. Mientras el campo esté vacío, la card queda con el
  * botón de consulta y nada más.
@@ -43,15 +89,13 @@ export default function ProductoCard({ producto }: { producto: Producto }) {
 
   return (
     <article className="bg-white border border-gray-warm-2 flex flex-col">
-      <div className="relative h-[220px]">
-        <Image
-          src={img}
-          alt={alt}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover [filter:grayscale(1)_contrast(1.03)]"
-        />
-      </div>
+      <FotoProducto
+        img={img}
+        alt={alt}
+        nombre={nombre}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="h-[220px]"
+      />
 
       <div className="pt-[24px] px-[24px] pb-[26px] border-t-4 border-olive flex flex-col flex-1">
         <h3 className="font-anton font-normal text-[26px] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[12px]">
@@ -98,14 +142,14 @@ export function ProductoFamilia({ producto }: { producto: Producto }) {
   return (
     <article className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-2 border border-gray-warm-2">
       <div className="relative min-h-[clamp(260px,32vw,400px)] bg-concrete-dark">
-        <Image
-          src={img}
+        <FotoProducto
+          img={img}
           alt={alt}
-          fill
+          nombre={nombre}
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover [filter:grayscale(1)_contrast(1.03)]"
+          className="absolute inset-0"
         />
-        <div className="absolute left-0 bottom-0 bg-concrete-dark py-[13px] px-[18px]">
+        <div className="absolute z-[3] left-0 bottom-0 bg-concrete-dark py-[13px] px-[18px]">
           <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.16em] uppercase text-olive-light">
             Familia de producto
           </span>

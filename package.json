@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fotos": "node scripts/revisar-fotos.mjs"
+    "fotos": "node scripts/revisar-fotos.mjs",
+    "publicar-fotos": "node scripts/publicar-fotos.mjs"
   },
   "dependencies": {
     "next": "^15.5.21",

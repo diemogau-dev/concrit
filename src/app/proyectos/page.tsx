@@ -5,11 +5,12 @@ import Footer from "@/components/sections/Footer";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import GaleriaObras from "@/components/GaleriaObras";
+import Lightbox from "@/components/Lightbox";
 import Sistema from "@/components/sections/Sistema";
 import LlaveEnMano from "@/components/sections/LlaveEnMano";
 import { WhatsAppIcon } from "@/components/icons";
 import { wa, SITE } from "@/lib/config";
-import { categorias } from "@/lib/proyectos";
+import { tiposDeObra, proceso } from "@/lib/proyectos";
 
 export const metadata: Metadata = {
   title: "Proyectos y sistema constructivo | CONCRIT",
@@ -59,6 +60,41 @@ export default function ProyectosPage() {
           conLlaveEnMano={false}
         />
 
+        {/* Franja de proceso: el equipo trabajando, a todo el ancho.
+            Va pegada al sistema constructivo porque es la prueba de que lo
+            hacemos nosotros, no un render. */}
+        <section className="bg-concrete-dark">
+          <div className="max-w-container mx-auto px-[clamp(18px,5vw,72px)] py-[16px] flex flex-wrap items-baseline gap-x-[14px] gap-y-[5px]">
+            <span className="font-condensed font-extrabold text-[11px] leading-none tracking-[.18em] uppercase text-olive-light">
+              Fábrica, flota y equipo propios
+            </span>
+            <span className="font-barlow font-normal text-[16px] leading-[1.4] text-gray-warm-1">
+              Lo que te vendemos lo fabricamos y lo montamos nosotros.
+            </span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(242,241,237,.14)]">
+            {proceso.map((f) => (
+              <Lightbox
+                key={f.img}
+                src={f.img}
+                alt={f.alt}
+                width={f.w ?? 1200}
+                height={f.h ?? 900}
+              >
+                <div className="relative aspect-[4/3] bg-concrete-dark">
+                  <Image
+                    src={f.img}
+                    alt={f.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover [filter:contrast(1.04)_saturate(.94)]"
+                  />
+                </div>
+              </Lightbox>
+            ))}
+          </div>
+        </section>
+
         {/* 02 — Los cuatro tipos de obra */}
         <section
           id="que-construimos"
@@ -68,18 +104,18 @@ export default function ProyectosPage() {
             <SectionHeader n="02" titulo="Qué construimos" />
 
             <div className="grid [grid-template-columns:repeat(auto-fit,minmax(240px,1fr))] gap-[22px]">
-              {categorias.map((c) => (
+              {tiposDeObra.map((c) => (
                 <article
                   key={c.id}
                   className="bg-white border border-gray-warm-2 flex flex-col"
                 >
                   <div className="relative h-[210px]">
                     <Image
-                      src={c.img}
-                      alt={c.alt}
+                      src={c.tarjeta!.img}
+                      alt={c.tarjeta!.alt}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover [filter:grayscale(1)_contrast(1.03)]"
+                      className="object-cover [filter:contrast(1.04)_saturate(.94)]"
                     />
                   </div>
                   <div className="pt-[22px] px-[24px] pb-[26px] border-t-4 border-olive flex flex-col flex-1">
@@ -87,7 +123,7 @@ export default function ProyectosPage() {
                       {c.nombre}
                     </h3>
                     <p className="font-barlow font-normal text-[16px] leading-[1.5] text-gray-warm-4 m-0">
-                      {c.descripcion}
+                      {c.tarjeta!.descripcion}
                     </p>
                   </div>
                 </article>
