@@ -55,7 +55,7 @@ Para que quede trazado el porqué de cada definición:
 
 ## 1. Qué es Concrit
 
-Fábrica de productos de hormigón/concreto ubicada en **Ruta 9, Km 41,
+Fábrica de productos de hormigón/concreto ubicada en **Ruta 9, Km 36,
 Villa Hayes, Paraguay** — la puerta de entrada al Chaco y al corredor
 bioceánico. Diez años de operación, más de 100 proyectos entregados.
 
@@ -409,7 +409,7 @@ Rasgos comunes:
   por caso por WhatsApp.
 - **Sin compromiso al preguntar:** "Preguntar no te compromete a nada" —
   baja la fricción de escribir.
-- **Ubicación:** Ruta 9 Km 41, Villa Hayes, Presidente Hayes, Paraguay.
+- **Ubicación:** Ruta 9 Km 36, Villa Hayes, Presidente Hayes, Paraguay.
   "No estamos en Asunción esperando que vengas. Estamos parados sobre el
   corredor bioceánico, en la puerta del Chaco."
 - **Fábrica abierta a visitas** — horario lunes a sábado, 7 a 17 h.
@@ -918,7 +918,7 @@ mensaje precargado y publica `Product`, `BreadcrumbList` y `FAQPage`.
   conversión del sitio.
 - **Email:** hola@concrit.py
 - **Instagram:** @concrit.py
-- **Dirección:** Ruta 9 Km 41, Villa Hayes, Presidente Hayes, Paraguay.
+- **Dirección:** Ruta 9 Km 36, Villa Hayes, Presidente Hayes, Paraguay.
 - **Dominio:** `concrit.py` es lo que está configurado en el código
   (`SITE.url`). `concrit.com.py` figura como comprado en notas anteriores:
   **pendiente confirmar cuál es el definitivo** antes de tocar canonical,
@@ -975,7 +975,7 @@ fábrica de `config.ts` para que existan en un solo lugar.
   anteriores figura `concrit.com.py` como comprado. Decidir cuál queda y
   alinear `SITE.url`, el email y el Instagram. Es una línea en `config.ts`,
   pero afecta canonical, sitemap y JSON-LD, así que no se toca a ciegas.
-- **Legibilidad del badge del hero.** El texto "Ruta 9 · Km 41 · Villa
+- **Legibilidad del badge del hero.** El texto "Ruta 9 · Km 36 · Villa
   Hayes" quedó en color oscuro sobre una zona clara de la foto y cuesta
   leerlo. Conviene revisarlo con la foto final.
 - Construir la planilla de costeo interna (base mensual de precios de

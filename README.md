@@ -1,7 +1,7 @@
 # CONCRIT — Sitio web
 
 Sitio estático de **CONCRIT**, fábrica de prefabricados de concreto macizo sobre
-la Ruta 9, Km 41, Villa Hayes, Paraguay (la puerta del Chaco).
+la Ruta 9, Km 36, Villa Hayes, Paraguay (la puerta del Chaco).
 
 El sitio tiene un solo objetivo: **generar conversaciones de WhatsApp**. No hay
 backend, base de datos ni formularios. Todo call to action abre WhatsApp con un
