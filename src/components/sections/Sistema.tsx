@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Lightbox from "@/components/Lightbox";
 import SectionHeader from "@/components/SectionHeader";
+import Comparativa from "@/components/Comparativa";
+import CtaBanda from "@/components/CtaBanda";
+import { wa } from "@/lib/config";
 import LlaveEnMano from "./LlaveEnMano";
 
 const COMPONENTS = [
@@ -271,6 +274,34 @@ export default function Sistema({
             </div>
           ))}
         </div>
+
+        {/* Comparativa contra la obra tradicional + cierre a WhatsApp.
+            En modo compacto (/proyectos) se apagan: ahí la página ya tiene
+            su propio recorrido y su propio cierre. */}
+        {!compacto && (
+          <>
+            <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mt-[54px] mb-[16px]">
+              Contra la obra tradicional
+            </div>
+            <h3 className="font-anton font-normal text-[clamp(24px,3.4vw,42px)] leading-[1.05] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[22ch]">
+              La misma obra, dos formas de llegar
+            </h3>
+            <p className="font-barlow font-normal text-[16px] leading-[1.55] text-gray-warm-4c max-w-[58ch] mt-0 mb-[28px]">
+              No tenemos nada contra el ladrillo. Solo mostramos en qué se
+              diferencian cuando ponés las dos al lado.
+            </p>
+            <Comparativa />
+
+            <div className="mt-[22px]">
+              <CtaBanda
+                title="¿Querés saber cuánto costaría tu proyecto?"
+                cta="Quiero mi presupuesto"
+                href={wa.sistema}
+                note="Te pasamos precio cerrado, alcance y fecha de entrega."
+              />
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

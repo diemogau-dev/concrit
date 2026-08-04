@@ -33,20 +33,26 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="font-anton font-normal text-[clamp(52px,10.5vw,160px)] leading-[0.84] uppercase tracking-[.01em] text-bone-soft [text-shadow:0_2px_0_rgba(0,0,0,.4)] m-0">
-          CONCRIT
+        {/* La marca y lo que hace la fábrica van dentro del mismo h1: quien
+            entra tiene que poder responder "¿qué hacen?" sin bajar un scroll,
+            y el buscador tiene que leerlo en el encabezado principal. */}
+        <h1 className="m-0">
+          <span className="block font-anton font-normal text-[clamp(52px,10.5vw,160px)] leading-[0.84] uppercase tracking-[.01em] text-bone-soft [text-shadow:0_2px_0_rgba(0,0,0,.4)]">
+            CONCRIT
+          </span>
+          <span
+            aria-hidden="true"
+            className="block h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]"
+          />
+          <span className="block font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[34ch]">
+            Industria de prefabricados de concreto
+          </span>
         </h1>
 
-        <div className="h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]" />
-
-        <p className="font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[34ch] mt-0 mb-[16px]">
-          Industria de prefabricados de concreto.
-        </p>
-
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[58ch] mt-0 mb-[34px]">
-          Productos prefabricados de hormigón. Sistema propio de construcción
-          para el campo, la industria y el hogar. Proyectos llave en mano, plazo
-          de entrega corto y precio bajo.
+        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[58ch] mt-[16px] mb-[34px]">
+          Casas, obradores, galpones, comederos y bebederos, postes, placas y
+          pisos. Sistema propio de construcción para el campo, la industria y el
+          hogar: llave en mano, plazo corto y precio cerrado.
         </p>
 
         <div className="flex gap-[14px] flex-wrap">

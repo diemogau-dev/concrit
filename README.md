@@ -1,11 +1,12 @@
 # CONCRIT — Sitio web
 
 Sitio estático de **CONCRIT**, fábrica de prefabricados de concreto macizo sobre
-la Ruta 9, Km 32, Villa Hayes, Paraguay (la puerta del Chaco).
+la Ruta 9, Km 41, Villa Hayes, Paraguay (la puerta del Chaco).
 
 El sitio tiene un solo objetivo: **generar conversaciones de WhatsApp**. No hay
 backend, base de datos ni formularios. Todo call to action abre WhatsApp con un
-mensaje precargado según el segmento (Campo / Obra / Hogar / general).
+mensaje precargado según de dónde salga el click: el segmento, el producto
+del catálogo o la obra de la galería.
 
 ## Stack
 
@@ -20,10 +21,13 @@ mensaje precargado según el segmento (Campo / Obra / Hogar / general).
 ```
 src/
   app/
-    layout.tsx        Fuentes, metadata SEO (OG/Twitter), JSON-LD LocalBusiness
+    layout.tsx        Fuentes, metadata SEO (OG/Twitter), JSON-LD global
     page.tsx          Home
     productos/page.tsx  Catálogo de productos
     proyectos/page.tsx  Sistema constructivo + obras entregadas
+    casas-prefabricadas-paraguay/        ┐
+    comederos-bebederos-tanques-ganado/  ├ Landings de producto (SEO)
+    obradores-prefabricados/             ┘
     globals.css       Base global + textura de ruido
     sitemap.ts        /sitemap.xml
     robots.ts         /robots.txt
@@ -33,13 +37,21 @@ src/
     Lightbox.tsx      Pop-up para ampliar fotos (client)
     PageHero.tsx      Encabezado de las páginas internas
     ProductoCard.tsx  Card de catálogo + variante ancha de familia
+    LandingPage.tsx   Layout compartido de las landings de producto
+    Comparativa.tsx   Tabla CONCRIT vs obra tradicional (responsive)
+    CtaBanda.tsx      Banda de conversión intermedia a WhatsApp
+    Breadcrumbs.tsx   Migas visibles (acompañan al BreadcrumbList)
+    JsonLd.tsx        Inyección segura de structured data
     icons.tsx         Iconos SVG (WhatsApp, pin)
     sections/         Una sección por archivo (server components)
   lib/
     config.ts         ⚙️ Número de WhatsApp, mensajes, contacto, dominio
-    content.ts        Copy de tablas/FAQ (datos duros del HTML original)
+    content.ts        FAQ del home y filas de la comparativa
     productos.ts      📋 Catálogo: productos, detalle técnico, fotos, precios
     proyectos.ts      📋 Qué construimos + galería de obras entregadas
+    landings.ts       📋 Copy completo de las tres landings de producto
+    schema.ts         Constructores de JSON-LD
+    seo.ts            Metadata de las landings
 public/
   assets/             Fotos publicadas del sitio
 scripts/
@@ -55,6 +67,25 @@ scripts/
 | `/` | Hero, ventajas, líneas, sistema constructivo, CTA, ubicación, FAQ |
 | `/productos` | Catálogo en tres secciones con chips de navegación, una card por producto y consulta de precio por WhatsApp |
 | `/proyectos` | Sistema constructivo completo, qué construimos, galería de obras entregadas, llave en mano y CTA de presupuesto de obra |
+| `/casas-prefabricadas-paraguay` | Landing SEO de vivienda: modelos, qué incluye, financiación, proceso y comparativa |
+| `/comederos-bebederos-tanques-ganado` | Landing SEO de la línea ganadera |
+| `/obradores-prefabricados` | Landing SEO de obradores y galpones, venta y alquiler |
+
+### Landings de producto
+
+Las tres comparten layout y se diferencian solo por los datos de
+`src/lib/landings.ts`, así que **para editar el copy no hace falta tocar
+JSX**. Cada una entra a WhatsApp con su propio mensaje precargado y publica
+su `Product`, `BreadcrumbList` y `FAQPage`. Para agregar una landing nueva:
+sumá el objeto a `LANDINGS` y creá la carpeta con un `page.tsx` de tres
+líneas — el sitemap y los enlaces del footer se actualizan solos.
+
+## Ramas
+
+`main` es producción. Cualquier cambio se desarrolla en una rama aparte y
+se mergea a `main` cuando está listo. Antes de empezar a trabajar,
+**siempre** `git fetch` y partir de `main` — si se trabaja sobre una rama
+vieja se pierde lo que se hizo en el medio.
 
 ## Editar el catálogo: `src/lib/productos.ts`
 

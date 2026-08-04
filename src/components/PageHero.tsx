@@ -18,6 +18,12 @@ type Props = {
   imgAlt?: string;
   /** Foto de fondo en blanco y negro, para que el titular pese más que la foto. */
   bw?: boolean;
+  /**
+   * Ancho máximo del titular, en caracteres. El default (16) está pensado para
+   * títulos cortos tipo "Catálogo"; los títulos largos de las landings de
+   * producto necesitan más aire o quedan partidos en seis renglones.
+   */
+  titleMaxCh?: number;
   /** Botones, chips o cualquier cosa que vaya debajo de la bajada. */
   children?: React.ReactNode;
 };
@@ -29,6 +35,7 @@ export default function PageHero({
   img,
   imgAlt,
   bw = false,
+  titleMaxCh = 16,
   children,
 }: Props) {
   return (
@@ -66,7 +73,10 @@ export default function PageHero({
           {eyebrow}
         </div>
 
-        <h1 className="font-anton font-normal text-[clamp(38px,7vw,86px)] leading-[0.92] uppercase tracking-[.01em] text-bone-soft mt-0 mb-0 max-w-[16ch] [text-shadow:0_2px_0_rgba(0,0,0,.35)]">
+        <h1
+          style={{ maxWidth: `${titleMaxCh}ch` }}
+          className="font-anton font-normal text-[clamp(38px,7vw,86px)] leading-[0.92] uppercase tracking-[.01em] text-bone-soft mt-0 mb-0 [text-shadow:0_2px_0_rgba(0,0,0,.35)]"
+        >
           {title}
         </h1>
 

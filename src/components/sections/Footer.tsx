@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { wa, CONTACT, FABRICA, FABRICA_LINEA, WHATSAPP_DISPLAY } from "@/lib/config";
 
+/**
+ * Cada rubro apunta a su landing de producto en vez de al ancla de la home:
+ * son páginas reales y el texto del enlace le dice a Google de qué tratan.
+ */
+const RUBROS = [
+  { href: "/comederos-bebederos-tanques-ganado", label: "Campo y ganadería" },
+  { href: "/obradores-prefabricados", label: "Obradores y galpones" },
+  { href: "/casas-prefabricadas-paraguay", label: "Casas prefabricadas" },
+];
+
 /** Mismas secciones que el nav superior, para no dejar páginas huérfanas. */
 const SITIO = [
   { href: "/productos", label: "Productos" },
@@ -73,13 +83,13 @@ export default function Footer() {
               Rubros
             </div>
             <div className="flex flex-col gap-[10px]">
-              {["Campo", "Obra", "Hogar"].map((l) => (
+              {RUBROS.map((l) => (
                 <Link
-                  key={l}
-                  href="/#lineas"
+                  key={l.href}
+                  href={l.href}
                   className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
                 >
-                  {l}
+                  {l.label}
                 </Link>
               ))}
             </div>

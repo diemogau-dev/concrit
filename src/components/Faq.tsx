@@ -1,20 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/content";
+import { faqs as homeFaqs, type Faq as FaqItem } from "@/lib/content";
 
-export default function Faq() {
-  // Estado inicial: primera pregunta abierta (openFaq: 0 en el original).
+/**
+ * Acordeón de preguntas frecuentes.
+ *
+ * La apertura usa una transición de `grid-template-rows` (0fr → 1fr) en vez
+ * de un `max-height` fijo: con respuestas de largo variable —y en mobile,
+ * donde el mismo texto ocupa el triple de alto— cualquier tope fijo termina
+ * recortando alguna respuesta.
+ *
+ * `items` permite reusar el acordeón en las landings con su propio banco de
+ * preguntas; sin la prop usa el del home.
+ */
+export default function Faq({ items = homeFaqs }: { items?: FaqItem[] }) {
+  // Primera pregunta abierta: muestra de entrada que el bloque es expandible.
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <div className="border-b border-gray-warm-2">
-      {faqs.map((f, i) => {
+      {items.map((f, i) => {
         const isOpen = i === openFaq;
         const buttonId = `faq-button-${i}`;
         const panelId = `faq-panel-${i}`;
         return (
-          <div key={i} className="border-t border-gray-warm-2">
+          <div key={f.q} className="border-t border-gray-warm-2">
             <h3 className="m-0">
               <button
                 id={buttonId}
@@ -22,7 +33,7 @@ export default function Faq() {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpenFaq(isOpen ? -1 : i)}
-                className="w-full flex justify-between items-center gap-[20px] bg-transparent border-0 cursor-pointer py-[24px] px-[2px] text-left"
+                className="w-full flex justify-between items-center gap-[20px] bg-transparent border-0 cursor-pointer py-[22px] px-[2px] text-left"
               >
                 <span className="font-condensed font-bold text-[clamp(16px,2.1vw,20px)] leading-[1.3] tracking-[.01em] uppercase text-concrete-dark">
                   {f.q}
@@ -41,13 +52,15 @@ export default function Faq() {
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={`overflow-hidden transition-[max-height] duration-[.34s] [transition-timing-function:cubic-bezier(.4,0,.2,1)] ${
-                isOpen ? "max-h-[460px]" : "max-h-0"
+              className={`grid transition-[grid-template-rows] duration-[.34s] [transition-timing-function:cubic-bezier(.4,0,.2,1)] ${
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
               }`}
             >
-              <p className="font-barlow font-normal text-[clamp(15px,1.8vw,17px)] leading-[1.6] text-gray-warm-4c pt-0 px-[2px] pb-[26px] max-w-[72ch] m-0">
-                {f.a}
-              </p>
+              <div className="overflow-hidden">
+                <p className="font-barlow font-normal text-[clamp(15px,1.8vw,17px)] leading-[1.6] text-gray-warm-4c pt-0 px-[2px] pb-[24px] max-w-[72ch] m-0">
+                  {f.a}
+                </p>
+              </div>
             </div>
           </div>
         );

@@ -13,7 +13,13 @@ export const WHATSAPP_NUMBER = "595981625546";
 export const WHATSAPP_DISPLAY = "+595 981 625546";
 const WA_BASE = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-/** Mensajes precargados según de dónde sale el click (segmentación en el chat). */
+/**
+ * Mensajes precargados según de dónde sale el click (segmentación en el chat).
+ *
+ * Los de las landings de producto van redactados con el pedido ya explícito:
+ * el lead entra con contexto y con la próxima pregunta servida, en vez de un
+ * "quiero información" que obliga a arrancar de cero.
+ */
 export const WA_MESSAGES = {
   general: "Hola CONCRIT, quiero solicitar un presupuesto",
   representante: "Hola CONCRIT, quiero hablar con un representante",
@@ -23,6 +29,15 @@ export const WA_MESSAGES = {
   presupuestoObra: "Hola CONCRIT, quiero un presupuesto para una obra",
   placas:
     "Hola CONCRIT, quiero consultar medida y precio de las placas de concreto",
+  sistema:
+    "Hola CONCRIT, quiero saber cuánto costaría mi proyecto con el sistema de placas encastrables",
+  // Landings de producto.
+  casas:
+    "Hola CONCRIT, quiero conocer los modelos de casas prefabricadas y cómo se financian en cuotas",
+  ganado:
+    "Hola CONCRIT, quiero cotizar bebederos, comederos o tanques australianos para mi establecimiento",
+  obradores:
+    "Hola CONCRIT, quiero cotizar un obrador prefabricado. Te paso la ubicación y los metros que necesito:",
 } as const;
 
 /**
@@ -69,6 +84,10 @@ export const wa = {
   hogar: waLink(WA_MESSAGES.hogar),
   presupuestoObra: waLink(WA_MESSAGES.presupuestoObra),
   placas: waLink(WA_MESSAGES.placas),
+  sistema: waLink(WA_MESSAGES.sistema),
+  casas: waLink(WA_MESSAGES.casas),
+  ganado: waLink(WA_MESSAGES.ganado),
+  obradores: waLink(WA_MESSAGES.obradores),
 } as const;
 
 /** Link de WhatsApp para comprar un producto del catálogo. */
