@@ -1,5 +1,5 @@
-import { CONTACT } from "@/lib/config";
-import { PinIcon } from "../icons";
+import { CONTACT, wa } from "@/lib/config";
+import { PinIcon, WhatsAppIcon } from "../icons";
 
 const POINTS = [
   { n: "01", text: "Flete corto al campo, la cooperativa y la obra." },
@@ -24,10 +24,10 @@ export default function Ubicacion() {
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-4c border border-gray-warm-4c">
           {/* Columna izquierda */}
           <div className="bg-concrete-dark p-[clamp(30px,4vw,54px)] flex flex-col">
-            <p className="font-barlow font-normal text-[clamp(18px,2.1vw,23px)] leading-[1.5] text-bone-soft mt-0 mb-[30px] max-w-[44ch]">
+            <p className="font-barlow font-normal text-[clamp(18px,2.1vw,23px)] leading-[1.5] text-bone-soft mt-0 mb-[30px] max-w-[42ch]">
               No estamos en Asunción esperando que vengas. Estamos parados sobre
               el <strong className="text-white">corredor bioceánico</strong>, en
-              la puerta del Chaco. Eso no es dato de folleto: es{" "}
+              la puerta del Chaco: eso es{" "}
               <strong className="text-olive-light">
                 flete más corto y más barato
               </strong>{" "}
@@ -85,15 +85,26 @@ export default function Ubicacion() {
                 </div>
               </div>
             </div>
-            <a
-              href={CONTACT.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-[12px] bg-olive text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[19px] px-[26px] hover:bg-olive-hover"
-            >
-              <PinIcon size={17} fill="#F2F1ED" />
-              Abrir en Google Maps →
-            </a>
+            <div className="flex flex-col gap-[12px]">
+              <a
+                href={CONTACT.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-[12px] bg-olive text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[19px] px-[26px] hover:bg-olive-hover"
+              >
+                <PinIcon size={17} fill="#F2F1ED" />
+                Abrir en Google Maps →
+              </a>
+              <a
+                href={wa.general}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-[12px] bg-transparent text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[17px] px-[26px] border-[1.5px] border-[rgba(242,241,237,.4)] hover:border-bone hover:bg-[rgba(242,241,237,.08)]"
+              >
+                <WhatsAppIcon size={16} fill="#F2F1ED" />
+                Coordinar una visita
+              </a>
+            </div>
           </div>
         </div>
       </div>

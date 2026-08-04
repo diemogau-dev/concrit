@@ -38,9 +38,10 @@ export default function Ventajas() {
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[16ch]">
           El material que aguanta todo
         </h2>
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[60ch] mt-0 mb-[52px]">
-          El ladrillo depende del albañil, del clima y del tiempo. El concreto
-          macizo llega hecho, se instala una vez y trabaja el resto de tu vida.
+        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[58ch] mt-0 mb-[48px]">
+          Cambiar el poste podrido. Repintar la pared manchada. Llamar otra vez
+          al albañil. Con concreto macizo eso no pasa: llega hecho, se instala
+          una vez y trabaja el resto de tu vida.
         </p>
 
         {/* 4 cards numeradas */}

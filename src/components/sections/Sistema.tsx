@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { terminaciones } from "@/lib/content";
+import { wa } from "@/lib/config";
 import Lightbox from "@/components/Lightbox";
+import Comparativa from "@/components/Comparativa";
+import CtaBanda from "@/components/CtaBanda";
 
 const COMPONENTS = [
   {
@@ -13,8 +16,8 @@ const COMPONENTS = [
   {
     n: "02",
     color: "text-terracotta",
-    title: "Pilares de concreto",
-    body: "La estructura que sostiene todo. Premoldeados y listos para izar, marcan la retícula donde encastran las placas.",
+    title: "Pilares de metal",
+    body: "La estructura que sostiene todo. Perfiles metálicos listos para izar que marcan la retícula donde encastran las placas.",
     border: true,
   },
   {
@@ -29,7 +32,7 @@ const COMPONENTS = [
 const STEPS = [
   {
     img: "/assets/sistema-pilares.jpg",
-    alt: "Pilares de hormigón prefabricado CONCRIT instalados sobre la fundación",
+    alt: "Pilares metálicos del sistema CONCRIT instalados sobre la fundación",
     w: 1170,
     h: 864,
     n: "1",
@@ -97,14 +100,12 @@ export default function Sistema() {
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[20ch]">
           Se arma encastrando. Sin encofrado y sin esperar.
         </h2>
-        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[64ch] mt-0 mb-[56px]">
-          Fabricamos las <strong className="text-concrete-dark">placas</strong>,
-          los <strong className="text-concrete-dark">pilares</strong> y las{" "}
-          <strong className="text-concrete-dark">uniones</strong> en planta. En
-          obra encastran uno con otro y se traban con tornillos pasantes. No hay
-          que encofrar, no hay que esperar que fragüe en el terreno y no hay que
-          llevar una cuadrilla grande al medio del campo. Llega, se arma y queda
-          para toda la vida.
+        <p className="font-barlow font-normal text-[clamp(16px,1.9vw,20px)] leading-[1.55] text-gray-warm-4c max-w-[60ch] mt-0 mb-[48px]">
+          Mientras una obra tradicional recién levanta paredes, la tuya ya está
+          cerrada. Fabricamos las placas, los pilares y las uniones en planta;
+          en obra encastran y se traban con tornillos pasantes. Sin encofrado,
+          sin esperar que fragüe en el terreno y sin cuadrilla grande en el
+          medio del campo.
         </p>
 
         {/* Featured: unión + componentes */}
@@ -112,7 +113,7 @@ export default function Sistema() {
           <div className="relative min-h-[clamp(340px,42vw,540px)] bg-concrete-dark">
             <Image
               src="/assets/sistema-union.jpg"
-              alt="Detalle de la unión con tornillo pasante que traba una placa con un pilar de hormigón"
+              alt="Detalle de la unión con tornillo pasante que traba una placa de concreto con un pilar metálico"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover [filter:grayscale(1)_contrast(1.05)]"
@@ -194,13 +195,11 @@ export default function Sistema() {
             <h3 className="font-anton font-normal text-[clamp(24px,3.2vw,40px)] leading-[1.05] uppercase text-bone mt-0 mb-[16px] max-w-[18ch]">
               Te lo entregamos terminado, listo para usar
             </h3>
-            <p className="font-barlow font-normal text-[clamp(15px,1.7vw,18px)] leading-[1.55] text-gray-warm-1 m-0 max-w-[52ch]">
-              No fabricamos solo la estructura y te dejamos el resto. Hacemos
-              también toda la terminación interior: instalación de agua,
-              instalación eléctrica, baños completos, azulejos, revestimientos,
-              aberturas, apliques y detalles de terminación. Entrás y ya podés
-              vivir o producir. Un solo responsable de principio a fin, un solo
-              presupuesto y una sola fecha de entrega.
+            <p className="font-barlow font-normal text-[clamp(15px,1.7vw,18px)] leading-[1.55] text-gray-warm-1 m-0 max-w-[50ch]">
+              No te dejamos la estructura cruda y el resto por tu cuenta.
+              Hacemos las instalaciones, los baños, los revestimientos, las
+              aberturas y la terminación. Entrás y ya podés vivir o producir:
+              un solo responsable, un solo presupuesto y una sola fecha.
             </p>
           </div>
           <div className="bg-concrete-dark p-[clamp(30px,4vw,50px)] flex flex-col justify-center gap-px">
@@ -238,6 +237,28 @@ export default function Sistema() {
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Comparativa contra la obra tradicional */}
+        <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mt-[54px] mb-[16px]">
+          Contra la obra tradicional
+        </div>
+        <h3 className="font-anton font-normal text-[clamp(24px,3.4vw,42px)] leading-[1.05] uppercase text-concrete-dark mt-0 mb-[14px] max-w-[22ch]">
+          La misma casa, dos formas de llegar
+        </h3>
+        <p className="font-barlow font-normal text-[16px] leading-[1.55] text-gray-warm-4c max-w-[58ch] mt-0 mb-[28px]">
+          No tenemos nada contra el ladrillo. Solo mostramos en qué se
+          diferencian cuando ponés las dos al lado.
+        </p>
+        <Comparativa />
+
+        <div className="mt-[22px]">
+          <CtaBanda
+            title="¿Querés saber cuánto costaría tu proyecto?"
+            cta="Quiero mi presupuesto"
+            href={wa.sistema}
+            note="Te pasamos precio cerrado, alcance y fecha de entrega."
+          />
         </div>
       </div>
     </section>

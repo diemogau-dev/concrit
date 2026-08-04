@@ -1,4 +1,15 @@
+import Link from "next/link";
 import { wa, CONTACT, WHATSAPP_DISPLAY } from "@/lib/config";
+
+/** Landings de producto. El footer es el enlace interno que las sostiene. */
+const PRODUCT_PAGES = [
+  { href: "/casas-prefabricadas-paraguay", label: "Casas prefabricadas" },
+  { href: "/obradores-prefabricados", label: "Obradores y galpones" },
+  {
+    href: "/comederos-bebederos-tanques-ganado",
+    label: "Comederos, bebederos y tanques",
+  },
+];
 
 export default function Footer() {
   return (
@@ -61,27 +72,24 @@ export default function Footer() {
 
           <div>
             <div className="font-condensed font-extrabold text-[12px] leading-none tracking-[.16em] uppercase text-olive-light mb-[16px]">
-              Líneas
+              Qué fabricamos
             </div>
             <div className="flex flex-col gap-[10px]">
-              <a
-                href="#lineas"
+              {PRODUCT_PAGES.map((p) => (
+                <Link
+                  key={p.href}
+                  href={p.href}
+                  className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
+                >
+                  {p.label}
+                </Link>
+              ))}
+              <Link
+                href="/#lineas"
                 className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
               >
-                Campo
-              </a>
-              <a
-                href="#lineas"
-                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
-              >
-                Obra
-              </a>
-              <a
-                href="#lineas"
-                className="font-barlow font-normal text-[15px] leading-[1.3] text-gray-warm-1"
-              >
-                Hogar
-              </a>
+                Todas las líneas
+              </Link>
             </div>
           </div>
         </div>

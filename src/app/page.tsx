@@ -8,6 +8,9 @@ import CtaFinal from "@/components/sections/CtaFinal";
 import Ubicacion from "@/components/sections/Ubicacion";
 import FaqSection from "@/components/sections/FaqSection";
 import Footer from "@/components/sections/Footer";
+import JsonLd from "@/components/JsonLd";
+import { faqPageSchema } from "@/lib/schema";
+import { faqs } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -24,6 +27,7 @@ export default function Home() {
         <FaqSection />
       </main>
       <Footer />
+      <JsonLd data={faqPageSchema(faqs)} />
     </>
   );
 }

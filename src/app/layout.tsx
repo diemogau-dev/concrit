@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Barlow, Barlow_Semi_Condensed } from "next/font/google";
-import { SITE, WHATSAPP_DISPLAY, CONTACT } from "@/lib/config";
+import { SITE } from "@/lib/config";
+import { organizationSchema, localBusinessSchema } from "@/lib/schema";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 const anton = Anton({
@@ -73,38 +75,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CONCRIT",
-  description: SITE.description,
-  url: SITE.url,
-  image: `${SITE.url}/assets/og-image.jpg`,
-  telephone: WHATSAPP_DISPLAY,
-  email: CONTACT.email,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Ruta 9 Km 32",
-    addressLocality: "Villa Hayes",
-    addressRegion: "Presidente Hayes",
-    addressCountry: "PY",
-  },
-  areaServed: [
-    { "@type": "Country", name: "Paraguay" },
-    { "@type": "Place", name: "Chaco" },
-  ],
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "07:00",
-      closes: "17:00",
-    },
-  ],
-  sameAs: [CONTACT.instagramUrl],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -114,10 +84,11 @@ export default function RootLayout({
         className={`${anton.variable} ${barlow.variable} ${barlowCondensed.variable} font-barlow`}
       >
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* Identidad y ficha local: van en el layout porque valen para
+            todas las páginas. El schema propio de cada página (FAQPage,
+            Product, Breadcrumb) se declara en la página misma. */}
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={localBusinessSchema()} />
       </body>
     </html>
   );

@@ -255,8 +255,7 @@ Llega, se arma y queda para toda la vida.
    otra: no dependen del pulso del albañil.
 2. **Pilares de metal** — la estructura que sostiene todo. Premoldeados,
    listos para izar, marcan la retícula donde encastran las placas.
-   (Corrección respecto a la web actual, que dice "pilares de concreto" —
-   hay que actualizar ese copy.)
+   (Ya corregido en la web, que antes decía "pilares de concreto".)
 3. **Uniones y tornillos** — el encastre pasante que traba placa con
    pilar. Se ajusta con llave, queda firme y permite anexar módulos nuevos
    el día que se necesite crecer.
@@ -792,12 +791,15 @@ Barlow Condensed, olive, mayúsculas, tracking `.28em`.
 
 ## 15. Estructura del sitio web
 
+### 15.1 Home
+
 1. **Nav** — logo CONCRIT + links (Ventajas, Líneas, El sistema,
-   Ubicación) + CTA "Pedir presupuesto" (WhatsApp). Sticky, fondo oscuro
+   Ubicación) + CTA "Cotizar mi proyecto" (WhatsApp). Sticky, fondo oscuro
    semitransparente.
 2. **Hero** — foto de obrador, eyebrow de ubicación, `CONCRIT` en Anton
-   gigante, tagline, párrafo de propuesta de valor, dos CTAs
-   (WhatsApp / ver líneas).
+   gigante y, dentro del mismo `h1`, la línea explícita de qué se fabrica
+   ("Casas, obradores, galpones y productos de hormigón"); bajada de valor
+   y dos CTAs (WhatsApp / ver qué fabricamos).
 3. **Credentials** — barra de métricas (10 años, +100 proyectos, cientos
    de estancias, todo propio). En mobile, marquee horizontal continuo.
 4. **Ventajas ("01 — Por qué concreto")** — 4 tarjetas numeradas con los
@@ -806,26 +808,48 @@ Barlow Condensed, olive, mayúsculas, tracking `.28em`.
    con foto, subtítulo, copy, chips de producto y CTA segmentado.
 6. **Sistema ("03 — El sistema constructivo")** — componentes del sistema,
    secuencia de montaje con fotos (lightbox con zoom), sección "llave en
-   mano" con lista de terminaciones incluidas, y 4 beneficios operativos.
+   mano" con lista de terminaciones incluidas, 4 beneficios operativos y
+   la **comparativa contra la obra tradicional**.
 7. **CTA Final ("04 — Hablemos")** — fondo olive sólido, CTA central
    grande a WhatsApp, refuerzo de métricas de confianza.
 8. **Ubicación ("05 — Ubicación y showroom")** — narrativa del corredor
    bioceánico, 3 puntos de valor logístico, datos de fábrica, horarios,
-   botón a Google Maps.
-9. **FAQ ("06 — Preguntas frecuentes")** — acordeón accesible, 9 preguntas
-   reales (banco completo en sección 16).
+   botón a Google Maps y CTA para coordinar visita.
+9. **FAQ ("06 — Preguntas frecuentes")** — acordeón accesible, 21
+   preguntas reales que además alimentan el FAQPage de Google.
 10. **Footer** — logo, contacto (WhatsApp/email/Instagram), dirección de
-    fábrica, links a líneas, copyright.
+    fábrica, links a las landings de producto, copyright.
 
-> Nota: se sacaron a propósito una sección "Cómo trabajamos" y una
-> comparativa explícita "Ladrillo vs Concrit" durante el desarrollo,
-> porque duplicaban o diluían el mensaje. La decisión fue ir a lo esencial
-> y dejar que "Por qué concreto" y el FAQ cubrieran esos argumentos de
-> forma más orgánica.
+Además de los CTA de cabecera y cierre, hay **bandas de conversión
+intermedias** después de Líneas, del sistema constructivo y del FAQ: el
+visitante no tiene que llegar al final de la página para escribir.
+
+### 15.2 Landings de producto (SEO)
+
+Tres páginas propias, cada una apuntada a una búsqueda con intención de
+compra, con su copy, su FAQ, su breadcrumb y su schema de producto:
+
+- `/casas-prefabricadas-paraguay` — vivienda, financiación y proceso.
+- `/comederos-bebederos-tanques-ganado` — línea ganadera completa.
+- `/obradores-prefabricados` — obradores, galpones, venta y alquiler.
+
+Todas comparten el mismo layout (`components/LandingPage.tsx`) y su
+contenido vive como datos en `lib/landings.ts`, así que el copy se revisa
+sin tocar JSX. Cada una entra a WhatsApp con su propio mensaje precargado.
+
+> Nota histórica: se sacó a propósito una sección "Cómo trabajamos"
+> durante el desarrollo porque duplicaba el mensaje. La comparativa
+> "Ladrillo vs Concrit", que también se había sacado de Ventajas, volvió
+> —por recomendación de auditoría— pero ubicada al final del sistema
+> constructivo, que es donde el lector ya tiene la pregunta.
 
 ---
 
-## 16. Banco completo de FAQ (copy real, tono de referencia)
+## 16. Banco de FAQ (copy real, tono de referencia)
+
+> La lista viva y completa está en `src/lib/content.ts` (21 preguntas en el
+> home) y en `src/lib/landings.ts` (8 propias por landing). Lo que sigue son
+> las nueve originales, que sirven como referencia de tono.
 
 1. **¿A qué zonas entregan?** — A todo el país, con foco en el campo, las
    cooperativas y las obras del Chaco y la región. Estar sobre la Ruta 9
@@ -925,16 +949,22 @@ conectado pero no usado todavía.
   desde el día uno.
 - Registro de marca en la **Dirección Nacional de Propiedad Intelectual**
   antes de invertir en cartelería física o flota con marca.
-- Confirmar migración completa del sitio a `concrit.com.py` (hoy vive en
-  `concrit-gamma.vercel.app`).
+- Apuntar el dominio `concrit.com.py` al deploy de Vercel. El código ya
+  usa ese dominio como canónico (`SITE.url`), así que solo falta el DNS.
+- **Definir el email definitivo.** El sitio sigue publicando
+  `hola@concrit.py`, un dominio distinto al comprado. Si esa casilla no
+  existe, hay que cambiarla por `hola@concrit.com.py` en `lib/config.ts`.
 - Sumar analytics en una fase futura (hoy el volumen de clics es invisible
   sin base de datos).
-- Fotografía real de producto para reemplazar los placeholders de color
-  sólido actuales del sitio.
-- Incorporar cifras de prueba social: +100 proyectos entregados, cientos
-  de estancias atendidas en 10 años de operación.
-- Corregir en la web el copy que dice "pilares de concreto" → debe decir
-  "pilares de metal".
+- Fotografía real de producto por línea, y foto aérea/drone de la fábrica
+  sobre la Ruta 9 para la sección de ubicación.
+- Confirmar dos datos comerciales que hoy la web no afirma por no estar
+  verificados: si el obrador es desmontable y reubicable de obra en obra, y
+  los tiempos de viaje reales desde la fábrica a Asunción, Villa Hayes y
+  los puntos del Chaco.
+- Escribir las landings de producto que faltan (postes, tanques
+  australianos por separado, galpones industriales) una vez medido el
+  rendimiento de las tres primeras.
 
 ---
 
