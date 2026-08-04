@@ -76,7 +76,7 @@ const casas: Landing = {
   metaTitle:
     "Casas prefabricadas de hormigón en Paraguay | CONCRIT · Villa Hayes",
   metaDescription:
-    "Casas prefabricadas de concreto macizo de 1, 2 y 3 habitaciones en Paraguay. Se entregan terminadas, con precio cerrado, montaje incluido y pago en cuotas. Fábrica sobre la Ruta 9 Km 41, Villa Hayes.",
+    "Casas prefabricadas de concreto macizo de 1, 2 y 3 habitaciones en Paraguay. Se entregan terminadas, con precio cerrado, montaje incluido y pago en cuotas. Fábrica sobre la Ruta 9 Km 36, Villa Hayes.",
   keywords: [
     "casas prefabricadas Paraguay",
     "casas prefabricadas de hormigón",
@@ -250,7 +250,7 @@ const ganado: Landing = {
   metaTitle:
     "Comederos, bebederos y tanques australianos de hormigón | CONCRIT Paraguay",
   metaDescription:
-    "Comederos, bebederos y tanques australianos de concreto macizo para ganado en Paraguay. Aguantan el sol, el agua y el empuje del animal. Fábrica sobre la Ruta 9 Km 41, Villa Hayes, con entrega y montaje propios al Chaco y todo el país.",
+    "Comederos, bebederos y tanques australianos de concreto macizo para ganado en Paraguay. Aguantan el sol, el agua y el empuje del animal. Fábrica sobre la Ruta 9 Km 36, Villa Hayes, con entrega y montaje propios al Chaco y todo el país.",
   keywords: [
     "comederos para ganado Paraguay",
     "bebederos para ganado de hormigón",
@@ -337,7 +337,7 @@ const ganado: Landing = {
       eyebrow: "04 — La entrega",
       title: "Estamos del lado del campo, no del lado de Asunción",
       paragraphs: [
-        "La fábrica está sobre la Ruta 9, en el Km 41 de Villa Hayes: la puerta del Chaco y el corredor por el que pasa todo lo que entra y sale del norte. No es un dato de folleto, es flete más corto y más barato para el productor y para la cooperativa.",
+        "La fábrica está sobre la Ruta 9, en el Km 36 de Villa Hayes: la puerta del Chaco y el corredor por el que pasa todo lo que entra y sale del norte. No es un dato de folleto, es flete más corto y más barato para el productor y para la cooperativa.",
         "Entregamos con camiones propios y montamos con equipo propio. Cuando el destino está a horas de ripio, eso es la diferencia entre una entrega que se cumple y una que se reprograma tres veces.",
         "Contanos dónde está el establecimiento y te pasamos el costo de entrega cerrado junto con el precio del producto. No una estimación para ajustar después.",
       ],
@@ -394,7 +394,7 @@ const obradores: Landing = {
   metaTitle:
     "Obradores prefabricados y galpones de hormigón | CONCRIT Paraguay",
   metaDescription:
-    "Obradores prefabricados, vestuarios, depósitos y galpones de concreto macizo para obra en Paraguay. Venta y alquiler mensual, montaje en semanas con precio cerrado y fecha comprometida. Fábrica en Villa Hayes, Ruta 9 Km 41.",
+    "Obradores prefabricados, vestuarios, depósitos y galpones de concreto macizo para obra en Paraguay. Venta y alquiler mensual, montaje en semanas con precio cerrado y fecha comprometida. Fábrica en Villa Hayes, Ruta 9 Km 36.",
   keywords: [
     "obradores prefabricados Paraguay",
     "obrador prefabricado de hormigón",

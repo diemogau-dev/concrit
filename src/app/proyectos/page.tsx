@@ -15,7 +15,7 @@ import { tiposDeObra, proceso } from "@/lib/proyectos";
 export const metadata: Metadata = {
   title: "Proyectos y sistema constructivo | CONCRIT",
   description:
-    "Cómo construimos con prefabricados de concreto: placas macizas, pilares metálicos y uniones atornilladas, paso a paso de la planta a la llave. Más de 100 obras entregadas en Paraguay: obradores, galpones, depósitos y casas prefabricadas llave en mano. Fábrica sobre la Ruta 9 Km 41, Villa Hayes.",
+    "Cómo construimos con prefabricados de concreto: placas macizas, pilares metálicos y uniones atornilladas, paso a paso de la planta a la llave. Más de 100 obras entregadas en Paraguay: obradores, galpones, depósitos y casas prefabricadas llave en mano. Fábrica sobre la Ruta 9 Km 36, Villa Hayes.",
   alternates: { canonical: "/proyectos" },
   openGraph: {
     type: "website",
@@ -36,20 +36,20 @@ export default function ProyectosPage() {
       <main id="top" className="bg-bone [overflow-x:clip]">
         <PageHero
           eyebrow="Obras y sistema constructivo"
-          title="Un sistema probado en más de 100 obras"
-          lead="Placas de concreto macizo y pilares metálicos que fabricamos nosotros y encastran en el terreno: sin encofrado, sin esperar que fragüe y con cuadrilla chica. Obradores, galpones, depósitos y casas levantados en semanas, con precio cerrado, que después aguantan sol, humedad y termita sin pedir mantenimiento."
+          title="De terreno vacío a llave en mano"
+          lead="Tu obrador, tu galpón, tu depósito o tu casa: en pie en semanas y entregados listos para usar, con el precio cerrado desde el primer día. Y después no piden nada — ni mantenimiento, ni pintura, ni arreglos por humedad o termita."
           img="/assets/hero-proyectos.jpg"
           imgAlt="Obrador de concreto prefabricado CONCRIT terminado, con su galería y la vereda de placas"
           bw
         >
           <a
-            href={wa.presupuestoObra}
+            href={wa.miProyecto}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-[12px] bg-olive text-bone font-condensed font-extrabold text-[14px] leading-none tracking-[.1em] uppercase py-[18px] px-[28px] hover:bg-olive-hover"
           >
             <WhatsAppIcon size={17} fill="#F2F1ED" />
-            Solicitar presupuesto de obra
+            Quiero contarles mi proyecto
           </a>
         </PageHero>
 
@@ -59,6 +59,7 @@ export default function ProyectosPage() {
         <Sistema
           compacto={{ n: "01", titulo: "El sistema constructivo" }}
           conLlaveEnMano={false}
+          conComparativa
         />
 
         {/* Franja de proceso: el equipo trabajando, a todo el ancho.
@@ -165,13 +166,13 @@ export default function ProyectosPage() {
               día que te entregamos la llave.
             </p>
             <a
-              href={wa.presupuestoObra}
+              href={wa.miProyecto}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-[14px] bg-bone text-concrete-dark font-condensed font-extrabold text-[clamp(15px,2vw,18px)] leading-none tracking-[.1em] uppercase py-[24px] px-[40px] hover:bg-white"
             >
               <WhatsAppIcon size={22} fill="#201F1C" />
-              Solicitar presupuesto de obra
+              Quiero contarles mi proyecto
             </a>
             <p className="font-barlow font-normal text-[14px] leading-[1.45] text-olive-mist mt-[16px] mb-0">
               Respondemos todos los días. Preguntar no te compromete a nada.

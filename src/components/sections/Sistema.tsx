@@ -101,12 +101,19 @@ type Props = {
    * Lo usa /proyectos, donde el hero de la página ya cuenta lo mismo.
    */
   compacto?: { n: string; titulo: string };
+  /**
+   * Comparativa contra la obra tradicional. Va apagada por defecto: en la
+   * home alarga el scroll sin aportar, y quien está comparando sistemas ya
+   * entró a /proyectos.
+   */
+  conComparativa?: boolean;
 };
 
 export default function Sistema({
   eyebrow = "03 — El sistema constructivo",
   conLlaveEnMano = true,
   compacto,
+  conComparativa = false,
 }: Props = {}) {
   return (
     <section
@@ -275,10 +282,7 @@ export default function Sistema({
           ))}
         </div>
 
-        {/* Comparativa contra la obra tradicional + cierre a WhatsApp.
-            En modo compacto (/proyectos) se apagan: ahí la página ya tiene
-            su propio recorrido y su propio cierre. */}
-        {!compacto && (
+        {conComparativa && (
           <>
             <div className="font-condensed font-semibold text-[13px] leading-none tracking-[.28em] uppercase text-olive mt-[54px] mb-[16px]">
               Contra la obra tradicional
@@ -294,9 +298,9 @@ export default function Sistema({
 
             <div className="mt-[22px]">
               <CtaBanda
-                title="¿Querés saber cuánto costaría tu proyecto?"
-                cta="Quiero mi presupuesto"
-                href={wa.sistema}
+                title="¿Querés saber cuánto costaría lo tuyo?"
+                cta="Quiero contarles mi proyecto"
+                href={wa.miProyecto}
                 note="Te pasamos precio cerrado, alcance y fecha de entrega."
               />
             </div>

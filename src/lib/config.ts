@@ -26,7 +26,7 @@ export const WA_MESSAGES = {
   campo: "Hola CONCRIT, quiero consultar por la línea Campo (ganadería)",
   obra: "Hola CONCRIT, quiero consultar por la línea Obra (obradores y galpones)",
   hogar: "Hola CONCRIT, quiero consultar por la línea Hogar (vivienda)",
-  presupuestoObra: "Hola CONCRIT, quiero un presupuesto para una obra",
+  miProyecto: "Hola CONCRIT, quiero contarles mi proyecto",
   placas:
     "Hola CONCRIT, quiero consultar medida y precio de las placas de concreto",
   sistema:
@@ -82,7 +82,7 @@ export const wa = {
   campo: waLink(WA_MESSAGES.campo),
   obra: waLink(WA_MESSAGES.obra),
   hogar: waLink(WA_MESSAGES.hogar),
-  presupuestoObra: waLink(WA_MESSAGES.presupuestoObra),
+  miProyecto: waLink(WA_MESSAGES.miProyecto),
   placas: waLink(WA_MESSAGES.placas),
   sistema: waLink(WA_MESSAGES.sistema),
   casas: waLink(WA_MESSAGES.casas),
@@ -115,7 +115,7 @@ export function waProyecto(proyecto: string): string {
  */
 export const FABRICA = {
   ruta: "Ruta 9",
-  km: "41",
+  km: "36",
   ciudad: "Villa Hayes",
   departamento: "Presidente Hayes, Paraguay",
   /** Coordenadas del portón de la fábrica (las del pin de Google Maps). */
@@ -149,7 +149,7 @@ export const SITE = {
   url: "https://concrit.py",
   name: "CONCRIT",
   locale: "es_PY",
-  title: "CONCRIT · Prefabricados de hormigón en Paraguay | Ruta 9 Km 41, Villa Hayes",
+  title: "CONCRIT · Prefabricados de hormigón en Paraguay | Ruta 9 Km 36, Villa Hayes",
   description:
-    "Prefabricados de concreto macizo para el campo, la industria y el hogar. Comederos y bebederos para ganado, obradores prefabricados, postes de hormigón y casas prefabricadas de hormigón en Paraguay. Fábrica sobre la Ruta 9 Km 41, Villa Hayes. Precio cerrado y montaje incluido.",
+    "Prefabricados de concreto macizo para el campo, la industria y el hogar. Comederos y bebederos para ganado, obradores prefabricados, postes de hormigón y casas prefabricadas de hormigón en Paraguay. Fábrica sobre la Ruta 9 Km 36, Villa Hayes. Precio cerrado y montaje incluido.",
 } as const;

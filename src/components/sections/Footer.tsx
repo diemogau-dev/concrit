@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <div className="h-[4px] w-[70px] bg-olive mt-[16px] mb-[14px]" />
             <p className="font-condensed font-medium text-[13px] leading-[1.5] tracking-[.06em] uppercase text-gray-warm-3 m-0 max-w-[32ch]">
-              Industria de prefabricados de concreto. Productos, sistema
+              Industria de prefabricados de hormigón. Productos, sistema
               constructivo y proyectos llave en mano.
             </p>
           </div>

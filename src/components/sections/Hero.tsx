@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <Image
           src="/assets/hero-obrador.jpg"
-          alt="Obrador prefabricado de concreto macizo CONCRIT sobre la Ruta 9 Km 41, Villa Hayes, Paraguay"
+          alt="Obrador prefabricado de concreto macizo CONCRIT sobre la Ruta 9 Km 36, Villa Hayes, Paraguay"
           fill
           priority
           sizes="100vw"
@@ -45,14 +45,13 @@ export default function Hero() {
             className="block h-[6px] w-[120px] bg-olive mt-[26px] mb-[22px]"
           />
           <span className="block font-condensed font-medium text-[clamp(19px,2.6vw,32px)] leading-[1.14] tracking-[.01em] uppercase text-bone max-w-[34ch]">
-            Industria de prefabricados de concreto
+            Industria de prefabricados de hormigón
           </span>
         </h1>
 
         <p className="font-barlow font-normal text-[clamp(16px,1.9vw,21px)] leading-[1.5] text-gray-warm-1 max-w-[58ch] mt-[16px] mb-[34px]">
-          Casas, obradores, galpones, comederos y bebederos, postes, placas y
-          pisos. Sistema propio de construcción para el campo, la industria y el
-          hogar: llave en mano, plazo corto y precio cerrado.
+          Obradores, galpones, depósitos, casas y productos para el campo, la
+          industria y el hogar.
         </p>
 
         <div className="flex gap-[14px] flex-wrap">

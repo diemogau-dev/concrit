@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: "/assets/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "CONCRIT · Prefabricados de concreto macizo · Ruta 9 Km 41, Villa Hayes, Paraguay",
+        alt: "CONCRIT · Prefabricados de concreto macizo · Ruta 9 Km 36, Villa Hayes, Paraguay",
       },
     ],
   },

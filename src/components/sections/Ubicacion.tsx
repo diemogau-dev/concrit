@@ -18,7 +18,7 @@ export default function Ubicacion() {
           05 — Ubicación y showroom
         </div>
         <h2 className="font-anton font-normal text-[clamp(32px,5vw,60px)] leading-[1.02] uppercase text-concrete-dark mt-0 mb-[40px] max-w-[20ch]">
-          Sobre la Ruta 9, en el Km 41
+          Sobre la Ruta 9, en el Km 36
         </h2>
 
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] gap-px bg-gray-warm-4c border border-gray-warm-4c">

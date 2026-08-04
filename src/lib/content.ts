@@ -46,7 +46,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Cuánto hace que están fabricando?",
-    a: "Diez años produciendo concreto sobre la Ruta 9, en el Km 41, con más de 100 proyectos entregados. Fábrica, moldes, flota y equipo de montaje propios: lo que te vendemos lo hacemos nosotros, no lo tercerizamos.",
+    a: "Diez años produciendo concreto sobre la Ruta 9, en el Km 36, con más de 100 proyectos entregados. Fábrica, moldes, flota y equipo de montaje propios: lo que te vendemos lo hacemos nosotros, no lo tercerizamos.",
   },
   {
     q: "¿Ofrecen financiamiento para vivienda?",
@@ -110,7 +110,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Puedo ir a ver la fábrica antes de comprar?",
-    a: "Sí, y es lo que más recomendamos. Estamos sobre la Ruta 9 en el Km 41, Villa Hayes, a la vista y fácil de encontrar. Venís, mirás cómo se produce y tocás el producto antes de decidir. Abrimos de lunes a sábado de 7 a 17.",
+    a: "Sí, y es lo que más recomendamos. Estamos sobre la Ruta 9 en el Km 36, Villa Hayes, a la vista y fácil de encontrar. Venís, mirás cómo se produce y tocás el producto antes de decidir. Abrimos de lunes a sábado de 7 a 17.",
   },
 ];
 

@@ -10,7 +10,7 @@ import { secciones } from "@/lib/productos";
 export const metadata: Metadata = {
   title: "Catálogo de productos | CONCRIT · Prefabricados de concreto",
   description:
-    "Catálogo completo de prefabricados de concreto CONCRIT: bebederos, comederos, postes y tanques australianos para el campo; placas, piso ecológico y baldosas para la obra; cajas de registro, cordón de vereda y alcantarillas para vial e infraestructura. Fábrica sobre la Ruta 9 Km 41, Villa Hayes.",
+    "Catálogo completo de prefabricados de concreto CONCRIT: bebederos, comederos, postes y tanques australianos para el campo; placas, piso ecológico y baldosas para la obra; cajas de registro, cordón de vereda y alcantarillas para vial e infraestructura. Fábrica sobre la Ruta 9 Km 36, Villa Hayes.",
   alternates: { canonical: "/productos" },
   openGraph: {
     type: "website",

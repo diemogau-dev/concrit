@@ -1,7 +1,10 @@
 const METRICS = [
-  { value: "10 años", label: "Fabricando sobre la Ruta 9" },
+  { value: "10 años", label: "Fabricando y construyendo" },
   { value: "+100", label: "Proyectos entregados" },
-  { value: "Cientos", label: "De estancias usan nuestros productos" },
+  {
+    value: "Cientos",
+    label: "De estancias y constructoras usan nuestros productos",
+  },
   { value: "Propias", label: "Fábrica, flota y montaje" },
 ];
 
